@@ -1,0 +1,33 @@
+###
+POST http://localhost:50000/api/submit_node
+Content-Type: application/json
+
+{
+  "public_key": "123",
+  "name": "test_node"
+}
+
+###
+GET http://localhost:50000/api/suggest_public_key_id
+Content-Type: application/json
+
+###
+POST http://localhost:50000/api/validate_public_key
+Content-Type: application/json
+
+{
+  "public_key": "123"
+}
+
+###
+POST http://localhost:50000/api/generate_repeater_details
+Content-Type: application/json
+
+{
+  "airport_code": "DEN",
+  "county_code": "LM",
+  "region_shorthand": "LAKEWD",
+  "device_type": "Repeater",
+  "repeater_type": "Distributor",
+  "is_observer": true
+}

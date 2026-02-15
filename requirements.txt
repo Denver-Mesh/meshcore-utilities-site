@@ -1,0 +1,4 @@
+pydantic
+objectrest
+flask
+python-dotenv
