@@ -106,15 +106,44 @@ document.addEventListener('DOMContentLoaded', function () {
         const keyField = createResultField('Public Key ID:', data.public_key_id, 'public-key-id');
         content.appendChild(keyField);
 
-        // Create actions section
-        const actions = document.createElement('div');
-        actions.className = 'result-actions';
+        // Create generate keys button
         const generateKeysLink = document.createElement('a');
         generateKeysLink.href = `https://gessaman.com/mc-keygen/?prefix=${data.public_key_id}`;
         generateKeysLink.target = '_blank';
         generateKeysLink.className = 'generate-keys-btn';
         generateKeysLink.textContent = 'Generate Public & Private Keys →';
-        actions.appendChild(generateKeysLink);
+        content.appendChild(generateKeysLink);
+
+        // Create explanation field for keys
+        const explanationField = document.createElement('div');
+        explanationField.className = 'key-explanation';
+        explanationField.innerHTML = '<p>Optionally, paste your public and private key below to include it in your configuration file.</p></br><p><strong>NOTE:</strong> These values will remain local and will <strong>NOT</strong> be transmitted or stored.</p>';
+        content.appendChild(explanationField);
+
+
+        // Create public key input field
+        const publicKeyField = createKeyInputField('Public Key:', 'public-key-input', 'Paste your public key here');
+        content.appendChild(publicKeyField);
+
+        // Create private key input field
+        const privateKeyField = createKeyInputField('Private Key:', 'private-key-input', 'Paste your private key here');
+        content.appendChild(privateKeyField);
+
+        // Create actions section
+        const actions = document.createElement('div');
+        actions.className = 'result-actions';
+
+        const downloadBtn = document.createElement('button');
+        downloadBtn.type = 'button';
+        downloadBtn.className = 'download-btn';
+        downloadBtn.textContent = '⬇ Download Configuration';
+        downloadBtn.addEventListener('click', () => {
+            const publicKey = document.getElementById('public-key-input').value;
+            const privateKey = document.getElementById('private-key-input').value;
+            downloadJSON(data.import_json, data.import_json_file_name, publicKey, privateKey);
+        });
+
+        actions.appendChild(downloadBtn);
         content.appendChild(actions);
 
         // Append everything to result div
@@ -147,6 +176,24 @@ document.addEventListener('DOMContentLoaded', function () {
         valueContainer.appendChild(copyBtn);
         field.appendChild(label);
         field.appendChild(valueContainer);
+
+        return field;
+    }
+
+    function createKeyInputField(labelText, id, placeholder) {
+        const field = document.createElement('div');
+        field.className = 'result-field';
+
+        const label = document.createElement('label');
+        label.textContent = labelText;
+
+        const input = document.createElement('textarea');
+        input.id = id;
+        input.className = 'key-input';
+        input.placeholder = placeholder;
+
+        field.appendChild(label);
+        field.appendChild(input);
 
         return field;
     }
@@ -190,6 +237,30 @@ document.addEventListener('DOMContentLoaded', function () {
                 button.classList.remove('copied');
             }, 2000);
         });
+    }
+
+    function downloadJSON(importJson, fileName, publicKey, privateKey) {
+        // Create a copy of import_json to avoid modifying the original
+        const jsonData = JSON.parse(JSON.stringify(importJson));
+
+        // Add keys if provided
+        if (publicKey.trim()) {
+            jsonData.public_key = publicKey.trim();
+        }
+        if (privateKey.trim()) {
+            jsonData.private_key = privateKey.trim();
+        }
+
+        const jsonString = JSON.stringify(jsonData, null, 2);
+        const blob = new Blob([jsonString], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `${fileName}.json`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
     }
 
     // Handle dynamic maxlength for landmark input based on city selection

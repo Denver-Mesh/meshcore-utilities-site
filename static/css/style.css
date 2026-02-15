@@ -181,6 +181,45 @@ button[type="submit"]:disabled {
     padding: 20px;
 }
 
+.generate-keys-btn {
+    display: inline-block;
+    margin: 15px 0 20px 0;
+    padding: 12px 24px;
+    background-color: #9b59b6;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color 0.3s;
+}
+
+.generate-keys-btn:hover {
+    background-color: #8e44ad;
+}
+
+.key-explanation {
+    background-color: white;
+    border-left: 4px solid #3498db;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.key-explanation p {
+    margin: 8px 0;
+}
+
+.key-explanation a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.key-explanation a:hover {
+    text-decoration: underline;
+}
+
 .result-field {
     margin-bottom: 20px;
 }
@@ -216,6 +255,26 @@ button[type="submit"]:disabled {
     color: #2c3e50;
 }
 
+.key-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 13px;
+    color: #2c3e50;
+    background-color: white;
+    resize: vertical;
+    min-height: 80px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.key-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
 .copy-btn {
     background-color: #3498db;
     color: white;
@@ -241,30 +300,29 @@ button[type="submit"]:disabled {
     margin-top: 25px;
     padding-top: 20px;
     border-top: 1px solid #ddd;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
+.download-btn,
 .generate-keys-btn {
     display: inline-block;
-    background-color: #9b59b6;
-    color: white;
     padding: 12px 24px;
     border-radius: 4px;
     text-decoration: none;
     font-weight: 600;
     font-size: 15px;
     transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
 }
 
-.generate-keys-btn:hover {
-    background-color: #8e44ad;
+.download-btn {
+    background-color: #16a34a;
+    color: white;
 }
 
-@media (max-width: 768px) {
-    .container {
-        padding: 25px;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
+.download-btn:hover {
+    background-color: #15803d;
 }

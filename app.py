@@ -12,8 +12,11 @@ app = Flask(__name__)
 
 # Load cities from static/data/cities.json file
 with open('static/data/cities.json', 'r') as f:
-    # Read JSON file raw data
     cities = json.load(f)
+
+# Load recommended settings from static/data/recommended_settings.json file
+with open('static/data/recommended_settings.json', 'r') as f:
+    recommended_settings = json.load(f)
 
 
 class NodeInformation(BaseModel):
@@ -90,9 +93,14 @@ def generate_repeater_details():
         public_key_id=suggested_public_key_id,
     )
 
+    import_json: dict = recommended_settings
+    import_json['name'] = name
+
     return {
         "name": name,
-        "public_key_id": suggested_public_key_id
+        "public_key_id": suggested_public_key_id,
+        "import_json": import_json,
+        "import_json_file_name": f"denvermesh_meshcore_starter_config_{name}",
     }
 
 
