@@ -1,0 +1,8 @@
+services:
+  denver_mesh_utilities:
+    container_name: DenverMeshUtilities
+    build: .
+    ports:
+      - "50000:50000"
+    restart: unless-stopped
+

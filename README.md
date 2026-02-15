@@ -1,0 +1,44 @@
+# Denver Mesh Utilities
+
+A web application for generating MeshCore repeater configurations.
+
+## Running with Docker
+
+### Build the Docker image:
+```bash
+docker build -t denver-mesh-utilities .
+```
+
+### Run the container:
+```bash
+docker run -p 50000:50000 denver-mesh-utilities
+```
+
+### Or use Docker Compose:
+```bash
+docker-compose up -d
+```
+
+The application will be available at `http://localhost:50000`
+
+## Stopping the Application
+
+### If using docker run:
+```bash
+docker ps  # Find the container ID
+docker stop <container-id>
+```
+
+### If using docker-compose:
+```bash
+docker-compose down
+```
+
+## Development
+
+To run locally without Docker:
+```bash
+pip install -r requirements.txt
+python app.py
+```
+

@@ -1,33 +1,19 @@
-import os
+import json
 from typing import Optional
 
-from dotenv import load_dotenv
 from flask import Flask, render_template, request
 from pydantic import BaseModel, model_validator, Field, field_validator
 
 import letsmesh
 import utils
-from database import Database, save_node_to_database, get_nodes_matching_partial_name
 from utils import NodeType
 
 app = Flask(__name__)
-app.config['DATABASE_URL'] = f'sqlite:///{os.environ.get("DATABASE_FILE")}'
 
-
-def _database_call(func, *args, **kwargs):
-    """
-    Helper function to wrap database calls in a try-except block
-    :param func: The database function to call
-    :param args: Positional arguments to pass to the database function
-    :param kwargs: Keyword arguments to pass to the database function
-    :return: The result of the database function, or None if an error occurred
-    """
-    try:
-        database = Database(url=app.config['DATABASE_URL'])
-        return func(database, *args, **kwargs)
-    except Exception as e:
-        print(f'Error calling database function {func.__name__}: {e}')
-        return None
+# Load cities from static/data/cities.json file
+with open('static/data/cities.json', 'r') as f:
+    # Read JSON file raw data
+    cities = json.load(f)
 
 
 class NodeInformation(BaseModel):
@@ -61,32 +47,27 @@ class NodeInformation(BaseModel):
 # Serve the main HTML page
 @app.route('/')
 def index():
-    cities = [
-        {'code': '', 'name': '---'},
-        {'code': 'DENVER', 'name': 'Denver'},
-        {'code': 'AURORA', 'name': 'Aurora'},
-        {'code': 'LKWD', 'name': 'Lakewood'},
-        {'code': 'ARVADA', 'name': 'Arvada'},
-        {'code': 'WSTMNR', 'name': 'Westminster'},
-        {'code': 'THRTON', 'name': 'Thornton'},
-        {'code': 'CENTL', 'name': 'Centennial'},
-        {'code': 'BROOM', 'name': 'Broomfield'},
-        {'code': 'LTTN', 'name': 'Littleton'},
-        {'code': 'ENGL', 'name': 'Englewood'},
-        {'code': 'CMRCE', 'name': 'Commerce City'},
-        {'code': 'GLDN', 'name': 'Golden'},
-        {'code': 'BOULDR', 'name': 'Boulder'},
-        {'code': 'PARKER', 'name': 'Parker'},
-        {'code': 'CSTLRK', 'name': 'Castle Rock'},
-        {'code': 'HGHLND', 'name': 'Highlands Ranch'},
-        {'code': 'CSPRGS', 'name': 'Colorado Springs'},
-        {'code': 'LSVL', 'name': 'Louisville'},
-        {'code': 'LFAYTE', 'name': 'Lafayette'},
+    node_types = [
+        {'code': NodeType.REPEATER_CORE.value, 'human_readable': NodeType.REPEATER_CORE.value,
+         'description': 'A repeater that serves as a critical backbone for the mesh network. Should be permanently installed in a fixed, high-elevation location. Typically solar-powered.'},
+        {'code': NodeType.REPEATER_DISTRIBUTOR.value, 'human_readable': NodeType.REPEATER_DISTRIBUTOR.value,
+         'description': 'A repeater that serves as a bridge between core repeaters and edge repeaters. Should be placed in a fixed, elevated suburban location. Typically solar-powered.'},
+        {'code': NodeType.REPEATER_EDGE.value, 'human_readable': NodeType.REPEATER_EDGE.value,
+         'description': 'A repeater that connects a neighborhood or building to distributor or core repeaters. Should be installed on residential rooftops or near windows. Can be solar-powered or plugged in, depending on location and power availability.'},
+        {'code': NodeType.REPEATER_MOBILE.value, 'human_readable': NodeType.REPEATER_MOBILE.value,
+         'description': 'A repeater that is temporarily installed and can be moved to different locations as needed, or is installed in a vehicle.'},
+        {'code': NodeType.ROOM_SERVER_STANDARD.value, 'human_readable': NodeType.ROOM_SERVER_STANDARD.value,
+         'description': 'A room server that is permanently installed at a fixed location.'},
+        {'code': NodeType.ROOM_SERVER_MOBILE.value, 'human_readable': NodeType.ROOM_SERVER_MOBILE.value,
+         'description': 'A room server that is temporarily installed and can be moved to different locations as needed, or is installed in a vehicle.'},
+        {'code': NodeType.ROOM_SERVER_REPEAT_ENABLED.value, 'human_readable': NodeType.ROOM_SERVER_REPEAT_ENABLED.value,
+         'description': 'A room server with repeater capabilities enabled. NOTE: While room servers can have repeater capabilities enabled, it is not officially recommended.'},
+
     ]
     return render_template('index.html',
                            # Sort city options alphabetically by name, but keep the blank option at the top
                            cities=sorted(cities, key=lambda x: (x['code'] != '', x['name'])),
-                           node_types=[_type.value for _type in NodeType])
+                           node_types=node_types)
 
 
 # API endpoints
@@ -96,8 +77,7 @@ def generate_repeater_details():
     Generate repeater name and public key ID recommendation given the details.
     return: A JSON object containing the generated repeater details
     """
-    # Incoming request is form-data, so we need to convert it to JSON before parsing it with Pydantic
-    data = request.values
+    data = request.get_json()
     node_information: NodeInformation = NodeInformation(**data)
 
     suggested_public_key_id: str = letsmesh.suggest_public_key_id()
@@ -110,7 +90,10 @@ def generate_repeater_details():
         public_key_id=suggested_public_key_id,
     )
 
-    return render_template("repeater_details.html", name=name, public_key_id=suggested_public_key_id)
+    return {
+        "name": name,
+        "public_key_id": suggested_public_key_id
+    }
 
 
 # API endpoints
@@ -146,28 +129,6 @@ def suggest_public_key_id():
     }
 
 
-@app.route('/api/submit_node', methods=['POST'])
-def submit_node():
-    """
-    Submit a node to be added to the database
-    :return: A JSON object containing a boolean indicating whether the node was successfully added to the database
-    """
-    data = request.get_json()
-    public_key: str = data.get('public_key')
-    name: str = data.get('name')
-
-    try:
-        _database_call(func=save_node_to_database, public_key=public_key, name=name)
-        success = True
-    except Exception as e:
-        print(f'Error submitting node: {e}')
-        success = False
-
-    return {
-        "success": success,
-    }
-
-
 if __name__ == '__main__':
-    load_dotenv()
-    app.run(debug=True, host='0.0.0.0', port=50000)
+    # In Docker, we want to bind to all interfaces and disable debug mode
+    app.run(debug=False, host='0.0.0.0', port=50000)

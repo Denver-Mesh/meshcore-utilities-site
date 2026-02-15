@@ -11,8 +11,8 @@ class NodeType(enum.Enum):
     REPEATER_EDGE = "Repeater - Edge"
     REPEATER_MOBILE = "Repeater - Mobile"
     ROOM_SERVER_STANDARD = "Room Server - Standard"
-    ROOM_SERVER_REPEAT_ENABLED = "Room Server - Repeat Enabled"
     ROOM_SERVER_MOBILE = "Room Server - Mobile"
+    ROOM_SERVER_REPEAT_ENABLED = "Room Server - Repeat Enabled"
     COMPANION = "Companion"  # Should not be allowed for name generation, but included for completeness
 
     @classmethod

@@ -1,0 +1,82 @@
+[
+  {
+    "code": "",
+    "name": "---"
+  },
+  {
+    "code": "DENVER",
+    "name": "Denver"
+  },
+  {
+    "code": "AURORA",
+    "name": "Aurora"
+  },
+  {
+    "code": "LKWD",
+    "name": "Lakewood"
+  },
+  {
+    "code": "ARVADA",
+    "name": "Arvada"
+  },
+  {
+    "code": "WSTMNR",
+    "name": "Westminster"
+  },
+  {
+    "code": "THRTON",
+    "name": "Thornton"
+  },
+  {
+    "code": "CENTL",
+    "name": "Centennial"
+  },
+  {
+    "code": "BROOM",
+    "name": "Broomfield"
+  },
+  {
+    "code": "LTTN",
+    "name": "Littleton"
+  },
+  {
+    "code": "ENGL",
+    "name": "Englewood"
+  },
+  {
+    "code": "CMRCE",
+    "name": "Commerce City"
+  },
+  {
+    "code": "GLDN",
+    "name": "Golden"
+  },
+  {
+    "code": "BOULDR",
+    "name": "Boulder"
+  },
+  {
+    "code": "PARKER",
+    "name": "Parker"
+  },
+  {
+    "code": "CSTLRK",
+    "name": "Castle Rock"
+  },
+  {
+    "code": "HGHLND",
+    "name": "Highlands Ranch"
+  },
+  {
+    "code": "CSPRGS",
+    "name": "Colorado Springs"
+  },
+  {
+    "code": "LSVL",
+    "name": "Louisville"
+  },
+  {
+    "code": "LFAYTE",
+    "name": "Lafayette"
+  }
+]
