@@ -10,9 +10,16 @@ from utils import NodeType
 
 app = Flask(__name__)
 
-# Load cities from static/data/cities.json file
-with open('static/data/cities.json', 'r') as f:
-    cities = json.load(f)
+# Load cities from static/data/regions.json file
+with open('static/data/regions.json', 'r') as f:
+    regions = json.load(f)
+
+# Sort city options alphabetically by name, with blank option at the top
+cities_seven_char_limit = [
+    {"name": "---", "code": ""}
+]
+for region in sorted(regions['cities'], key=lambda x: x['name']):
+    cities_seven_char_limit.append({"name": region['name'], "code": region['codes']['seven']})
 
 # Load recommended settings from static/data/recommended_settings.json file
 with open('static/data/recommended_settings.json', 'r') as f:
@@ -68,8 +75,7 @@ def index():
 
     ]
     return render_template('index.html',
-                           # Sort city options alphabetically by name, but keep the blank option at the top
-                           cities=sorted(cities, key=lambda x: (x['code'] != '', x['name'])),
+                           cities=cities_seven_char_limit,
                            node_types=node_types)
 
 

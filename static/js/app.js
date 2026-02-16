@@ -282,8 +282,8 @@ document.addEventListener('DOMContentLoaded', function () {
         landmarkInput.value = '';
         // Change maxlength and update the display based on the selected city
         if (selectedCity === '') {
-            landmarkInput.maxLength = 14;
-            landmarkLengthSpan.textContent = '14';
+            landmarkInput.maxLength = 12;
+            landmarkLengthSpan.textContent = '12';
         } else {
             landmarkInput.maxLength = 7;
             landmarkLengthSpan.textContent = '7';

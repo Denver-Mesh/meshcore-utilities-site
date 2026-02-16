@@ -1,0 +1,2200 @@
+{
+  "cities": [
+    {
+      "name": "Aguilar",
+      "codes": {
+        "three": "",
+        "seven": "AGUILR",
+        "fourteen": "AGUILAR"
+      }
+    },
+    {
+      "name": "Akron",
+      "codes": {
+        "three": "",
+        "seven": "AKRON",
+        "fourteen": "AKRON"
+      }
+    },
+    {
+      "name": "Alamosa",
+      "codes": {
+        "three": "",
+        "seven": "ALAMOSA",
+        "fourteen": "ALAMOSA"
+      }
+    },
+    {
+      "name": "Alma",
+      "codes": {
+        "three": "",
+        "seven": "ALMA",
+        "fourteen": "ALMA"
+      }
+    },
+    {
+      "name": "Antonito",
+      "codes": {
+        "three": "",
+        "seven": "ANTNTO",
+        "fourteen": "ANTONITO"
+      }
+    },
+    {
+      "name": "Arriba",
+      "codes": {
+        "three": "",
+        "seven": "ARRIBA",
+        "fourteen": "ARRIBA"
+      }
+    },
+    {
+      "name": "Arvada",
+      "codes": {
+        "three": "",
+        "seven": "ARVADA",
+        "fourteen": "ARVADA"
+      }
+    },
+    {
+      "name": "Aspen",
+      "codes": {
+        "three": "",
+        "seven": "ASPEN",
+        "fourteen": "ASPEN"
+      }
+    },
+    {
+      "name": "Ault",
+      "codes": {
+        "three": "",
+        "seven": "AULT",
+        "fourteen": "AULT"
+      }
+    },
+    {
+      "name": "Aurora",
+      "codes": {
+        "three": "",
+        "seven": "AURORA",
+        "fourteen": "AURORA"
+      }
+    },
+    {
+      "name": "Avon",
+      "codes": {
+        "three": "",
+        "seven": "AVON",
+        "fourteen": "AVON"
+      }
+    },
+    {
+      "name": "Basalt",
+      "codes": {
+        "three": "",
+        "seven": "BASALT",
+        "fourteen": "BASALT"
+      }
+    },
+    {
+      "name": "Bayfield",
+      "codes": {
+        "three": "",
+        "seven": "BYFLD",
+        "fourteen": "BAYFIELD"
+      }
+    },
+    {
+      "name": "Bennett",
+      "codes": {
+        "three": "",
+        "seven": "BENNETT",
+        "fourteen": "BENNETT"
+      }
+    },
+    {
+      "name": "Berthoud",
+      "codes": {
+        "three": "",
+        "seven": "BERTHD",
+        "fourteen": "BERTHOUD"
+      }
+    },
+    {
+      "name": "Bethune",
+      "codes": {
+        "three": "",
+        "seven": "BETHUNE",
+        "fourteen": "BETHUNE"
+      }
+    },
+    {
+      "name": "Black Hawk",
+      "codes": {
+        "three": "",
+        "seven": "BLKHWK",
+        "fourteen": "BLACK HAWK"
+      }
+    },
+    {
+      "name": "Blanca",
+      "codes": {
+        "three": "",
+        "seven": "BLANCA",
+        "fourteen": "BLANCA"
+      }
+    },
+    {
+      "name": "Blue River",
+      "codes": {
+        "three": "",
+        "seven": "BLRIVER",
+        "fourteen": "BLUE RIVER"
+      }
+    },
+    {
+      "name": "Bonanza",
+      "codes": {
+        "three": "",
+        "seven": "BONANZA",
+        "fourteen": "BONANZA"
+      }
+    },
+    {
+      "name": "Boone",
+      "codes": {
+        "three": "",
+        "seven": "BOONE",
+        "fourteen": "BOONE"
+      }
+    },
+    {
+      "name": "Boulder",
+      "codes": {
+        "three": "",
+        "seven": "BOULDR",
+        "fourteen": "BOULDER"
+      }
+    },
+    {
+      "name": "Bow Mar",
+      "codes": {
+        "three": "",
+        "seven": "BOWMAR",
+        "fourteen": "BOW MAR"
+      }
+    },
+    {
+      "name": "Branson",
+      "codes": {
+        "three": "",
+        "seven": "BRANSON",
+        "fourteen": "BRANSON"
+      }
+    },
+    {
+      "name": "Breckenridge",
+      "codes": {
+        "three": "",
+        "seven": "BRKNRDG",
+        "fourteen": "BRECKENRIDGE"
+      }
+    },
+    {
+      "name": "Brighton",
+      "codes": {
+        "three": "",
+        "seven": "BRGHTN",
+        "fourteen": "BRIGHTON"
+      }
+    },
+    {
+      "name": "Brookside",
+      "codes": {
+        "three": "",
+        "seven": "BRKSIDE",
+        "fourteen": "BROOKSIDE"
+      }
+    },
+    {
+      "name": "Broomfield",
+      "codes": {
+        "three": "",
+        "seven": "BROOM",
+        "fourteen": "BROOMFIELD"
+      }
+    },
+    {
+      "name": "Brush",
+      "codes": {
+        "three": "",
+        "seven": "BRUSH",
+        "fourteen": "BRUSH"
+      }
+    },
+    {
+      "name": "Buena Vista",
+      "codes": {
+        "three": "",
+        "seven": "BNAVSTA",
+        "fourteen": "BUENA VISTA"
+      }
+    },
+    {
+      "name": "Burlington",
+      "codes": {
+        "three": "",
+        "seven": "BRLNGTN",
+        "fourteen": "BURLINGTON"
+      }
+    },
+    {
+      "name": "Calhan",
+      "codes": {
+        "three": "",
+        "seven": "CALHAN",
+        "fourteen": "CALHAN"
+      }
+    },
+    {
+      "name": "Campo",
+      "codes": {
+        "three": "",
+        "seven": "CAMPO",
+        "fourteen": "CAMPO"
+      }
+    },
+    {
+      "name": "Cañon City",
+      "codes": {
+        "three": "",
+        "seven": "CNNCITY",
+        "fourteen": "CANON CITY"
+      }
+    },
+    {
+      "name": "Carbonate",
+      "codes": {
+        "three": "",
+        "seven": "CARBNTE",
+        "fourteen": "CARBONATE"
+      }
+    },
+    {
+      "name": "Carbondale",
+      "codes": {
+        "three": "",
+        "seven": "CARBNDL",
+        "fourteen": "CARBONDALE"
+      }
+    },
+    {
+      "name": "Castle Pines",
+      "codes": {
+        "three": "",
+        "seven": "CSTLPNS",
+        "fourteen": "CASTLE PINES"
+      }
+    },
+    {
+      "name": "Castle Rock",
+      "codes": {
+        "three": "",
+        "seven": "CSTLRK",
+        "fourteen": "CASTLE ROCK"
+      }
+    },
+    {
+      "name": "Cedaredge",
+      "codes": {
+        "three": "",
+        "seven": "CDREDGE",
+        "fourteen": "CEDAREDGE"
+      }
+    },
+    {
+      "name": "Centennial",
+      "codes": {
+        "three": "",
+        "seven": "CENTL",
+        "fourteen": "CENTENNIAL"
+      }
+    },
+    {
+      "name": "Center",
+      "codes": {
+        "three": "",
+        "seven": "CENTER",
+        "fourteen": "CENTER"
+      }
+    },
+    {
+      "name": "Central City",
+      "codes": {
+        "three": "",
+        "seven": "CNTRLCY",
+        "fourteen": "CENTRAL CITY"
+      }
+    },
+    {
+      "name": "Cheraw",
+      "codes": {
+        "three": "",
+        "seven": "CHERAW",
+        "fourteen": "CHERAW"
+      }
+    },
+    {
+      "name": "Cherry Hills Village",
+      "codes": {
+        "three": "",
+        "seven": "CHHLVLG",
+        "fourteen": "CHRY HLS VLGE"
+      }
+    },
+    {
+      "name": "Cheyenne Wells",
+      "codes": {
+        "three": "",
+        "seven": "CHYNWLS",
+        "fourteen": "CHEYENNE WELLS"
+      }
+    },
+    {
+      "name": "Coal Creek",
+      "codes": {
+        "three": "",
+        "seven": "COALCRK",
+        "fourteen": "COAL CREEK"
+      }
+    },
+    {
+      "name": "Cokedale",
+      "codes": {
+        "three": "",
+        "seven": "CKDALE",
+        "fourteen": "COKEDALE"
+      }
+    },
+    {
+      "name": "Collbran",
+      "codes": {
+        "three": "",
+        "seven": "CLLBRAN",
+        "fourteen": "COLLBRAN"
+      }
+    },
+    {
+      "name": "Colorado Springs",
+      "codes": {
+        "three": "",
+        "seven": "CSPRGS",
+        "fourteen": "CO SPRINGS"
+      }
+    },
+    {
+      "name": "Columbine Valley",
+      "codes": {
+        "three": "",
+        "seven": "CLBNVLY",
+        "fourteen": "CLMBINE VALLEY"
+      }
+    },
+    {
+      "name": "Commerce City",
+      "codes": {
+        "three": "",
+        "seven": "CMRCE",
+        "fourteen": "COMMERCE CITY"
+      }
+    },
+    {
+      "name": "Cortez",
+      "codes": {
+        "three": "",
+        "seven": "CORTEZ",
+        "fourteen": "CORTEZ"
+      }
+    },
+    {
+      "name": "Craig",
+      "codes": {
+        "three": "",
+        "seven": "CRAIG",
+        "fourteen": "CRAIG"
+      }
+    },
+    {
+      "name": "Crawford",
+      "codes": {
+        "three": "",
+        "seven": "CRWFORD",
+        "fourteen": "CRAWFORD"
+      }
+    },
+    {
+      "name": "Creede",
+      "codes": {
+        "three": "",
+        "seven": "CREEDE",
+        "fourteen": "CREEDE"
+      }
+    },
+    {
+      "name": "Crested Butte",
+      "codes": {
+        "three": "",
+        "seven": "CRTDBTE",
+        "fourteen": "CRESTED BUTTE"
+      }
+    },
+    {
+      "name": "Crestone",
+      "codes": {
+        "three": "",
+        "seven": "CRSTONE",
+        "fourteen": "CRESTONE"
+      }
+    },
+    {
+      "name": "Cripple Creek",
+      "codes": {
+        "three": "",
+        "seven": "CRPLCRK",
+        "fourteen": "CRIPPLE CREEK"
+      }
+    },
+    {
+      "name": "Crook",
+      "codes": {
+        "three": "",
+        "seven": "CROOK",
+        "fourteen": "CROOK"
+      }
+    },
+    {
+      "name": "Crowley",
+      "codes": {
+        "three": "",
+        "seven": "CROWLEY",
+        "fourteen": "CROWLEY"
+      }
+    },
+    {
+      "name": "Dacono",
+      "codes": {
+        "three": "",
+        "seven": "DACONO",
+        "fourteen": "DACONO"
+      }
+    },
+    {
+      "name": "De Beque",
+      "codes": {
+        "three": "",
+        "seven": "DEBEQUE",
+        "fourteen": "DE BEQUE"
+      }
+    },
+    {
+      "name": "Deer Trail",
+      "codes": {
+        "three": "",
+        "seven": "DRTRAIL",
+        "fourteen": "DEER TRAIL"
+      }
+    },
+    {
+      "name": "Del Norte",
+      "codes": {
+        "three": "",
+        "seven": "DELNRTE",
+        "fourteen": "DEL NORTE"
+      }
+    },
+    {
+      "name": "Delta",
+      "codes": {
+        "three": "",
+        "seven": "DELTA",
+        "fourteen": "DELTA"
+      }
+    },
+    {
+      "name": "Denver",
+      "codes": {
+        "three": "",
+        "seven": "DENVER",
+        "fourteen": "DENVER"
+      }
+    },
+    {
+      "name": "Dillon",
+      "codes": {
+        "three": "",
+        "seven": "DILLON",
+        "fourteen": "DILLON"
+      }
+    },
+    {
+      "name": "Dinosaur",
+      "codes": {
+        "three": "",
+        "seven": "DINOSR",
+        "fourteen": "DINOSAUR"
+      }
+    },
+    {
+      "name": "Dolores",
+      "codes": {
+        "three": "",
+        "seven": "DOLORES",
+        "fourteen": "DOLORES"
+      }
+    },
+    {
+      "name": "Dove Creek",
+      "codes": {
+        "three": "",
+        "seven": "DVCREEK",
+        "fourteen": "DOVE CREEK"
+      }
+    },
+    {
+      "name": "Durango",
+      "codes": {
+        "three": "",
+        "seven": "DURANGO",
+        "fourteen": "DURANGO"
+      }
+    },
+    {
+      "name": "Eads",
+      "codes": {
+        "three": "",
+        "seven": "EADS",
+        "fourteen": "EADS"
+      }
+    },
+    {
+      "name": "Eagle",
+      "codes": {
+        "three": "",
+        "seven": "EAGLE",
+        "fourteen": "EAGLE"
+      }
+    },
+    {
+      "name": "Eaton",
+      "codes": {
+        "three": "",
+        "seven": "EATON",
+        "fourteen": "EATON"
+      }
+    },
+    {
+      "name": "Eckley",
+      "codes": {
+        "three": "",
+        "seven": "ECKLEY",
+        "fourteen": "ECKLEY"
+      }
+    },
+    {
+      "name": "Edgewater",
+      "codes": {
+        "three": "",
+        "seven": "EDGWTR",
+        "fourteen": "EDGEWATER"
+      }
+    },
+    {
+      "name": "Elizabeth",
+      "codes": {
+        "three": "",
+        "seven": "ELZBETH",
+        "fourteen": "ELIZABETH"
+      }
+    },
+    {
+      "name": "Empire",
+      "codes": {
+        "three": "",
+        "seven": "EMPIRE",
+        "fourteen": "EMPIRE"
+      }
+    },
+    {
+      "name": "Englewood",
+      "codes": {
+        "three": "",
+        "seven": "ENGL",
+        "fourteen": "ENGLEWOOD"
+      }
+    },
+    {
+      "name": "Erie",
+      "codes": {
+        "three": "",
+        "seven": "ERIE",
+        "fourteen": "ERIE"
+      }
+    },
+    {
+      "name": "Estes Park",
+      "codes": {
+        "three": "",
+        "seven": "ESTSPRK",
+        "fourteen": "ESTES PARK"
+      }
+    },
+    {
+      "name": "Evans",
+      "codes": {
+        "three": "",
+        "seven": "EVANS",
+        "fourteen": "EVANS"
+      }
+    },
+    {
+      "name": "Fairplay",
+      "codes": {
+        "three": "",
+        "seven": "FAIRPLY",
+        "fourteen": "FAIRPLAY"
+      }
+    },
+    {
+      "name": "Federal Heights",
+      "codes": {
+        "three": "",
+        "seven": "FEDHGTS",
+        "fourteen": "FED HEIGHTS"
+      }
+    },
+    {
+      "name": "Firestone",
+      "codes": {
+        "three": "",
+        "seven": "FIRSTNE",
+        "fourteen": "FIRESTONE"
+      }
+    },
+    {
+      "name": "Flagler",
+      "codes": {
+        "three": "",
+        "seven": "FLAGLER",
+        "fourteen": "FLAGLER"
+      }
+    },
+    {
+      "name": "Fleming",
+      "codes": {
+        "three": "",
+        "seven": "FLEMING",
+        "fourteen": "FLEMING"
+      }
+    },
+    {
+      "name": "Florence",
+      "codes": {
+        "three": "",
+        "seven": "FLRENCE",
+        "fourteen": "FLORENCE"
+      }
+    },
+    {
+      "name": "Fort Collins",
+      "codes": {
+        "three": "",
+        "seven": "FTCOLNS",
+        "fourteen": "FORT COLLINS"
+      }
+    },
+    {
+      "name": "Fort Lupton",
+      "codes": {
+        "three": "",
+        "seven": "FTLPTON",
+        "fourteen": "FORT LUPTON"
+      }
+    },
+    {
+      "name": "Fort Morgan",
+      "codes": {
+        "three": "",
+        "seven": "FTMRGAN",
+        "fourteen": "FORT MORGAN"
+      }
+    },
+    {
+      "name": "Fountain",
+      "codes": {
+        "three": "",
+        "seven": "FOUNTN",
+        "fourteen": "FOUNTAIN"
+      }
+    },
+    {
+      "name": "Fowler",
+      "codes": {
+        "three": "",
+        "seven": "FOWLER",
+        "fourteen": "FOWLER"
+      }
+    },
+    {
+      "name": "Foxfield",
+      "codes": {
+        "three": "",
+        "seven": "FXFIELD",
+        "fourteen": "FOXFIELD"
+      }
+    },
+    {
+      "name": "Fraser",
+      "codes": {
+        "three": "",
+        "seven": "FRASER",
+        "fourteen": "FRASER"
+      }
+    },
+    {
+      "name": "Frederick",
+      "codes": {
+        "three": "",
+        "seven": "FRDRICK",
+        "fourteen": "FREDERICK"
+      }
+    },
+    {
+      "name": "Frisco",
+      "codes": {
+        "three": "",
+        "seven": "FRISCO",
+        "fourteen": "FRISCO"
+      }
+    },
+    {
+      "name": "Fruita",
+      "codes": {
+        "three": "",
+        "seven": "FRUITA",
+        "fourteen": "FRUITA"
+      }
+    },
+    {
+      "name": "Garden City",
+      "codes": {
+        "three": "",
+        "seven": "GRDNCTY",
+        "fourteen": "GARDEN CITY"
+      }
+    },
+    {
+      "name": "Genoa",
+      "codes": {
+        "three": "",
+        "seven": "GENOA",
+        "fourteen": "GENOA"
+      }
+    },
+    {
+      "name": "Georgetown",
+      "codes": {
+        "three": "",
+        "seven": "GRGTOWN",
+        "fourteen": "GEORGETOWN"
+      }
+    },
+    {
+      "name": "Gilcrest",
+      "codes": {
+        "three": "",
+        "seven": "GILCRST",
+        "fourteen": "GILCREST"
+      }
+    },
+    {
+      "name": "Glendale",
+      "codes": {
+        "three": "",
+        "seven": "GLNDALE",
+        "fourteen": "GLENDALE"
+      }
+    },
+    {
+      "name": "Glenwood Springs",
+      "codes": {
+        "three": "",
+        "seven": "GWSPRGS",
+        "fourteen": "GLENWD SPRNGS"
+      }
+    },
+    {
+      "name": "Golden",
+      "codes": {
+        "three": "",
+        "seven": "GLDN",
+        "fourteen": "GOLDEN"
+      }
+    },
+    {
+      "name": "Granada",
+      "codes": {
+        "three": "",
+        "seven": "GRANADA",
+        "fourteen": "GRANADA"
+      }
+    },
+    {
+      "name": "Granby",
+      "codes": {
+        "three": "",
+        "seven": "GRANBY",
+        "fourteen": "GRANBY"
+      }
+    },
+    {
+      "name": "Grand Junction",
+      "codes": {
+        "three": "",
+        "seven": "GDJNCTN",
+        "fourteen": "GRAND JUNCTION"
+      }
+    },
+    {
+      "name": "Grand Lake",
+      "codes": {
+        "three": "",
+        "seven": "GRNDLKE",
+        "fourteen": "GRAND LAKE"
+      }
+    },
+    {
+      "name": "Greeley",
+      "codes": {
+        "three": "",
+        "seven": "GREELEY",
+        "fourteen": "GREELEY"
+      }
+    },
+    {
+      "name": "Green Mountain Falls",
+      "codes": {
+        "three": "",
+        "seven": "GRMTFLS",
+        "fourteen": "GRN MTN FALLS"
+      }
+    },
+    {
+      "name": "Greenwood Village",
+      "codes": {
+        "three": "",
+        "seven": "GRWDVLG",
+        "fourteen": "GRNWOOD VLLGE"
+      }
+    },
+    {
+      "name": "Grover",
+      "codes": {
+        "three": "",
+        "seven": "GROVER",
+        "fourteen": "GROVER"
+      }
+    },
+    {
+      "name": "Gunnison",
+      "codes": {
+        "three": "",
+        "seven": "GNNISON",
+        "fourteen": "GUNNISON"
+      }
+    },
+    {
+      "name": "Gypsum",
+      "codes": {
+        "three": "",
+        "seven": "GYPSUM",
+        "fourteen": "GYPSUM"
+      }
+    },
+    {
+      "name": "Hartman",
+      "codes": {
+        "three": "",
+        "seven": "HARTMAN",
+        "fourteen": "HARTMAN"
+      }
+    },
+    {
+      "name": "Haswell",
+      "codes": {
+        "three": "",
+        "seven": "HASWELL",
+        "fourteen": "HASWELL"
+      }
+    },
+    {
+      "name": "Haxtun",
+      "codes": {
+        "three": "",
+        "seven": "HAXTUN",
+        "fourteen": "HAXTUN"
+      }
+    },
+    {
+      "name": "Hayden",
+      "codes": {
+        "three": "",
+        "seven": "HAYDEN",
+        "fourteen": "HAYDEN"
+      }
+    },
+    {
+      "name": "Hillrose",
+      "codes": {
+        "three": "",
+        "seven": "HLLROSE",
+        "fourteen": "HILLROSE"
+      }
+    },
+    {
+      "name": "Holly",
+      "codes": {
+        "three": "",
+        "seven": "HOLLY",
+        "fourteen": "HOLLY"
+      }
+    },
+    {
+      "name": "Holyoke",
+      "codes": {
+        "three": "",
+        "seven": "HOLYOKE",
+        "fourteen": "HOLYOKE"
+      }
+    },
+    {
+      "name": "Hooper",
+      "codes": {
+        "three": "",
+        "seven": "HOOPER",
+        "fourteen": "HOOPER"
+      }
+    },
+    {
+      "name": "Hot Sulphur Springs",
+      "codes": {
+        "three": "",
+        "seven": "HOTSLSP",
+        "fourteen": "HT SLPR SPRGS"
+      }
+    },
+    {
+      "name": "Hotchkiss",
+      "codes": {
+        "three": "",
+        "seven": "HTCHKIS",
+        "fourteen": "HOTCHKISS"
+      }
+    },
+    {
+      "name": "Hudson",
+      "codes": {
+        "three": "",
+        "seven": "HUDSON",
+        "fourteen": "HUDSON"
+      }
+    },
+    {
+      "name": "Hugo",
+      "codes": {
+        "three": "",
+        "seven": "HUGO",
+        "fourteen": "HUGO"
+      }
+    },
+    {
+      "name": "Idaho Springs",
+      "codes": {
+        "three": "",
+        "seven": "IDSPNGS",
+        "fourteen": "IDAHO SPRINGS"
+      }
+    },
+    {
+      "name": "Ignacio",
+      "codes": {
+        "three": "",
+        "seven": "IGNACIO",
+        "fourteen": "IGNACIO"
+      }
+    },
+    {
+      "name": "Iliff",
+      "codes": {
+        "three": "",
+        "seven": "ILIFF",
+        "fourteen": "ILIFF"
+      }
+    },
+    {
+      "name": "Jamestown",
+      "codes": {
+        "three": "",
+        "seven": "JMSTOWN",
+        "fourteen": "JAMESTOWN"
+      }
+    },
+    {
+      "name": "Johnstown",
+      "codes": {
+        "three": "",
+        "seven": "JNSTOWN",
+        "fourteen": "JOHNSTOWN"
+      }
+    },
+    {
+      "name": "Julesburg",
+      "codes": {
+        "three": "",
+        "seven": "JLSBURG",
+        "fourteen": "JULESBURG"
+      }
+    },
+    {
+      "name": "Keenesburg",
+      "codes": {
+        "three": "",
+        "seven": "KNSBURG",
+        "fourteen": "KEENESBURG"
+      }
+    },
+    {
+      "name": "Kersey",
+      "codes": {
+        "three": "",
+        "seven": "KERSEY",
+        "fourteen": "KERSEY"
+      }
+    },
+    {
+      "name": "Keystone",
+      "codes": {
+        "three": "",
+        "seven": "KYSTNE",
+        "fourteen": "KEYSTONE"
+      }
+    },
+    {
+      "name": "Kim",
+      "codes": {
+        "three": "",
+        "seven": "KIM",
+        "fourteen": "KIM"
+      }
+    },
+    {
+      "name": "Kiowa",
+      "codes": {
+        "three": "",
+        "seven": "KIOWA",
+        "fourteen": "KIOWA"
+      }
+    },
+    {
+      "name": "Kit Carson",
+      "codes": {
+        "three": "",
+        "seven": "KTCRSON",
+        "fourteen": "KIT CARSON"
+      }
+    },
+    {
+      "name": "Kremmling",
+      "codes": {
+        "three": "",
+        "seven": "KRMLING",
+        "fourteen": "KREMMLING"
+      }
+    },
+    {
+      "name": "La Jara",
+      "codes": {
+        "three": "",
+        "seven": "LAJARA",
+        "fourteen": "LA JARA"
+      }
+    },
+    {
+      "name": "La Junta",
+      "codes": {
+        "three": "",
+        "seven": "LAJNTA",
+        "fourteen": "LA JUNTA"
+      }
+    },
+    {
+      "name": "La Veta",
+      "codes": {
+        "three": "",
+        "seven": "LAVETA",
+        "fourteen": "LA VETA"
+      }
+    },
+    {
+      "name": "Lafayette",
+      "codes": {
+        "three": "",
+        "seven": "LFAYTE",
+        "fourteen": "LAFAYETTE"
+      }
+    },
+    {
+      "name": "Lake City",
+      "codes": {
+        "three": "",
+        "seven": "LKCITY",
+        "fourteen": "LAKE CITY"
+      }
+    },
+    {
+      "name": "Lakeside",
+      "codes": {
+        "three": "",
+        "seven": "LKSIDE",
+        "fourteen": "LAKESIDE"
+      }
+    },
+    {
+      "name": "Lakewood",
+      "codes": {
+        "three": "",
+        "seven": "LKWD",
+        "fourteen": "LAKEWOOD"
+      }
+    },
+    {
+      "name": "Lamar",
+      "codes": {
+        "three": "",
+        "seven": "LAMAR",
+        "fourteen": "LAMAR"
+      }
+    },
+    {
+      "name": "Larkspur",
+      "codes": {
+        "three": "",
+        "seven": "LRKSPR",
+        "fourteen": "LARKSPUR"
+      }
+    },
+    {
+      "name": "Las Animas",
+      "codes": {
+        "three": "",
+        "seven": "LASANMS",
+        "fourteen": "LAS ANIMAS"
+      }
+    },
+    {
+      "name": "LaSalle",
+      "codes": {
+        "three": "",
+        "seven": "LASALLE",
+        "fourteen": "LASALLE"
+      }
+    },
+    {
+      "name": "Leadville",
+      "codes": {
+        "three": "",
+        "seven": "LEADVL",
+        "fourteen": "LEADVILLE"
+      }
+    },
+    {
+      "name": "Limon",
+      "codes": {
+        "three": "",
+        "seven": "LIMON",
+        "fourteen": "LIMON"
+      }
+    },
+    {
+      "name": "Littleton",
+      "codes": {
+        "three": "",
+        "seven": "LTTN",
+        "fourteen": "LITTLETON"
+      }
+    },
+    {
+      "name": "Lochbuie",
+      "codes": {
+        "three": "",
+        "seven": "LOCHBUI",
+        "fourteen": "LOCHBUIE"
+      }
+    },
+    {
+      "name": "Log Lane Village",
+      "codes": {
+        "three": "",
+        "seven": "LOGLNVL",
+        "fourteen": "LOG LN VILLAGE"
+      }
+    },
+    {
+      "name": "Lone Tree",
+      "codes": {
+        "three": "",
+        "seven": "LNTREE",
+        "fourteen": "LONE TREE"
+      }
+    },
+    {
+      "name": "Longmont",
+      "codes": {
+        "three": "",
+        "seven": "LONGMT",
+        "fourteen": "LONGMONT"
+      }
+    },
+    {
+      "name": "Louisville",
+      "codes": {
+        "three": "",
+        "seven": "LSVL",
+        "fourteen": "LOUISVILLE"
+      }
+    },
+    {
+      "name": "Loveland",
+      "codes": {
+        "three": "",
+        "seven": "LOVELND",
+        "fourteen": "LOVELAND"
+      }
+    },
+    {
+      "name": "Lyons",
+      "codes": {
+        "three": "",
+        "seven": "LYONS",
+        "fourteen": "LYONS"
+      }
+    },
+    {
+      "name": "Manassa",
+      "codes": {
+        "three": "",
+        "seven": "MANASSA",
+        "fourteen": "MANASSA"
+      }
+    },
+    {
+      "name": "Mancos",
+      "codes": {
+        "three": "",
+        "seven": "MANCOS",
+        "fourteen": "MANCOS"
+      }
+    },
+    {
+      "name": "Manitou Springs",
+      "codes": {
+        "three": "",
+        "seven": "MNTSPGS",
+        "fourteen": "MANTOU SPRINGS"
+      }
+    },
+    {
+      "name": "Manzanola",
+      "codes": {
+        "three": "",
+        "seven": "MNZNOLA",
+        "fourteen": "MANZANOLA"
+      }
+    },
+    {
+      "name": "Marble",
+      "codes": {
+        "three": "",
+        "seven": "MARBLE",
+        "fourteen": "MARBLE"
+      }
+    },
+    {
+      "name": "Mead",
+      "codes": {
+        "three": "",
+        "seven": "MEAD",
+        "fourteen": "MEAD"
+      }
+    },
+    {
+      "name": "Meeker",
+      "codes": {
+        "three": "",
+        "seven": "MEEKER",
+        "fourteen": "MEEKER"
+      }
+    },
+    {
+      "name": "Merino",
+      "codes": {
+        "three": "",
+        "seven": "MERINO",
+        "fourteen": "MERINO"
+      }
+    },
+    {
+      "name": "Milliken",
+      "codes": {
+        "three": "",
+        "seven": "MLIKEN",
+        "fourteen": "MILLIKEN"
+      }
+    },
+    {
+      "name": "Minturn",
+      "codes": {
+        "three": "",
+        "seven": "MINTURN",
+        "fourteen": "MINTURN"
+      }
+    },
+    {
+      "name": "Moffat",
+      "codes": {
+        "three": "",
+        "seven": "MOFFAT",
+        "fourteen": "MOFFAT"
+      }
+    },
+    {
+      "name": "Monte Vista",
+      "codes": {
+        "three": "",
+        "seven": "MNTVSTA",
+        "fourteen": "MONTE VISTA"
+      }
+    },
+    {
+      "name": "Montezuma",
+      "codes": {
+        "three": "",
+        "seven": "MNTEZMA",
+        "fourteen": "MONTEZUMA"
+      }
+    },
+    {
+      "name": "Montrose",
+      "codes": {
+        "three": "",
+        "seven": "MONTRSE",
+        "fourteen": "MONTROSE"
+      }
+    },
+    {
+      "name": "Monument",
+      "codes": {
+        "three": "",
+        "seven": "MNMENT",
+        "fourteen": "MONUMENT"
+      }
+    },
+    {
+      "name": "Morrison",
+      "codes": {
+        "three": "",
+        "seven": "MRRSON",
+        "fourteen": "MORRISON"
+      }
+    },
+    {
+      "name": "Mount Crested Butte",
+      "codes": {
+        "three": "",
+        "seven": "MTCSTBT",
+        "fourteen": "MNT CRST BUTTE"
+      }
+    },
+    {
+      "name": "Mountain View",
+      "codes": {
+        "three": "",
+        "seven": "MTNVW",
+        "fourteen": "MOUNTAIN VIEW"
+      }
+    },
+    {
+      "name": "Mountain Village",
+      "codes": {
+        "three": "",
+        "seven": "MTNVLG",
+        "fourteen": "MOUNTAIN VLGE"
+      }
+    },
+    {
+      "name": "Naturita",
+      "codes": {
+        "three": "",
+        "seven": "NATURTA",
+        "fourteen": "NATURITA"
+      }
+    },
+    {
+      "name": "Nederland",
+      "codes": {
+        "three": "",
+        "seven": "NEDERLD",
+        "fourteen": "NEDERLAND"
+      }
+    },
+    {
+      "name": "New Castle",
+      "codes": {
+        "three": "",
+        "seven": "NEWCSTL",
+        "fourteen": "NEW CASTLE"
+      }
+    },
+    {
+      "name": "Northglenn",
+      "codes": {
+        "three": "",
+        "seven": "NGLENN",
+        "fourteen": "NORTHGLENN"
+      }
+    },
+    {
+      "name": "Norwood",
+      "codes": {
+        "three": "",
+        "seven": "NORWOOD",
+        "fourteen": "NORWOOD"
+      }
+    },
+    {
+      "name": "Nucla",
+      "codes": {
+        "three": "",
+        "seven": "NUCLA",
+        "fourteen": "NUCLA"
+      }
+    },
+    {
+      "name": "Nunn",
+      "codes": {
+        "three": "",
+        "seven": "NUNN",
+        "fourteen": "NUNN"
+      }
+    },
+    {
+      "name": "Oak Creek",
+      "codes": {
+        "three": "",
+        "seven": "OAKCRK",
+        "fourteen": "OAK CREEK"
+      }
+    },
+    {
+      "name": "Olathe",
+      "codes": {
+        "three": "",
+        "seven": "OLATHE",
+        "fourteen": "OLATHE"
+      }
+    },
+    {
+      "name": "Olney Springs",
+      "codes": {
+        "three": "",
+        "seven": "OLNYSPG",
+        "fourteen": "OLNEY SPRINGS"
+      }
+    },
+    {
+      "name": "Ophir",
+      "codes": {
+        "three": "",
+        "seven": "OPHIR",
+        "fourteen": "OPHIR"
+      }
+    },
+    {
+      "name": "Orchard City",
+      "codes": {
+        "three": "",
+        "seven": "ORCHCTY",
+        "fourteen": "ORCHARD CITY"
+      }
+    },
+    {
+      "name": "Ordway",
+      "codes": {
+        "three": "",
+        "seven": "ORDWAY",
+        "fourteen": "ORDWAY"
+      }
+    },
+    {
+      "name": "Otis",
+      "codes": {
+        "three": "",
+        "seven": "OTIS",
+        "fourteen": "OTIS"
+      }
+    },
+    {
+      "name": "Ouray",
+      "codes": {
+        "three": "",
+        "seven": "OURAY",
+        "fourteen": "OURAY"
+      }
+    },
+    {
+      "name": "Ovid",
+      "codes": {
+        "three": "",
+        "seven": "OVID",
+        "fourteen": "OVID"
+      }
+    },
+    {
+      "name": "Pagosa Springs",
+      "codes": {
+        "three": "",
+        "seven": "PGOSAS",
+        "fourteen": "PGOSA SPRINGS"
+      }
+    },
+    {
+      "name": "Palisade",
+      "codes": {
+        "three": "",
+        "seven": "PALISDE",
+        "fourteen": "PALISADE"
+      }
+    },
+    {
+      "name": "Palmer Lake",
+      "codes": {
+        "three": "",
+        "seven": "PALMLKE",
+        "fourteen": "PALMER LAKE"
+      }
+    },
+    {
+      "name": "Paoli",
+      "codes": {
+        "three": "",
+        "seven": "PAOLI",
+        "fourteen": "PAOLI"
+      }
+    },
+    {
+      "name": "Paonia",
+      "codes": {
+        "three": "",
+        "seven": "PAONIA",
+        "fourteen": "PAONIA"
+      }
+    },
+    {
+      "name": "Parachute",
+      "codes": {
+        "three": "",
+        "seven": "PARACHT",
+        "fourteen": "PARACHUTE"
+      }
+    },
+    {
+      "name": "Parker",
+      "codes": {
+        "three": "",
+        "seven": "PARKER",
+        "fourteen": "PARKER"
+      }
+    },
+    {
+      "name": "Peetz",
+      "codes": {
+        "three": "",
+        "seven": "PEETZ",
+        "fourteen": "PEETZ"
+      }
+    },
+    {
+      "name": "Pierce",
+      "codes": {
+        "three": "",
+        "seven": "PIERCE",
+        "fourteen": "PIERCE"
+      }
+    },
+    {
+      "name": "Pitkin",
+      "codes": {
+        "three": "",
+        "seven": "PITKIN",
+        "fourteen": "PITKIN"
+      }
+    },
+    {
+      "name": "Platteville",
+      "codes": {
+        "three": "",
+        "seven": "PLATTVL",
+        "fourteen": "PLATTEVILLE"
+      }
+    },
+    {
+      "name": "Poncha Springs",
+      "codes": {
+        "three": "",
+        "seven": "PONCHAS",
+        "fourteen": "PONCHA SPRINGS"
+      }
+    },
+    {
+      "name": "Pritchett",
+      "codes": {
+        "three": "",
+        "seven": "PRITCHT",
+        "fourteen": "PRITCHETT"
+      }
+    },
+    {
+      "name": "Pueblo",
+      "codes": {
+        "three": "",
+        "seven": "PUEBLO",
+        "fourteen": "PUEBLO"
+      }
+    },
+    {
+      "name": "Ramah",
+      "codes": {
+        "three": "",
+        "seven": "RAMAH",
+        "fourteen": "RAMAH"
+      }
+    },
+    {
+      "name": "Rangely",
+      "codes": {
+        "three": "",
+        "seven": "RANGELY",
+        "fourteen": "RANGELY"
+      }
+    },
+    {
+      "name": "Raymer",
+      "codes": {
+        "three": "",
+        "seven": "RAYMER",
+        "fourteen": "RAYMER"
+      }
+    },
+    {
+      "name": "Red Cliff",
+      "codes": {
+        "three": "",
+        "seven": "REDCLFF",
+        "fourteen": "RED CLIFF"
+      }
+    },
+    {
+      "name": "Rico",
+      "codes": {
+        "three": "",
+        "seven": "RICO",
+        "fourteen": "RICO"
+      }
+    },
+    {
+      "name": "Ridgway",
+      "codes": {
+        "three": "",
+        "seven": "RIDGWAY",
+        "fourteen": "RIDGWAY"
+      }
+    },
+    {
+      "name": "Rifle",
+      "codes": {
+        "three": "",
+        "seven": "RIFLE",
+        "fourteen": "RIFLE"
+      }
+    },
+    {
+      "name": "Rockvale",
+      "codes": {
+        "three": "",
+        "seven": "ROCKVL",
+        "fourteen": "ROCKVALE"
+      }
+    },
+    {
+      "name": "Rocky Ford",
+      "codes": {
+        "three": "",
+        "seven": "ROCKYFD",
+        "fourteen": "ROCKY FORD"
+      }
+    },
+    {
+      "name": "Romeo",
+      "codes": {
+        "three": "",
+        "seven": "ROMEO",
+        "fourteen": "ROMEO"
+      }
+    },
+    {
+      "name": "Rye",
+      "codes": {
+        "three": "",
+        "seven": "RYE",
+        "fourteen": "RYE"
+      }
+    },
+    {
+      "name": "Saguache",
+      "codes": {
+        "three": "",
+        "seven": "SAGCHE",
+        "fourteen": "SAGUACHE"
+      }
+    },
+    {
+      "name": "Salida",
+      "codes": {
+        "three": "",
+        "seven": "SALIDA",
+        "fourteen": "SALIDA"
+      }
+    },
+    {
+      "name": "San Luis",
+      "codes": {
+        "three": "",
+        "seven": "SANLUIS",
+        "fourteen": "SAN LUIS"
+      }
+    },
+    {
+      "name": "Sanford",
+      "codes": {
+        "three": "",
+        "seven": "SANFORD",
+        "fourteen": "SANFORD"
+      }
+    },
+    {
+      "name": "Sawpit",
+      "codes": {
+        "three": "",
+        "seven": "SAWPIT",
+        "fourteen": "SAWPIT"
+      }
+    },
+    {
+      "name": "Sedgwick",
+      "codes": {
+        "three": "",
+        "seven": "SEDGWCK",
+        "fourteen": "SEDGWICK"
+      }
+    },
+    {
+      "name": "Seibert",
+      "codes": {
+        "three": "",
+        "seven": "SEIBERT",
+        "fourteen": "SEIBERT"
+      }
+    },
+    {
+      "name": "Severance",
+      "codes": {
+        "three": "",
+        "seven": "SEVERNC",
+        "fourteen": "SEVERANCE"
+      }
+    },
+    {
+      "name": "Sheridan",
+      "codes": {
+        "three": "",
+        "seven": "SHERIDN",
+        "fourteen": "SHERIDAN"
+      }
+    },
+    {
+      "name": "Sheridan Lake",
+      "codes": {
+        "three": "",
+        "seven": "SHDNLKE",
+        "fourteen": "SHERIDAN LAKE"
+      }
+    },
+    {
+      "name": "Silt",
+      "codes": {
+        "three": "",
+        "seven": "SILT",
+        "fourteen": "SILT"
+      }
+    },
+    {
+      "name": "Silver Cliff",
+      "codes": {
+        "three": "",
+        "seven": "SILVCLF",
+        "fourteen": "SILVER CLIFF"
+      }
+    },
+    {
+      "name": "Silver Plume",
+      "codes": {
+        "three": "",
+        "seven": "SILVPLM",
+        "fourteen": "SILVER PLUME"
+      }
+    },
+    {
+      "name": "Silverthorne",
+      "codes": {
+        "three": "",
+        "seven": "SILVTHN",
+        "fourteen": "SILVERTHORNE"
+      }
+    },
+    {
+      "name": "Silverton",
+      "codes": {
+        "three": "",
+        "seven": "SILVRTN",
+        "fourteen": "SILVERTON"
+      }
+    },
+    {
+      "name": "Silma",
+      "codes": {
+        "three": "",
+        "seven": "SILMA",
+        "fourteen": "SILMA"
+      }
+    },
+    {
+      "name": "Snowmass Village",
+      "codes": {
+        "three": "",
+        "seven": "SNWMVLG",
+        "fourteen": "SNOWMASS VLGE"
+      }
+    },
+    {
+      "name": "South Fork",
+      "codes": {
+        "three": "",
+        "seven": "SOUTHFK",
+        "fourteen": "SOUTH FORK"
+      }
+    },
+    {
+      "name": "Springfield",
+      "codes": {
+        "three": "",
+        "seven": "SPRINGF",
+        "fourteen": "SPRINGFIELD"
+      }
+    },
+    {
+      "name": "Starkville",
+      "codes": {
+        "three": "",
+        "seven": "STARKVL",
+        "fourteen": "STARKVILLE"
+      }
+    },
+    {
+      "name": "Steamboat Springs",
+      "codes": {
+        "three": "",
+        "seven": "STMBOAT",
+        "fourteen": "STEAMBOAT SPGS"
+      }
+    },
+    {
+      "name": "Sterling",
+      "codes": {
+        "three": "",
+        "seven": "STRLING",
+        "fourteen": "STERLING"
+      }
+    },
+    {
+      "name": "Stratton",
+      "codes": {
+        "three": "",
+        "seven": "STRTON",
+        "fourteen": "STRATTON"
+      }
+    },
+    {
+      "name": "Sugar City",
+      "codes": {
+        "three": "",
+        "seven": "SGRCITY",
+        "fourteen": "SUGAR CITY"
+      }
+    },
+    {
+      "name": "Superior",
+      "codes": {
+        "three": "",
+        "seven": "SUPRIOR",
+        "fourteen": "SUPERIOR"
+      }
+    },
+    {
+      "name": "Swink",
+      "codes": {
+        "three": "",
+        "seven": "SWINK",
+        "fourteen": "SWINK"
+      }
+    },
+    {
+      "name": "Telluride",
+      "codes": {
+        "three": "",
+        "seven": "TELLURD",
+        "fourteen": "TELLURIDE"
+      }
+    },
+    {
+      "name": "Thornton",
+      "codes": {
+        "three": "",
+        "seven": "THRTON",
+        "fourteen": "THORNTON"
+      }
+    },
+    {
+      "name": "Timnath",
+      "codes": {
+        "three": "",
+        "seven": "TIMNATH",
+        "fourteen": "TIMNATH"
+      }
+    },
+    {
+      "name": "Trinidad",
+      "codes": {
+        "three": "",
+        "seven": "TRNIDAD",
+        "fourteen": "TRINIDAD"
+      }
+    },
+    {
+      "name": "Two Buttes",
+      "codes": {
+        "three": "",
+        "seven": "TWOBTTS",
+        "fourteen": "TWO BUTTES"
+      }
+    },
+    {
+      "name": "Vail",
+      "codes": {
+        "three": "",
+        "seven": "VAIL",
+        "fourteen": "VAIL"
+      }
+    },
+    {
+      "name": "Victor",
+      "codes": {
+        "three": "",
+        "seven": "VICTOR",
+        "fourteen": "VICTOR"
+      }
+    },
+    {
+      "name": "Vilas",
+      "codes": {
+        "three": "",
+        "seven": "VILAS",
+        "fourteen": "VILAS"
+      }
+    },
+    {
+      "name": "Vona",
+      "codes": {
+        "three": "",
+        "seven": "VONA",
+        "fourteen": "VONA"
+      }
+    },
+    {
+      "name": "Walden",
+      "codes": {
+        "three": "",
+        "seven": "WALDEN",
+        "fourteen": "WALDEN"
+      }
+    },
+    {
+      "name": "Walsenburg",
+      "codes": {
+        "three": "",
+        "seven": "WALSENB",
+        "fourteen": "WALSENBURG"
+      }
+    },
+    {
+      "name": "Walsh",
+      "codes": {
+        "three": "",
+        "seven": "WALSH",
+        "fourteen": "WALSH"
+      }
+    },
+    {
+      "name": "Ward",
+      "codes": {
+        "three": "",
+        "seven": "WARD",
+        "fourteen": "WARD"
+      }
+    },
+    {
+      "name": "Wellington",
+      "codes": {
+        "three": "",
+        "seven": "WELLGTN",
+        "fourteen": "WELLINGTON"
+      }
+    },
+    {
+      "name": "Westcliffe",
+      "codes": {
+        "three": "",
+        "seven": "WSTCLFF",
+        "fourteen": "WESTCLIFFE"
+      }
+    },
+    {
+      "name": "Westminster",
+      "codes": {
+        "three": "",
+        "seven": "WSTMNR",
+        "fourteen": "WESTMINSTER"
+      }
+    },
+    {
+      "name": "Wheat Ridge",
+      "codes": {
+        "three": "",
+        "seven": "WHTRGE",
+        "fourteen": "WHEAT RIDGE"
+      }
+    },
+    {
+      "name": "Wiggins",
+      "codes": {
+        "three": "",
+        "seven": "WIGGINS",
+        "fourteen": "WIGGINS"
+      }
+    },
+    {
+      "name": "Wiley",
+      "codes": {
+        "three": "",
+        "seven": "WILEY",
+        "fourteen": "WILEY"
+      }
+    },
+    {
+      "name": "Williamsburg",
+      "codes": {
+        "three": "",
+        "seven": "WLLMSBG",
+        "fourteen": "WILLIAMSBURG"
+      }
+    },
+    {
+      "name": "Windsor",
+      "codes": {
+        "three": "",
+        "seven": "WINDSOR",
+        "fourteen": "WINDSOR"
+      }
+    },
+    {
+      "name": "Winter Park",
+      "codes": {
+        "three": "",
+        "seven": "WINTPK",
+        "fourteen": "WINTER PARK"
+      }
+    },
+    {
+      "name": "Woodland Park",
+      "codes": {
+        "three": "",
+        "seven": "WDLNDPK",
+        "fourteen": "WOODLAND PARK"
+      }
+    },
+    {
+      "name": "Wray",
+      "codes": {
+        "three": "",
+        "seven": "WRAY",
+        "fourteen": "WRAY"
+      }
+    },
+    {
+      "name": "Yampa",
+      "codes": {
+        "three": "",
+        "seven": "YAMPA",
+        "fourteen": "YAMPA"
+      }
+    },
+    {
+      "name": "Yuma",
+      "codes": {
+        "three": "",
+        "seven": "YUMA",
+        "fourteen": "YUMA"
+      }
+    }
+  ],
+  "counties": [],
+  "regions": [],
+  "alternatives": [
+    {
+      "name": "Highlands Ranch",
+      "codes": {
+        "three": "",
+        "seven": "HGHLND",
+        "fourteen": "HGHLANDS RNCH"
+      }
+    }
+  ]
+}

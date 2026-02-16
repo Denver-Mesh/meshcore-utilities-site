@@ -1,7 +1,8 @@
 import enum
 from typing import Optional
 
-NAMING_SCHEMA = "CO-{city}-{landmark}-{type}-{pub_key_id}"  # Ex. CO-DENVER-CHESSMN-RC-XX for a core repeater near Chessman Park in Denver, Colorado
+# 7-7-4-2 or 2-12-4-2
+NAMING_SCHEMA = "{city}-{landmark}-{type}-{pub_key_id}"  # Ex. DENVER-CHESSMN-RC-XX for a core repeater near Chessman Park in Denver, Colorado
 NAMING_SCHEMA_ALT = "CO-{landmark}-{type}-{pub_key_id}"  # Ex. CO-PIKESPK-RC-XX for a core repeater on Pikes Peak, which is not within a city
 
 
@@ -87,7 +88,8 @@ def generate_repeater_name(city: Optional[str],
     :return: A generated repeater name based on the provided details.
     :rtype: str
     """
-    # Ex. CO-DENVER-CHESSMN-RC-XX for a core repeater near Chessman Park in Denver, Colorado
+    # Ex. DENVER-CHESSMN-RC-XX for a core repeater near Chessman Park in Denver, Colorado
+    # Ex. CO-PIKESPK-RC-XX for a core repeater on Pikes Peak, which is not within a city
     if node_type == NodeType.COMPANION:
         raise ValueError("Cannot generate names for companion nodes")
 
