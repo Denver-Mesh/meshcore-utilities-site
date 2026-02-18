@@ -61,7 +61,27 @@ class Node(BaseNode):
         :return: The first two bytes of the public key as a hex string, in uppercase.
         :rtype: str
         """
+        return self.public_key_id_4_char
+
+    @property
+    def public_key_id_4_char(self) -> str:
+        """
+        Return the first two bytes (4-character hex string) of the public key, which is used as an identifier for the node.
+        Always returns the public key ID in uppercase to ensure consistency when comparing with other nodes.
+        :return: The first two bytes of the public key as a hex string, in uppercase.
+        :rtype: str
+        """
         return self.public_key[:4].upper()
+
+    @property
+    def public_key_id_2_char(self) -> str:
+        """
+        Return the first byte (2-character hex string) of the public key, which is used as an identifier for the node.
+        Always returns the public key ID in uppercase to ensure consistency when comparing with other nodes.
+        :return: The first byte of the public key as a hex string, in uppercase.
+        :rtype: str
+        """
+        return self.public_key[:2].upper()
 
 
 class MeshMapperRepeater(BaseModel):
@@ -197,12 +217,14 @@ def get_conflicting_nodes(public_key_id: str) -> list[Node]:
     return [node for node in nodes if _compare_public_key_ids(id_1=node.public_key_id, id_2=public_key_id)]
 
 
-def _find_unused_public_key_id_by_two_chars(used_public_key_ids: set[str]) -> str:
+def _find_unused_public_key_id_by_two_chars(nodes: list[Node]) -> str:
     """
     Find a public key ID in a list of nodes by comparing the first two characters (the first byte) of the public key.
 
     This is a temporary patch that will return XX00 for any public key, until MeshCore officially supports the full 4-character public key ID.
     """
+    used_public_key_ids: set[str] = set(node.public_key_id_2_char for node in nodes)
+
     for i in range(256):
         public_key_id = f"{i:02x}"
         if is_reserved_public_key_id(public_key_id):
@@ -213,11 +235,13 @@ def _find_unused_public_key_id_by_two_chars(used_public_key_ids: set[str]) -> st
     raise RuntimeError("No available public key IDs found")
 
 
-def _find_unused_public_key_id_by_four_chars(used_public_key_ids: set[str]) -> str:
+def _find_unused_public_key_id_by_four_chars(nodes: list[Node]) -> str:
     """
     Find a public key ID in a list of nodes by comparing the first four characters (the first two bytes) of the public key.
     This is the intended implementation once MeshCore officially supports the full 4-character public key ID.
     """
+    used_public_key_ids: set[str] = set(node.public_key_id_4_char for node in nodes)
+
     for i in range(0x0000, 0x10000):
         public_key_id = f"{i:04x}"
         if is_reserved_public_key_id(public_key_id):
@@ -235,7 +259,6 @@ def suggest_public_key_id() -> str:
     :rtype: str
     """
     nodes: list[Node] = get_denver_nodes()
-    used_public_key_ids: set[str] = set(node.public_key_id for node in nodes)
 
-    # Iterate through all possible public key IDs (0000 to FFFF) and return the first one that is not in use
-    return _find_unused_public_key_id_by_two_chars(used_public_key_ids=used_public_key_ids)
+    # Iterate through all possible public key IDs and return the first one that is not in use
+    return _find_unused_public_key_id_by_two_chars(nodes=nodes)
