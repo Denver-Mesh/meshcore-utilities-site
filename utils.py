@@ -98,7 +98,7 @@ def generate_repeater_name(region: str,
     if not city:
         return NAMING_SCHEMA_ALT.format(
             region=region.upper(),
-            landmark=landmark.upper(),
+            landmark=landmark, # Not automatically uppercased
             type=suffix.upper(),
             pub_key_id=public_key_id.upper()
         )
@@ -106,7 +106,7 @@ def generate_repeater_name(region: str,
         return NAMING_SCHEMA.format(
             region=region.upper(),
             city=city.upper(),
-            landmark=landmark.upper(),
+            landmark=landmark, # Not automatically uppercased
             type=suffix.upper(),
             pub_key_id=public_key_id.upper()
         )
