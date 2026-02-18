@@ -2,6 +2,8 @@
 
 A web application for generating MeshCore repeater configurations.
 
+Currently hosted at: https://denvermeshcore.technicallyspeaking.tech/
+
 ## Running with Docker
 
 ### Build the Docker image:
