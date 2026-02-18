@@ -52,11 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
             data[key] = value;
         }
 
-        // Ensure checkbox is included even if unchecked
-        if (!data['is-observer']) {
-            data['is-observer'] = 'false';
-        }
-
         // Show loading state
         submitBtn.disabled = true;
         submitBtn.textContent = 'Generating...';
@@ -282,11 +277,11 @@ document.addEventListener('DOMContentLoaded', function () {
         landmarkInput.value = '';
         // Change maxlength and update the display based on the selected city
         if (selectedCity === '') {
-            landmarkInput.maxLength = 12;
-            landmarkLengthSpan.textContent = '12';
+            landmarkInput.maxLength = 11;
+            landmarkLengthSpan.textContent = '5';
         } else {
-            landmarkInput.maxLength = 7;
-            landmarkLengthSpan.textContent = '7';
+            landmarkInput.maxLength = 5;
+            landmarkLengthSpan.textContent = '5';
         }
     }
 });

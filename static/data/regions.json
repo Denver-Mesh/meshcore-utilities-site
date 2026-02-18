@@ -1,9 +1,82 @@
 {
+  "airports": [
+    {
+      "name": "Aspen-Pitkin County Airport",
+      "city": "Aspen",
+      "code": "ASE"
+    },
+    {
+      "name": "City of Colorado Springs Municipal Airport",
+      "city": "Colorado Springs",
+      "code": "COS"
+    },
+    {
+      "name": "Cortez Municipal Airport",
+      "city": "Cortez",
+      "code": "CEZ"
+    },
+    {
+      "name": "Denver International Airport",
+      "city": "Denver",
+      "code": "DEN"
+    },
+    {
+      "name": "Durango–La Plata County Airport",
+      "city": "Durango",
+      "code": "DRO"
+    },
+    {
+      "name": "Eagle County Regional Airport",
+      "city": "Eagle / Vail",
+      "code": "EGE"
+    },
+    {
+      "name": "Grand Junction Regional Airport",
+      "city": "Grand Junction",
+      "code": "GJT"
+    },
+    {
+      "name": "Gunnison–Crested Butte Regional Airport",
+      "city": "Gunnison / Crested Butte",
+      "code": "GUC"
+    },
+    {
+      "name": "Montrose Regional Airport",
+      "city": "Montrose",
+      "code": "MTJ"
+    },
+    {
+      "name": "Northern Colorado Regional Airport",
+      "city": "Fort Collins / Loveland",
+      "code": "FNL"
+    },
+    {
+      "name": "Pueblo Memorial Airport",
+      "city": "Pueblo",
+      "code": "PUB"
+    },
+    {
+      "name": "San Luis Valley Regional Airport",
+      "city": "Alamosa",
+      "code": "ALS"
+    },
+    {
+      "name": "Telluride Regional Airport",
+      "city": "Telluride",
+      "code": "TEX"
+    },
+    {
+      "name": "Yampa Valley Airport",
+      "city": "Hayden",
+      "code": "HDN"
+    }
+  ],
   "cities": [
     {
       "name": "Aguilar",
       "codes": {
         "three": "",
+        "five": "AGULR",
         "seven": "AGUILR",
         "fourteen": "AGUILAR"
       }
@@ -12,6 +85,7 @@
       "name": "Akron",
       "codes": {
         "three": "",
+        "five": "AKRON",
         "seven": "AKRON",
         "fourteen": "AKRON"
       }
@@ -20,6 +94,7 @@
       "name": "Alamosa",
       "codes": {
         "three": "",
+        "five": "ALMSA",
         "seven": "ALAMOSA",
         "fourteen": "ALAMOSA"
       }
@@ -28,6 +103,7 @@
       "name": "Alma",
       "codes": {
         "three": "",
+        "five": "ALMA",
         "seven": "ALMA",
         "fourteen": "ALMA"
       }
@@ -36,6 +112,7 @@
       "name": "Antonito",
       "codes": {
         "three": "",
+        "five": "ANTNO",
         "seven": "ANTNTO",
         "fourteen": "ANTONITO"
       }
@@ -44,6 +121,7 @@
       "name": "Arriba",
       "codes": {
         "three": "",
+        "five": "ARRBA",
         "seven": "ARRIBA",
         "fourteen": "ARRIBA"
       }
@@ -52,6 +130,7 @@
       "name": "Arvada",
       "codes": {
         "three": "",
+        "five": "ARVDA",
         "seven": "ARVADA",
         "fourteen": "ARVADA"
       }
@@ -60,6 +139,7 @@
       "name": "Aspen",
       "codes": {
         "three": "",
+        "five": "ASPEN",
         "seven": "ASPEN",
         "fourteen": "ASPEN"
       }
@@ -68,6 +148,7 @@
       "name": "Ault",
       "codes": {
         "three": "",
+        "five": "AULT",
         "seven": "AULT",
         "fourteen": "AULT"
       }
@@ -76,6 +157,7 @@
       "name": "Aurora",
       "codes": {
         "three": "",
+        "five": "AURRA",
         "seven": "AURORA",
         "fourteen": "AURORA"
       }
@@ -84,6 +166,7 @@
       "name": "Avon",
       "codes": {
         "three": "",
+        "five": "AVON",
         "seven": "AVON",
         "fourteen": "AVON"
       }
@@ -92,6 +175,7 @@
       "name": "Basalt",
       "codes": {
         "three": "",
+        "five": "BSALT",
         "seven": "BASALT",
         "fourteen": "BASALT"
       }
@@ -100,7 +184,8 @@
       "name": "Bayfield",
       "codes": {
         "three": "",
-        "seven": "BYFLD",
+        "five": "BYFLD",
+        "seven": "BAYFLD",
         "fourteen": "BAYFIELD"
       }
     },
@@ -108,6 +193,7 @@
       "name": "Bennett",
       "codes": {
         "three": "",
+        "five": "BENNT",
         "seven": "BENNETT",
         "fourteen": "BENNETT"
       }
@@ -116,6 +202,7 @@
       "name": "Berthoud",
       "codes": {
         "three": "",
+        "five": "BRTHD",
         "seven": "BERTHD",
         "fourteen": "BERTHOUD"
       }
@@ -124,6 +211,7 @@
       "name": "Bethune",
       "codes": {
         "three": "",
+        "five": "BTHNE",
         "seven": "BETHUNE",
         "fourteen": "BETHUNE"
       }
@@ -132,6 +220,7 @@
       "name": "Black Hawk",
       "codes": {
         "three": "",
+        "five": "BLKHK",
         "seven": "BLKHWK",
         "fourteen": "BLACK HAWK"
       }
@@ -140,6 +229,7 @@
       "name": "Blanca",
       "codes": {
         "three": "",
+        "five": "BLNCA",
         "seven": "BLANCA",
         "fourteen": "BLANCA"
       }
@@ -148,6 +238,7 @@
       "name": "Blue River",
       "codes": {
         "three": "",
+        "five": "BLRVR",
         "seven": "BLRIVER",
         "fourteen": "BLUE RIVER"
       }
@@ -156,6 +247,7 @@
       "name": "Bonanza",
       "codes": {
         "three": "",
+        "five": "BNNZA",
         "seven": "BONANZA",
         "fourteen": "BONANZA"
       }
@@ -164,6 +256,7 @@
       "name": "Boone",
       "codes": {
         "three": "",
+        "five": "BOONE",
         "seven": "BOONE",
         "fourteen": "BOONE"
       }
@@ -172,6 +265,7 @@
       "name": "Boulder",
       "codes": {
         "three": "",
+        "five": "BOULR",
         "seven": "BOULDR",
         "fourteen": "BOULDER"
       }
@@ -180,6 +274,7 @@
       "name": "Bow Mar",
       "codes": {
         "three": "",
+        "five": "BOWMR",
         "seven": "BOWMAR",
         "fourteen": "BOW MAR"
       }
@@ -188,6 +283,7 @@
       "name": "Branson",
       "codes": {
         "three": "",
+        "five": "BRNSN",
         "seven": "BRANSON",
         "fourteen": "BRANSON"
       }
@@ -196,6 +292,7 @@
       "name": "Breckenridge",
       "codes": {
         "three": "",
+        "five": "BRECK",
         "seven": "BRKNRDG",
         "fourteen": "BRECKENRIDGE"
       }
@@ -204,6 +301,7 @@
       "name": "Brighton",
       "codes": {
         "three": "",
+        "five": "BRGHT",
         "seven": "BRGHTN",
         "fourteen": "BRIGHTON"
       }
@@ -212,6 +310,7 @@
       "name": "Brookside",
       "codes": {
         "three": "",
+        "five": "BRKSD",
         "seven": "BRKSIDE",
         "fourteen": "BROOKSIDE"
       }
@@ -220,6 +319,7 @@
       "name": "Broomfield",
       "codes": {
         "three": "",
+        "five": "BROOM",
         "seven": "BROOM",
         "fourteen": "BROOMFIELD"
       }
@@ -228,6 +328,7 @@
       "name": "Brush",
       "codes": {
         "three": "",
+        "five": "BRUSH",
         "seven": "BRUSH",
         "fourteen": "BRUSH"
       }
@@ -236,6 +337,7 @@
       "name": "Buena Vista",
       "codes": {
         "three": "",
+        "five": "BNVTA",
         "seven": "BNAVSTA",
         "fourteen": "BUENA VISTA"
       }
@@ -244,6 +346,7 @@
       "name": "Burlington",
       "codes": {
         "three": "",
+        "five": "BRLNG",
         "seven": "BRLNGTN",
         "fourteen": "BURLINGTON"
       }
@@ -252,6 +355,7 @@
       "name": "Calhan",
       "codes": {
         "three": "",
+        "five": "CLHAN",
         "seven": "CALHAN",
         "fourteen": "CALHAN"
       }
@@ -260,6 +364,7 @@
       "name": "Campo",
       "codes": {
         "three": "",
+        "five": "CAMPO",
         "seven": "CAMPO",
         "fourteen": "CAMPO"
       }
@@ -268,6 +373,7 @@
       "name": "Cañon City",
       "codes": {
         "three": "",
+        "five": "CANON",
         "seven": "CNNCITY",
         "fourteen": "CANON CITY"
       }
@@ -276,6 +382,7 @@
       "name": "Carbonate",
       "codes": {
         "three": "",
+        "five": "CBNTE",
         "seven": "CARBNTE",
         "fourteen": "CARBONATE"
       }
@@ -284,6 +391,7 @@
       "name": "Carbondale",
       "codes": {
         "three": "",
+        "five": "CBNDL",
         "seven": "CARBNDL",
         "fourteen": "CARBONDALE"
       }
@@ -292,6 +400,7 @@
       "name": "Castle Pines",
       "codes": {
         "three": "",
+        "five": "CSTLP",
         "seven": "CSTLPNS",
         "fourteen": "CASTLE PINES"
       }
@@ -300,6 +409,7 @@
       "name": "Castle Rock",
       "codes": {
         "three": "",
+        "five": "CSTLR",
         "seven": "CSTLRK",
         "fourteen": "CASTLE ROCK"
       }
@@ -308,6 +418,7 @@
       "name": "Cedaredge",
       "codes": {
         "three": "",
+        "five": "CREDG",
         "seven": "CDREDGE",
         "fourteen": "CEDAREDGE"
       }
@@ -316,6 +427,7 @@
       "name": "Centennial",
       "codes": {
         "three": "",
+        "five": "CENTL",
         "seven": "CENTL",
         "fourteen": "CENTENNIAL"
       }
@@ -324,6 +436,7 @@
       "name": "Center",
       "codes": {
         "three": "",
+        "five": "CENTR",
         "seven": "CENTER",
         "fourteen": "CENTER"
       }
@@ -332,6 +445,7 @@
       "name": "Central City",
       "codes": {
         "three": "",
+        "five": "CNTCY",
         "seven": "CNTRLCY",
         "fourteen": "CENTRAL CITY"
       }
@@ -340,6 +454,7 @@
       "name": "Cheraw",
       "codes": {
         "three": "",
+        "five": "CHRAW",
         "seven": "CHERAW",
         "fourteen": "CHERAW"
       }
@@ -348,6 +463,7 @@
       "name": "Cherry Hills Village",
       "codes": {
         "three": "",
+        "five": "CYHVG",
         "seven": "CHHLVLG",
         "fourteen": "CHRY HLS VLGE"
       }
@@ -356,6 +472,7 @@
       "name": "Cheyenne Wells",
       "codes": {
         "three": "",
+        "five": "CHYWL",
         "seven": "CHYNWLS",
         "fourteen": "CHEYENNE WELLS"
       }
@@ -364,6 +481,7 @@
       "name": "Coal Creek",
       "codes": {
         "three": "",
+        "five": "COALC",
         "seven": "COALCRK",
         "fourteen": "COAL CREEK"
       }
@@ -372,6 +490,7 @@
       "name": "Cokedale",
       "codes": {
         "three": "",
+        "five": "CKDLE",
         "seven": "CKDALE",
         "fourteen": "COKEDALE"
       }
@@ -380,6 +499,7 @@
       "name": "Collbran",
       "codes": {
         "three": "",
+        "five": "CLBRN",
         "seven": "CLLBRAN",
         "fourteen": "COLLBRAN"
       }
@@ -388,6 +508,7 @@
       "name": "Colorado Springs",
       "codes": {
         "three": "",
+        "five": "CSPRG",
         "seven": "CSPRGS",
         "fourteen": "CO SPRINGS"
       }
@@ -396,6 +517,7 @@
       "name": "Columbine Valley",
       "codes": {
         "three": "",
+        "five": "CLBVY",
         "seven": "CLBNVLY",
         "fourteen": "CLMBINE VALLEY"
       }
@@ -404,6 +526,7 @@
       "name": "Commerce City",
       "codes": {
         "three": "",
+        "five": "CMRCE",
         "seven": "CMRCE",
         "fourteen": "COMMERCE CITY"
       }
@@ -412,6 +535,7 @@
       "name": "Cortez",
       "codes": {
         "three": "",
+        "five": "CRTEZ",
         "seven": "CORTEZ",
         "fourteen": "CORTEZ"
       }
@@ -420,6 +544,7 @@
       "name": "Craig",
       "codes": {
         "three": "",
+        "five": "CRAIG",
         "seven": "CRAIG",
         "fourteen": "CRAIG"
       }
@@ -428,6 +553,7 @@
       "name": "Crawford",
       "codes": {
         "three": "",
+        "five": "CWFRD",
         "seven": "CRWFORD",
         "fourteen": "CRAWFORD"
       }
@@ -436,6 +562,7 @@
       "name": "Creede",
       "codes": {
         "three": "",
+        "five": "CREDE",
         "seven": "CREEDE",
         "fourteen": "CREEDE"
       }
@@ -444,6 +571,7 @@
       "name": "Crested Butte",
       "codes": {
         "three": "",
+        "five": "CRTBT",
         "seven": "CRTDBTE",
         "fourteen": "CRESTED BUTTE"
       }
@@ -452,6 +580,7 @@
       "name": "Crestone",
       "codes": {
         "three": "",
+        "five": "CRSTN",
         "seven": "CRSTONE",
         "fourteen": "CRESTONE"
       }
@@ -460,6 +589,7 @@
       "name": "Cripple Creek",
       "codes": {
         "three": "",
+        "five": "CRPLC",
         "seven": "CRPLCRK",
         "fourteen": "CRIPPLE CREEK"
       }
@@ -468,6 +598,7 @@
       "name": "Crook",
       "codes": {
         "three": "",
+        "five": "CROOK",
         "seven": "CROOK",
         "fourteen": "CROOK"
       }
@@ -476,6 +607,7 @@
       "name": "Crowley",
       "codes": {
         "three": "",
+        "five": "CRWLY",
         "seven": "CROWLEY",
         "fourteen": "CROWLEY"
       }
@@ -484,6 +616,7 @@
       "name": "Dacono",
       "codes": {
         "three": "",
+        "five": "DACNO",
         "seven": "DACONO",
         "fourteen": "DACONO"
       }
@@ -492,6 +625,7 @@
       "name": "De Beque",
       "codes": {
         "three": "",
+        "five": "DBQUE",
         "seven": "DEBEQUE",
         "fourteen": "DE BEQUE"
       }
@@ -500,6 +634,7 @@
       "name": "Deer Trail",
       "codes": {
         "three": "",
+        "five": "DRTRL",
         "seven": "DRTRAIL",
         "fourteen": "DEER TRAIL"
       }
@@ -508,6 +643,7 @@
       "name": "Del Norte",
       "codes": {
         "three": "",
+        "five": "DELNR",
         "seven": "DELNRTE",
         "fourteen": "DEL NORTE"
       }
@@ -516,6 +652,7 @@
       "name": "Delta",
       "codes": {
         "three": "",
+        "five": "DELTA",
         "seven": "DELTA",
         "fourteen": "DELTA"
       }
@@ -524,6 +661,7 @@
       "name": "Denver",
       "codes": {
         "three": "",
+        "five": "DENVR",
         "seven": "DENVER",
         "fourteen": "DENVER"
       }
@@ -532,6 +670,7 @@
       "name": "Dillon",
       "codes": {
         "three": "",
+        "five": "DLLN",
         "seven": "DILLON",
         "fourteen": "DILLON"
       }
@@ -540,6 +679,7 @@
       "name": "Dinosaur",
       "codes": {
         "three": "",
+        "five": "DINOS",
         "seven": "DINOSR",
         "fourteen": "DINOSAUR"
       }
@@ -548,6 +688,7 @@
       "name": "Dolores",
       "codes": {
         "three": "",
+        "five": "DLRES",
         "seven": "DOLORES",
         "fourteen": "DOLORES"
       }
@@ -556,6 +697,7 @@
       "name": "Dove Creek",
       "codes": {
         "three": "",
+        "five": "DOVEC",
         "seven": "DVCREEK",
         "fourteen": "DOVE CREEK"
       }
@@ -564,6 +706,7 @@
       "name": "Durango",
       "codes": {
         "three": "",
+        "five": "DRNGO",
         "seven": "DURANGO",
         "fourteen": "DURANGO"
       }
@@ -572,6 +715,7 @@
       "name": "Eads",
       "codes": {
         "three": "",
+        "five": "EADS",
         "seven": "EADS",
         "fourteen": "EADS"
       }
@@ -580,6 +724,7 @@
       "name": "Eagle",
       "codes": {
         "three": "",
+        "five": "EAGLE",
         "seven": "EAGLE",
         "fourteen": "EAGLE"
       }
@@ -588,6 +733,7 @@
       "name": "Eaton",
       "codes": {
         "three": "",
+        "five": "EATON",
         "seven": "EATON",
         "fourteen": "EATON"
       }
@@ -596,6 +742,7 @@
       "name": "Eckley",
       "codes": {
         "three": "",
+        "five": "ECKLY",
         "seven": "ECKLEY",
         "fourteen": "ECKLEY"
       }
@@ -604,6 +751,7 @@
       "name": "Edgewater",
       "codes": {
         "three": "",
+        "five": "EDGWR",
         "seven": "EDGWTR",
         "fourteen": "EDGEWATER"
       }
@@ -612,6 +760,7 @@
       "name": "Elizabeth",
       "codes": {
         "three": "",
+        "five": "ELZBH",
         "seven": "ELZBETH",
         "fourteen": "ELIZABETH"
       }
@@ -620,6 +769,7 @@
       "name": "Empire",
       "codes": {
         "three": "",
+        "five": "EMPR",
         "seven": "EMPIRE",
         "fourteen": "EMPIRE"
       }
@@ -628,7 +778,8 @@
       "name": "Englewood",
       "codes": {
         "three": "",
-        "seven": "ENGL",
+        "five": "ENGL",
+        "seven": "ENGLWD",
         "fourteen": "ENGLEWOOD"
       }
     },
@@ -636,6 +787,7 @@
       "name": "Erie",
       "codes": {
         "three": "",
+        "five": "ERIE",
         "seven": "ERIE",
         "fourteen": "ERIE"
       }
@@ -644,6 +796,7 @@
       "name": "Estes Park",
       "codes": {
         "three": "",
+        "five": "ESTPK",
         "seven": "ESTSPRK",
         "fourteen": "ESTES PARK"
       }
@@ -652,6 +805,7 @@
       "name": "Evans",
       "codes": {
         "three": "",
+        "five": "EVANS",
         "seven": "EVANS",
         "fourteen": "EVANS"
       }
@@ -660,6 +814,7 @@
       "name": "Fairplay",
       "codes": {
         "three": "",
+        "five": "FRPLY",
         "seven": "FAIRPLY",
         "fourteen": "FAIRPLAY"
       }
@@ -668,6 +823,7 @@
       "name": "Federal Heights",
       "codes": {
         "three": "",
+        "five": "FEDHG",
         "seven": "FEDHGTS",
         "fourteen": "FED HEIGHTS"
       }
@@ -676,6 +832,7 @@
       "name": "Firestone",
       "codes": {
         "three": "",
+        "five": "FRSTN",
         "seven": "FIRSTNE",
         "fourteen": "FIRESTONE"
       }
@@ -684,6 +841,7 @@
       "name": "Flagler",
       "codes": {
         "three": "",
+        "five": "FLGLR",
         "seven": "FLAGLER",
         "fourteen": "FLAGLER"
       }
@@ -692,6 +850,7 @@
       "name": "Fleming",
       "codes": {
         "three": "",
+        "five": "FLMNG",
         "seven": "FLEMING",
         "fourteen": "FLEMING"
       }
@@ -700,6 +859,7 @@
       "name": "Florence",
       "codes": {
         "three": "",
+        "five": "FLRNC",
         "seven": "FLRENCE",
         "fourteen": "FLORENCE"
       }
@@ -708,6 +868,7 @@
       "name": "Fort Collins",
       "codes": {
         "three": "",
+        "five": "FTCOL",
         "seven": "FTCOLNS",
         "fourteen": "FORT COLLINS"
       }
@@ -716,6 +877,7 @@
       "name": "Fort Lupton",
       "codes": {
         "three": "",
+        "five": "FTLPT",
         "seven": "FTLPTON",
         "fourteen": "FORT LUPTON"
       }
@@ -724,6 +886,7 @@
       "name": "Fort Morgan",
       "codes": {
         "three": "",
+        "five": "FTMGN",
         "seven": "FTMRGAN",
         "fourteen": "FORT MORGAN"
       }
@@ -732,6 +895,7 @@
       "name": "Fountain",
       "codes": {
         "three": "",
+        "five": "FOUNT",
         "seven": "FOUNTN",
         "fourteen": "FOUNTAIN"
       }
@@ -740,6 +904,7 @@
       "name": "Fowler",
       "codes": {
         "three": "",
+        "five": "FWLR",
         "seven": "FOWLER",
         "fourteen": "FOWLER"
       }
@@ -748,6 +913,7 @@
       "name": "Foxfield",
       "codes": {
         "three": "",
+        "five": "FXFLD",
         "seven": "FXFIELD",
         "fourteen": "FOXFIELD"
       }
@@ -756,6 +922,7 @@
       "name": "Fraser",
       "codes": {
         "three": "",
+        "five": "FRSR",
         "seven": "FRASER",
         "fourteen": "FRASER"
       }
@@ -764,6 +931,7 @@
       "name": "Frederick",
       "codes": {
         "three": "",
+        "five": "FRDRK",
         "seven": "FRDRICK",
         "fourteen": "FREDERICK"
       }
@@ -772,6 +940,7 @@
       "name": "Frisco",
       "codes": {
         "three": "",
+        "five": "FRSCO",
         "seven": "FRISCO",
         "fourteen": "FRISCO"
       }
@@ -780,6 +949,7 @@
       "name": "Fruita",
       "codes": {
         "three": "",
+        "five": "FRUIT",
         "seven": "FRUITA",
         "fourteen": "FRUITA"
       }
@@ -788,6 +958,7 @@
       "name": "Garden City",
       "codes": {
         "three": "",
+        "five": "GRNCY",
         "seven": "GRDNCTY",
         "fourteen": "GARDEN CITY"
       }
@@ -796,6 +967,7 @@
       "name": "Genoa",
       "codes": {
         "three": "",
+        "five": "GENOA",
         "seven": "GENOA",
         "fourteen": "GENOA"
       }
@@ -804,6 +976,7 @@
       "name": "Georgetown",
       "codes": {
         "three": "",
+        "five": "GEORT",
         "seven": "GRGTOWN",
         "fourteen": "GEORGETOWN"
       }
@@ -812,6 +985,7 @@
       "name": "Gilcrest",
       "codes": {
         "three": "",
+        "five": "GLCST",
         "seven": "GILCRST",
         "fourteen": "GILCREST"
       }
@@ -820,6 +994,7 @@
       "name": "Glendale",
       "codes": {
         "three": "",
+        "five": "GLNDL",
         "seven": "GLNDALE",
         "fourteen": "GLENDALE"
       }
@@ -828,6 +1003,7 @@
       "name": "Glenwood Springs",
       "codes": {
         "three": "",
+        "five": "GLNWS",
         "seven": "GWSPRGS",
         "fourteen": "GLENWD SPRNGS"
       }
@@ -836,6 +1012,7 @@
       "name": "Golden",
       "codes": {
         "three": "",
+        "five": "GLDN",
         "seven": "GLDN",
         "fourteen": "GOLDEN"
       }
@@ -844,6 +1021,7 @@
       "name": "Granada",
       "codes": {
         "three": "",
+        "five": "GRNDA",
         "seven": "GRANADA",
         "fourteen": "GRANADA"
       }
@@ -852,6 +1030,7 @@
       "name": "Granby",
       "codes": {
         "three": "",
+        "five": "GRNBY",
         "seven": "GRANBY",
         "fourteen": "GRANBY"
       }
@@ -860,6 +1039,7 @@
       "name": "Grand Junction",
       "codes": {
         "three": "",
+        "five": "GDJCT",
         "seven": "GDJNCTN",
         "fourteen": "GRAND JUNCTION"
       }
@@ -868,6 +1048,7 @@
       "name": "Grand Lake",
       "codes": {
         "three": "",
+        "five": "GRDLK",
         "seven": "GRNDLKE",
         "fourteen": "GRAND LAKE"
       }
@@ -876,6 +1057,7 @@
       "name": "Greeley",
       "codes": {
         "three": "",
+        "five": "GRELY",
         "seven": "GREELEY",
         "fourteen": "GREELEY"
       }
@@ -884,6 +1066,7 @@
       "name": "Green Mountain Falls",
       "codes": {
         "three": "",
+        "five": "GRNMF",
         "seven": "GRMTFLS",
         "fourteen": "GRN MTN FALLS"
       }
@@ -892,6 +1075,7 @@
       "name": "Greenwood Village",
       "codes": {
         "three": "",
+        "five": "GRNWV",
         "seven": "GRWDVLG",
         "fourteen": "GRNWOOD VLLGE"
       }
@@ -900,6 +1084,7 @@
       "name": "Grover",
       "codes": {
         "three": "",
+        "five": "GRVR",
         "seven": "GROVER",
         "fourteen": "GROVER"
       }
@@ -908,6 +1093,7 @@
       "name": "Gunnison",
       "codes": {
         "three": "",
+        "five": "GUNN",
         "seven": "GNNISON",
         "fourteen": "GUNNISON"
       }
@@ -916,6 +1102,7 @@
       "name": "Gypsum",
       "codes": {
         "three": "",
+        "five": "GYPSM",
         "seven": "GYPSUM",
         "fourteen": "GYPSUM"
       }
@@ -924,6 +1111,7 @@
       "name": "Hartman",
       "codes": {
         "three": "",
+        "five": "HRTMN",
         "seven": "HARTMAN",
         "fourteen": "HARTMAN"
       }
@@ -932,6 +1120,7 @@
       "name": "Haswell",
       "codes": {
         "three": "",
+        "five": "HSWEL",
         "seven": "HASWELL",
         "fourteen": "HASWELL"
       }
@@ -940,6 +1129,7 @@
       "name": "Haxtun",
       "codes": {
         "three": "",
+        "five": "HXTN",
         "seven": "HAXTUN",
         "fourteen": "HAXTUN"
       }
@@ -948,6 +1138,7 @@
       "name": "Hayden",
       "codes": {
         "three": "",
+        "five": "HYDN",
         "seven": "HAYDEN",
         "fourteen": "HAYDEN"
       }
@@ -956,6 +1147,7 @@
       "name": "Hillrose",
       "codes": {
         "three": "",
+        "five": "HLROS",
         "seven": "HLLROSE",
         "fourteen": "HILLROSE"
       }
@@ -964,6 +1156,7 @@
       "name": "Holly",
       "codes": {
         "three": "",
+        "five": "HOLLY",
         "seven": "HOLLY",
         "fourteen": "HOLLY"
       }
@@ -972,6 +1165,7 @@
       "name": "Holyoke",
       "codes": {
         "three": "",
+        "five": "HLYKE",
         "seven": "HOLYOKE",
         "fourteen": "HOLYOKE"
       }
@@ -980,6 +1174,7 @@
       "name": "Hooper",
       "codes": {
         "three": "",
+        "five": "HO0PR",
         "seven": "HOOPER",
         "fourteen": "HOOPER"
       }
@@ -988,6 +1183,7 @@
       "name": "Hot Sulphur Springs",
       "codes": {
         "three": "",
+        "five": "HOTSP",
         "seven": "HOTSLSP",
         "fourteen": "HT SLPR SPRGS"
       }
@@ -996,6 +1192,7 @@
       "name": "Hotchkiss",
       "codes": {
         "three": "",
+        "five": "HTCKS",
         "seven": "HTCHKIS",
         "fourteen": "HOTCHKISS"
       }
@@ -1004,6 +1201,7 @@
       "name": "Hudson",
       "codes": {
         "three": "",
+        "five": "HUDSN",
         "seven": "HUDSON",
         "fourteen": "HUDSON"
       }
@@ -1012,6 +1210,7 @@
       "name": "Hugo",
       "codes": {
         "three": "",
+        "five": "HUGO",
         "seven": "HUGO",
         "fourteen": "HUGO"
       }
@@ -1020,6 +1219,7 @@
       "name": "Idaho Springs",
       "codes": {
         "three": "",
+        "five": "IDSPG",
         "seven": "IDSPNGS",
         "fourteen": "IDAHO SPRINGS"
       }
@@ -1028,6 +1228,7 @@
       "name": "Ignacio",
       "codes": {
         "three": "",
+        "five": "IGNCO",
         "seven": "IGNACIO",
         "fourteen": "IGNACIO"
       }
@@ -1036,6 +1237,7 @@
       "name": "Iliff",
       "codes": {
         "three": "",
+        "five": "ILIFF",
         "seven": "ILIFF",
         "fourteen": "ILIFF"
       }
@@ -1044,6 +1246,7 @@
       "name": "Jamestown",
       "codes": {
         "three": "",
+        "five": "JMSTN",
         "seven": "JMSTOWN",
         "fourteen": "JAMESTOWN"
       }
@@ -1052,6 +1255,7 @@
       "name": "Johnstown",
       "codes": {
         "three": "",
+        "five": "JNSTN",
         "seven": "JNSTOWN",
         "fourteen": "JOHNSTOWN"
       }
@@ -1060,6 +1264,7 @@
       "name": "Julesburg",
       "codes": {
         "three": "",
+        "five": "JLSBG",
         "seven": "JLSBURG",
         "fourteen": "JULESBURG"
       }
@@ -1068,6 +1273,7 @@
       "name": "Keenesburg",
       "codes": {
         "three": "",
+        "five": "KNSBG",
         "seven": "KNSBURG",
         "fourteen": "KEENESBURG"
       }
@@ -1076,6 +1282,7 @@
       "name": "Kersey",
       "codes": {
         "three": "",
+        "five": "KRSY",
         "seven": "KERSEY",
         "fourteen": "KERSEY"
       }
@@ -1084,6 +1291,7 @@
       "name": "Keystone",
       "codes": {
         "three": "",
+        "five": "KEYST",
         "seven": "KYSTNE",
         "fourteen": "KEYSTONE"
       }
@@ -1092,6 +1300,7 @@
       "name": "Kim",
       "codes": {
         "three": "",
+        "five": "KIM",
         "seven": "KIM",
         "fourteen": "KIM"
       }
@@ -1100,6 +1309,7 @@
       "name": "Kiowa",
       "codes": {
         "three": "",
+        "five": "KIOWA",
         "seven": "KIOWA",
         "fourteen": "KIOWA"
       }
@@ -1108,6 +1318,7 @@
       "name": "Kit Carson",
       "codes": {
         "three": "",
+        "five": "KTCRS",
         "seven": "KTCRSON",
         "fourteen": "KIT CARSON"
       }
@@ -1116,6 +1327,7 @@
       "name": "Kremmling",
       "codes": {
         "three": "",
+        "five": "KRMLG",
         "seven": "KRMLING",
         "fourteen": "KREMMLING"
       }
@@ -1124,6 +1336,7 @@
       "name": "La Jara",
       "codes": {
         "three": "",
+        "five": "LAJRA",
         "seven": "LAJARA",
         "fourteen": "LA JARA"
       }
@@ -1132,6 +1345,7 @@
       "name": "La Junta",
       "codes": {
         "three": "",
+        "five": "LAJNT",
         "seven": "LAJNTA",
         "fourteen": "LA JUNTA"
       }
@@ -1140,6 +1354,7 @@
       "name": "La Veta",
       "codes": {
         "three": "",
+        "five": "LAVTA",
         "seven": "LAVETA",
         "fourteen": "LA VETA"
       }
@@ -1148,6 +1363,7 @@
       "name": "Lafayette",
       "codes": {
         "three": "",
+        "five": "LFYTE",
         "seven": "LFAYTE",
         "fourteen": "LAFAYETTE"
       }
@@ -1156,6 +1372,7 @@
       "name": "Lake City",
       "codes": {
         "three": "",
+        "five": "LKCTY",
         "seven": "LKCITY",
         "fourteen": "LAKE CITY"
       }
@@ -1164,6 +1381,7 @@
       "name": "Lakeside",
       "codes": {
         "three": "",
+        "five": "LKSDE",
         "seven": "LKSIDE",
         "fourteen": "LAKESIDE"
       }
@@ -1172,6 +1390,7 @@
       "name": "Lakewood",
       "codes": {
         "three": "",
+        "five": "LKWD",
         "seven": "LKWD",
         "fourteen": "LAKEWOOD"
       }
@@ -1180,6 +1399,7 @@
       "name": "Lamar",
       "codes": {
         "three": "",
+        "five": "LAMAR",
         "seven": "LAMAR",
         "fourteen": "LAMAR"
       }
@@ -1188,6 +1408,7 @@
       "name": "Larkspur",
       "codes": {
         "three": "",
+        "five": "LRKSP",
         "seven": "LRKSPR",
         "fourteen": "LARKSPUR"
       }
@@ -1196,6 +1417,7 @@
       "name": "Las Animas",
       "codes": {
         "three": "",
+        "five": "LANMS",
         "seven": "LASANMS",
         "fourteen": "LAS ANIMAS"
       }
@@ -1204,6 +1426,7 @@
       "name": "LaSalle",
       "codes": {
         "three": "",
+        "five": "LASLE",
         "seven": "LASALLE",
         "fourteen": "LASALLE"
       }
@@ -1212,6 +1435,7 @@
       "name": "Leadville",
       "codes": {
         "three": "",
+        "five": "LEADV",
         "seven": "LEADVL",
         "fourteen": "LEADVILLE"
       }
@@ -1220,6 +1444,7 @@
       "name": "Limon",
       "codes": {
         "three": "",
+        "five": "LIMON",
         "seven": "LIMON",
         "fourteen": "LIMON"
       }
@@ -1228,6 +1453,7 @@
       "name": "Littleton",
       "codes": {
         "three": "",
+        "five": "LTTN",
         "seven": "LTTN",
         "fourteen": "LITTLETON"
       }
@@ -1236,6 +1462,7 @@
       "name": "Lochbuie",
       "codes": {
         "three": "",
+        "five": "LOCHB",
         "seven": "LOCHBUI",
         "fourteen": "LOCHBUIE"
       }
@@ -1244,6 +1471,7 @@
       "name": "Log Lane Village",
       "codes": {
         "three": "",
+        "five": "LLVLG",
         "seven": "LOGLNVL",
         "fourteen": "LOG LN VILLAGE"
       }
@@ -1252,6 +1480,7 @@
       "name": "Lone Tree",
       "codes": {
         "three": "",
+        "five": "LNTRE",
         "seven": "LNTREE",
         "fourteen": "LONE TREE"
       }
@@ -1260,6 +1489,7 @@
       "name": "Longmont",
       "codes": {
         "three": "",
+        "five": "LONGM",
         "seven": "LONGMT",
         "fourteen": "LONGMONT"
       }
@@ -1268,6 +1498,7 @@
       "name": "Louisville",
       "codes": {
         "three": "",
+        "five": "LSVL",
         "seven": "LSVL",
         "fourteen": "LOUISVILLE"
       }
@@ -1276,6 +1507,7 @@
       "name": "Loveland",
       "codes": {
         "three": "",
+        "five": "LVLND",
         "seven": "LOVELND",
         "fourteen": "LOVELAND"
       }
@@ -1284,6 +1516,7 @@
       "name": "Lyons",
       "codes": {
         "three": "",
+        "five": "LYONS",
         "seven": "LYONS",
         "fourteen": "LYONS"
       }
@@ -1292,6 +1525,7 @@
       "name": "Manassa",
       "codes": {
         "three": "",
+        "five": "MNSSA",
         "seven": "MANASSA",
         "fourteen": "MANASSA"
       }
@@ -1300,6 +1534,7 @@
       "name": "Mancos",
       "codes": {
         "three": "",
+        "five": "MNCOS",
         "seven": "MANCOS",
         "fourteen": "MANCOS"
       }
@@ -1308,6 +1543,7 @@
       "name": "Manitou Springs",
       "codes": {
         "three": "",
+        "five": "MSPRG",
         "seven": "MNTSPGS",
         "fourteen": "MANTOU SPRINGS"
       }
@@ -1316,6 +1552,7 @@
       "name": "Manzanola",
       "codes": {
         "three": "",
+        "five": "MNZLA",
         "seven": "MNZNOLA",
         "fourteen": "MANZANOLA"
       }
@@ -1324,6 +1561,7 @@
       "name": "Marble",
       "codes": {
         "three": "",
+        "five": "MRBL",
         "seven": "MARBLE",
         "fourteen": "MARBLE"
       }
@@ -1332,6 +1570,7 @@
       "name": "Mead",
       "codes": {
         "three": "",
+        "five": "MEAD",
         "seven": "MEAD",
         "fourteen": "MEAD"
       }
@@ -1340,6 +1579,7 @@
       "name": "Meeker",
       "codes": {
         "three": "",
+        "five": "MEEKR",
         "seven": "MEEKER",
         "fourteen": "MEEKER"
       }
@@ -1348,6 +1588,7 @@
       "name": "Merino",
       "codes": {
         "three": "",
+        "five": "MRINO",
         "seven": "MERINO",
         "fourteen": "MERINO"
       }
@@ -1356,6 +1597,7 @@
       "name": "Milliken",
       "codes": {
         "three": "",
+        "five": "MILKN",
         "seven": "MLIKEN",
         "fourteen": "MILLIKEN"
       }
@@ -1364,6 +1606,7 @@
       "name": "Minturn",
       "codes": {
         "three": "",
+        "five": "MNTUR",
         "seven": "MINTURN",
         "fourteen": "MINTURN"
       }
@@ -1372,6 +1615,7 @@
       "name": "Moffat",
       "codes": {
         "three": "",
+        "five": "MFFT",
         "seven": "MOFFAT",
         "fourteen": "MOFFAT"
       }
@@ -1380,6 +1624,7 @@
       "name": "Monte Vista",
       "codes": {
         "three": "",
+        "five": "MNVST",
         "seven": "MNTVSTA",
         "fourteen": "MONTE VISTA"
       }
@@ -1388,6 +1633,7 @@
       "name": "Montezuma",
       "codes": {
         "three": "",
+        "five": "MTZMA",
         "seven": "MNTEZMA",
         "fourteen": "MONTEZUMA"
       }
@@ -1396,6 +1642,7 @@
       "name": "Montrose",
       "codes": {
         "three": "",
+        "five": "MNTRO",
         "seven": "MONTRSE",
         "fourteen": "MONTROSE"
       }
@@ -1404,6 +1651,7 @@
       "name": "Monument",
       "codes": {
         "three": "",
+        "five": "MNMNT",
         "seven": "MNMENT",
         "fourteen": "MONUMENT"
       }
@@ -1412,6 +1660,7 @@
       "name": "Morrison",
       "codes": {
         "three": "",
+        "five": "MRRSN",
         "seven": "MRRSON",
         "fourteen": "MORRISON"
       }
@@ -1420,6 +1669,7 @@
       "name": "Mount Crested Butte",
       "codes": {
         "three": "",
+        "five": "MTCRB",
         "seven": "MTCSTBT",
         "fourteen": "MNT CRST BUTTE"
       }
@@ -1428,6 +1678,7 @@
       "name": "Mountain View",
       "codes": {
         "three": "",
+        "five": "MTNVW",
         "seven": "MTNVW",
         "fourteen": "MOUNTAIN VIEW"
       }
@@ -1436,6 +1687,7 @@
       "name": "Mountain Village",
       "codes": {
         "three": "",
+        "five": "MTNVG",
         "seven": "MTNVLG",
         "fourteen": "MOUNTAIN VLGE"
       }
@@ -1444,6 +1696,7 @@
       "name": "Naturita",
       "codes": {
         "three": "",
+        "five": "NTRTA",
         "seven": "NATURTA",
         "fourteen": "NATURITA"
       }
@@ -1452,6 +1705,7 @@
       "name": "Nederland",
       "codes": {
         "three": "",
+        "five": "NEDER",
         "seven": "NEDERLD",
         "fourteen": "NEDERLAND"
       }
@@ -1460,6 +1714,7 @@
       "name": "New Castle",
       "codes": {
         "three": "",
+        "five": "NWCST",
         "seven": "NEWCSTL",
         "fourteen": "NEW CASTLE"
       }
@@ -1468,6 +1723,7 @@
       "name": "Northglenn",
       "codes": {
         "three": "",
+        "five": "NGLEN",
         "seven": "NGLENN",
         "fourteen": "NORTHGLENN"
       }
@@ -1476,6 +1732,7 @@
       "name": "Norwood",
       "codes": {
         "three": "",
+        "five": "NORWD",
         "seven": "NORWOOD",
         "fourteen": "NORWOOD"
       }
@@ -1484,6 +1741,7 @@
       "name": "Nucla",
       "codes": {
         "three": "",
+        "five": "NUCLA",
         "seven": "NUCLA",
         "fourteen": "NUCLA"
       }
@@ -1492,6 +1750,7 @@
       "name": "Nunn",
       "codes": {
         "three": "",
+        "five": "NUNN",
         "seven": "NUNN",
         "fourteen": "NUNN"
       }
@@ -1500,6 +1759,7 @@
       "name": "Oak Creek",
       "codes": {
         "three": "",
+        "five": "OAKCR",
         "seven": "OAKCRK",
         "fourteen": "OAK CREEK"
       }
@@ -1508,6 +1768,7 @@
       "name": "Olathe",
       "codes": {
         "three": "",
+        "five": "OLTHE",
         "seven": "OLATHE",
         "fourteen": "OLATHE"
       }
@@ -1516,6 +1777,7 @@
       "name": "Olney Springs",
       "codes": {
         "three": "",
+        "five": "ONSPG",
         "seven": "OLNYSPG",
         "fourteen": "OLNEY SPRINGS"
       }
@@ -1524,6 +1786,7 @@
       "name": "Ophir",
       "codes": {
         "three": "",
+        "five": "OPHIR",
         "seven": "OPHIR",
         "fourteen": "OPHIR"
       }
@@ -1532,6 +1795,7 @@
       "name": "Orchard City",
       "codes": {
         "three": "",
+        "five": "ORCHD",
         "seven": "ORCHCTY",
         "fourteen": "ORCHARD CITY"
       }
@@ -1540,6 +1804,7 @@
       "name": "Ordway",
       "codes": {
         "three": "",
+        "five": "ORDWY",
         "seven": "ORDWAY",
         "fourteen": "ORDWAY"
       }
@@ -1548,6 +1813,7 @@
       "name": "Otis",
       "codes": {
         "three": "",
+        "five": "OTIS",
         "seven": "OTIS",
         "fourteen": "OTIS"
       }
@@ -1556,6 +1822,7 @@
       "name": "Ouray",
       "codes": {
         "three": "",
+        "five": "OURAY",
         "seven": "OURAY",
         "fourteen": "OURAY"
       }
@@ -1564,6 +1831,7 @@
       "name": "Ovid",
       "codes": {
         "three": "",
+        "five": "OVID",
         "seven": "OVID",
         "fourteen": "OVID"
       }
@@ -1572,6 +1840,7 @@
       "name": "Pagosa Springs",
       "codes": {
         "three": "",
+        "five": "PGSAS",
         "seven": "PGOSAS",
         "fourteen": "PGOSA SPRINGS"
       }
@@ -1580,6 +1849,7 @@
       "name": "Palisade",
       "codes": {
         "three": "",
+        "five": "PALIS",
         "seven": "PALISDE",
         "fourteen": "PALISADE"
       }
@@ -1588,6 +1858,7 @@
       "name": "Palmer Lake",
       "codes": {
         "three": "",
+        "five": "PLMLK",
         "seven": "PALMLKE",
         "fourteen": "PALMER LAKE"
       }
@@ -1596,6 +1867,7 @@
       "name": "Paoli",
       "codes": {
         "three": "",
+        "five": "PAOLI",
         "seven": "PAOLI",
         "fourteen": "PAOLI"
       }
@@ -1604,6 +1876,7 @@
       "name": "Paonia",
       "codes": {
         "three": "",
+        "five": "PAONI",
         "seven": "PAONIA",
         "fourteen": "PAONIA"
       }
@@ -1612,6 +1885,7 @@
       "name": "Parachute",
       "codes": {
         "three": "",
+        "five": "PARCH",
         "seven": "PARACHT",
         "fourteen": "PARACHUTE"
       }
@@ -1620,6 +1894,7 @@
       "name": "Parker",
       "codes": {
         "three": "",
+        "five": "PARKR",
         "seven": "PARKER",
         "fourteen": "PARKER"
       }
@@ -1628,6 +1903,7 @@
       "name": "Peetz",
       "codes": {
         "three": "",
+        "five": "PEETZ",
         "seven": "PEETZ",
         "fourteen": "PEETZ"
       }
@@ -1636,6 +1912,7 @@
       "name": "Pierce",
       "codes": {
         "three": "",
+        "five": "PIERC",
         "seven": "PIERCE",
         "fourteen": "PIERCE"
       }
@@ -1644,6 +1921,7 @@
       "name": "Pitkin",
       "codes": {
         "three": "",
+        "five": "PTKIN",
         "seven": "PITKIN",
         "fourteen": "PITKIN"
       }
@@ -1652,6 +1930,7 @@
       "name": "Platteville",
       "codes": {
         "three": "",
+        "five": "PLTVL",
         "seven": "PLATTVL",
         "fourteen": "PLATTEVILLE"
       }
@@ -1660,6 +1939,7 @@
       "name": "Poncha Springs",
       "codes": {
         "three": "",
+        "five": "PSPRG",
         "seven": "PONCHAS",
         "fourteen": "PONCHA SPRINGS"
       }
@@ -1668,6 +1948,7 @@
       "name": "Pritchett",
       "codes": {
         "three": "",
+        "five": "PRCHT",
         "seven": "PRITCHT",
         "fourteen": "PRITCHETT"
       }
@@ -1676,6 +1957,7 @@
       "name": "Pueblo",
       "codes": {
         "three": "",
+        "five": "PUEBL",
         "seven": "PUEBLO",
         "fourteen": "PUEBLO"
       }
@@ -1684,6 +1966,7 @@
       "name": "Ramah",
       "codes": {
         "three": "",
+        "five": "RAMAH",
         "seven": "RAMAH",
         "fourteen": "RAMAH"
       }
@@ -1692,6 +1975,7 @@
       "name": "Rangely",
       "codes": {
         "three": "",
+        "five": "RNGLY",
         "seven": "RANGELY",
         "fourteen": "RANGELY"
       }
@@ -1700,6 +1984,7 @@
       "name": "Raymer",
       "codes": {
         "three": "",
+        "five": "RYMER",
         "seven": "RAYMER",
         "fourteen": "RAYMER"
       }
@@ -1708,6 +1993,7 @@
       "name": "Red Cliff",
       "codes": {
         "three": "",
+        "five": "RCLIF",
         "seven": "REDCLFF",
         "fourteen": "RED CLIFF"
       }
@@ -1716,6 +2002,7 @@
       "name": "Rico",
       "codes": {
         "three": "",
+        "five": "RICO",
         "seven": "RICO",
         "fourteen": "RICO"
       }
@@ -1724,6 +2011,7 @@
       "name": "Ridgway",
       "codes": {
         "three": "",
+        "five": "RDGWY",
         "seven": "RIDGWAY",
         "fourteen": "RIDGWAY"
       }
@@ -1732,6 +2020,7 @@
       "name": "Rifle",
       "codes": {
         "three": "",
+        "five": "RIFLE",
         "seven": "RIFLE",
         "fourteen": "RIFLE"
       }
@@ -1740,6 +2029,7 @@
       "name": "Rockvale",
       "codes": {
         "three": "",
+        "five": "ROCKV",
         "seven": "ROCKVL",
         "fourteen": "ROCKVALE"
       }
@@ -1748,6 +2038,7 @@
       "name": "Rocky Ford",
       "codes": {
         "three": "",
+        "five": "RCKFD",
         "seven": "ROCKYFD",
         "fourteen": "ROCKY FORD"
       }
@@ -1756,6 +2047,7 @@
       "name": "Romeo",
       "codes": {
         "three": "",
+        "five": "ROMEO",
         "seven": "ROMEO",
         "fourteen": "ROMEO"
       }
@@ -1763,7 +2055,8 @@
     {
       "name": "Rye",
       "codes": {
-        "three": "",
+        "three": "RYE",
+        "five": "RYE",
         "seven": "RYE",
         "fourteen": "RYE"
       }
@@ -1772,6 +2065,7 @@
       "name": "Saguache",
       "codes": {
         "three": "",
+        "five": "SGCHE",
         "seven": "SAGCHE",
         "fourteen": "SAGUACHE"
       }
@@ -1780,6 +2074,7 @@
       "name": "Salida",
       "codes": {
         "three": "",
+        "five": "SLIDA",
         "seven": "SALIDA",
         "fourteen": "SALIDA"
       }
@@ -1788,6 +2083,7 @@
       "name": "San Luis",
       "codes": {
         "three": "",
+        "five": "SLUIS",
         "seven": "SANLUIS",
         "fourteen": "SAN LUIS"
       }
@@ -1796,6 +2092,7 @@
       "name": "Sanford",
       "codes": {
         "three": "",
+        "five": "SFORD",
         "seven": "SANFORD",
         "fourteen": "SANFORD"
       }
@@ -1804,6 +2101,7 @@
       "name": "Sawpit",
       "codes": {
         "three": "",
+        "five": "SWPIT",
         "seven": "SAWPIT",
         "fourteen": "SAWPIT"
       }
@@ -1812,6 +2110,7 @@
       "name": "Sedgwick",
       "codes": {
         "three": "",
+        "five": "SDGWK",
         "seven": "SEDGWCK",
         "fourteen": "SEDGWICK"
       }
@@ -1820,6 +2119,7 @@
       "name": "Seibert",
       "codes": {
         "three": "",
+        "five": "SBERT",
         "seven": "SEIBERT",
         "fourteen": "SEIBERT"
       }
@@ -1828,6 +2128,7 @@
       "name": "Severance",
       "codes": {
         "three": "",
+        "five": "SVRNC",
         "seven": "SEVERNC",
         "fourteen": "SEVERANCE"
       }
@@ -1836,6 +2137,7 @@
       "name": "Sheridan",
       "codes": {
         "three": "",
+        "five": "SHRDN",
         "seven": "SHERIDN",
         "fourteen": "SHERIDAN"
       }
@@ -1844,6 +2146,7 @@
       "name": "Sheridan Lake",
       "codes": {
         "three": "",
+        "five": "SHDLK",
         "seven": "SHDNLKE",
         "fourteen": "SHERIDAN LAKE"
       }
@@ -1852,6 +2155,7 @@
       "name": "Silt",
       "codes": {
         "three": "",
+        "five": "SILT",
         "seven": "SILT",
         "fourteen": "SILT"
       }
@@ -1860,6 +2164,7 @@
       "name": "Silver Cliff",
       "codes": {
         "three": "",
+        "five": "SLVCF",
         "seven": "SILVCLF",
         "fourteen": "SILVER CLIFF"
       }
@@ -1868,6 +2173,7 @@
       "name": "Silver Plume",
       "codes": {
         "three": "",
+        "five": "SLVPL",
         "seven": "SILVPLM",
         "fourteen": "SILVER PLUME"
       }
@@ -1876,6 +2182,7 @@
       "name": "Silverthorne",
       "codes": {
         "three": "",
+        "five": "SLVTH",
         "seven": "SILVTHN",
         "fourteen": "SILVERTHORNE"
       }
@@ -1884,6 +2191,7 @@
       "name": "Silverton",
       "codes": {
         "three": "",
+        "five": "SLVTN",
         "seven": "SILVRTN",
         "fourteen": "SILVERTON"
       }
@@ -1892,6 +2200,7 @@
       "name": "Silma",
       "codes": {
         "three": "",
+        "five": "SILMA",
         "seven": "SILMA",
         "fourteen": "SILMA"
       }
@@ -1900,6 +2209,7 @@
       "name": "Snowmass Village",
       "codes": {
         "three": "",
+        "five": "SNWMV",
         "seven": "SNWMVLG",
         "fourteen": "SNOWMASS VLGE"
       }
@@ -1908,6 +2218,7 @@
       "name": "South Fork",
       "codes": {
         "three": "",
+        "five": "SFORK",
         "seven": "SOUTHFK",
         "fourteen": "SOUTH FORK"
       }
@@ -1916,6 +2227,7 @@
       "name": "Springfield",
       "codes": {
         "three": "",
+        "five": "SPRGF",
         "seven": "SPRINGF",
         "fourteen": "SPRINGFIELD"
       }
@@ -1924,6 +2236,7 @@
       "name": "Starkville",
       "codes": {
         "three": "",
+        "five": "STRKV",
         "seven": "STARKVL",
         "fourteen": "STARKVILLE"
       }
@@ -1932,6 +2245,7 @@
       "name": "Steamboat Springs",
       "codes": {
         "three": "",
+        "five": "STEAM",
         "seven": "STMBOAT",
         "fourteen": "STEAMBOAT SPGS"
       }
@@ -1940,6 +2254,7 @@
       "name": "Sterling",
       "codes": {
         "three": "",
+        "five": "STERL",
         "seven": "STRLING",
         "fourteen": "STERLING"
       }
@@ -1948,6 +2263,7 @@
       "name": "Stratton",
       "codes": {
         "three": "",
+        "five": "STRTN",
         "seven": "STRTON",
         "fourteen": "STRATTON"
       }
@@ -1956,6 +2272,7 @@
       "name": "Sugar City",
       "codes": {
         "three": "",
+        "five": "SUGAR",
         "seven": "SGRCITY",
         "fourteen": "SUGAR CITY"
       }
@@ -1964,6 +2281,7 @@
       "name": "Superior",
       "codes": {
         "three": "",
+        "five": "SUPER",
         "seven": "SUPRIOR",
         "fourteen": "SUPERIOR"
       }
@@ -1972,6 +2290,7 @@
       "name": "Swink",
       "codes": {
         "three": "",
+        "five": "SWINK",
         "seven": "SWINK",
         "fourteen": "SWINK"
       }
@@ -1980,6 +2299,7 @@
       "name": "Telluride",
       "codes": {
         "three": "",
+        "five": "TLLRD",
         "seven": "TELLURD",
         "fourteen": "TELLURIDE"
       }
@@ -1988,6 +2308,7 @@
       "name": "Thornton",
       "codes": {
         "three": "",
+        "five": "THRTN",
         "seven": "THRTON",
         "fourteen": "THORNTON"
       }
@@ -1996,6 +2317,7 @@
       "name": "Timnath",
       "codes": {
         "three": "",
+        "five": "TMNTH",
         "seven": "TIMNATH",
         "fourteen": "TIMNATH"
       }
@@ -2004,6 +2326,7 @@
       "name": "Trinidad",
       "codes": {
         "three": "",
+        "five": "TRNID",
         "seven": "TRNIDAD",
         "fourteen": "TRINIDAD"
       }
@@ -2012,6 +2335,7 @@
       "name": "Two Buttes",
       "codes": {
         "three": "",
+        "five": "TWOBT",
         "seven": "TWOBTTS",
         "fourteen": "TWO BUTTES"
       }
@@ -2020,6 +2344,7 @@
       "name": "Vail",
       "codes": {
         "three": "",
+        "five": "VAIL",
         "seven": "VAIL",
         "fourteen": "VAIL"
       }
@@ -2028,6 +2353,7 @@
       "name": "Victor",
       "codes": {
         "three": "",
+        "five": "VCTR",
         "seven": "VICTOR",
         "fourteen": "VICTOR"
       }
@@ -2036,6 +2362,7 @@
       "name": "Vilas",
       "codes": {
         "three": "",
+        "five": "VILSA",
         "seven": "VILAS",
         "fourteen": "VILAS"
       }
@@ -2044,6 +2371,7 @@
       "name": "Vona",
       "codes": {
         "three": "",
+        "five": "VONA",
         "seven": "VONA",
         "fourteen": "VONA"
       }
@@ -2052,6 +2380,7 @@
       "name": "Walden",
       "codes": {
         "three": "",
+        "five": "WLDEN",
         "seven": "WALDEN",
         "fourteen": "WALDEN"
       }
@@ -2060,6 +2389,7 @@
       "name": "Walsenburg",
       "codes": {
         "three": "",
+        "five": "WLSBG",
         "seven": "WALSENB",
         "fourteen": "WALSENBURG"
       }
@@ -2068,6 +2398,7 @@
       "name": "Walsh",
       "codes": {
         "three": "",
+        "five": "WALSH",
         "seven": "WALSH",
         "fourteen": "WALSH"
       }
@@ -2076,6 +2407,7 @@
       "name": "Ward",
       "codes": {
         "three": "",
+        "five": "WARD",
         "seven": "WARD",
         "fourteen": "WARD"
       }
@@ -2084,6 +2416,7 @@
       "name": "Wellington",
       "codes": {
         "three": "",
+        "five": "WLGTN",
         "seven": "WELLGTN",
         "fourteen": "WELLINGTON"
       }
@@ -2092,6 +2425,7 @@
       "name": "Westcliffe",
       "codes": {
         "three": "",
+        "five": "WSTCF",
         "seven": "WSTCLFF",
         "fourteen": "WESTCLIFFE"
       }
@@ -2100,6 +2434,7 @@
       "name": "Westminster",
       "codes": {
         "three": "",
+        "five": "WSTMR",
         "seven": "WSTMNR",
         "fourteen": "WESTMINSTER"
       }
@@ -2108,6 +2443,7 @@
       "name": "Wheat Ridge",
       "codes": {
         "three": "",
+        "five": "WHTRG",
         "seven": "WHTRGE",
         "fourteen": "WHEAT RIDGE"
       }
@@ -2116,6 +2452,7 @@
       "name": "Wiggins",
       "codes": {
         "three": "",
+        "five": "WGGNS",
         "seven": "WIGGINS",
         "fourteen": "WIGGINS"
       }
@@ -2124,6 +2461,7 @@
       "name": "Wiley",
       "codes": {
         "three": "",
+        "five": "WILEY",
         "seven": "WILEY",
         "fourteen": "WILEY"
       }
@@ -2132,6 +2470,7 @@
       "name": "Williamsburg",
       "codes": {
         "three": "",
+        "five": "WLMSBG",
         "seven": "WLLMSBG",
         "fourteen": "WILLIAMSBURG"
       }
@@ -2140,6 +2479,7 @@
       "name": "Windsor",
       "codes": {
         "three": "",
+        "five": "",
         "seven": "WINDSOR",
         "fourteen": "WINDSOR"
       }
@@ -2148,6 +2488,7 @@
       "name": "Winter Park",
       "codes": {
         "three": "",
+        "five": "WNTPK",
         "seven": "WINTPK",
         "fourteen": "WINTER PARK"
       }
@@ -2156,6 +2497,7 @@
       "name": "Woodland Park",
       "codes": {
         "three": "",
+        "five": "WDLPK",
         "seven": "WDLNDPK",
         "fourteen": "WOODLAND PARK"
       }
@@ -2164,6 +2506,7 @@
       "name": "Wray",
       "codes": {
         "three": "",
+        "five": "WRAY",
         "seven": "WRAY",
         "fourteen": "WRAY"
       }
@@ -2172,6 +2515,7 @@
       "name": "Yampa",
       "codes": {
         "three": "",
+        "five": "YAMPA",
         "seven": "YAMPA",
         "fourteen": "YAMPA"
       }
@@ -2180,6 +2524,7 @@
       "name": "Yuma",
       "codes": {
         "three": "",
+        "five": "YUMA",
         "seven": "YUMA",
         "fourteen": "YUMA"
       }
@@ -2192,6 +2537,7 @@
       "name": "Highlands Ranch",
       "codes": {
         "three": "",
+        "five": "HGHLN",
         "seven": "HGHLND",
         "fourteen": "HGHLANDS RNCH"
       }

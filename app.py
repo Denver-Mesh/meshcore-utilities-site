@@ -14,12 +14,17 @@ app = Flask(__name__)
 with open('static/data/regions.json', 'r') as f:
     regions = json.load(f)
 
+# Sort airport options alphabetically by name
+airport_codes = []
+for airport in sorted(regions['airports'], key=lambda x: x['name']):
+    airport_codes.append({"name": airport['name'], "code": airport['code']})
+
 # Sort city options alphabetically by name, with blank option at the top
-cities_seven_char_limit = [
+cities_five_char_limit = [
     {"name": "---", "code": ""}
 ]
-for region in sorted(regions['cities'], key=lambda x: x['name']):
-    cities_seven_char_limit.append({"name": region['name'], "code": region['codes']['seven']})
+for city in sorted(regions['cities'], key=lambda x: x['name']):
+    cities_five_char_limit.append({"name": city['name'], "code": city['codes']['five']})
 
 # Load recommended settings from static/data/recommended_settings.json file
 with open('static/data/recommended_settings.json', 'r') as f:
@@ -27,11 +32,11 @@ with open('static/data/recommended_settings.json', 'r') as f:
 
 
 class NodeInformation(BaseModel):
+    region: Optional[str] = Field(alias="region")  # Required regional code
     city: Optional[str] = Field(alias="city",
-                                default=None)  # <=7-char city code, optional since some locations may not be within a city
-    landmark: str = Field(alias="landmark", default=None)  # <=7-char landmark code
+                                default=None)  # <=5-char city code, optional since some locations may not be within a city
+    landmark: str = Field(alias="landmark", default=None)  # <=5-char landmark code
     node_type: NodeType = Field(alias="node-type")
-    is_observer: bool = Field(alias="is-observer", default=False)
 
     @classmethod
     @field_validator('is_observer', mode='before')
@@ -42,14 +47,14 @@ class NodeInformation(BaseModel):
 
     @model_validator(mode="after")
     def validate_model(self):
-        # Need either <=7 city and <=7 landmark, or a <=14 landmark
+        # Need either <=5 city and <=5 landmark, or a <=11 landmark
         if self.city:
-            if len(self.city) > 7:
-                raise ValueError("City code must be up to 7 characters long")
-            if len(self.landmark) > 7:
-                raise ValueError("Landmark code must be up to 7 characters long")
-        elif len(self.landmark) > 14:
-            raise ValueError("Landmark code must be up to 14 characters long if city code is not provided")
+            if len(self.city) > 5:
+                raise ValueError("City code must be up to 5 characters long")
+            if len(self.landmark) > 5:
+                raise ValueError("Landmark code must be up to 5 characters long")
+        elif len(self.landmark) > 11:
+            raise ValueError("Landmark code must be up to 11 characters long if city code is not provided")
 
         return self
 
@@ -75,7 +80,8 @@ def index():
 
     ]
     return render_template('index.html',
-                           cities=cities_seven_char_limit,
+                           regions=airport_codes,
+                           cities=cities_five_char_limit,
                            node_types=node_types)
 
 
@@ -92,10 +98,10 @@ def generate_repeater_details():
     suggested_public_key_id: str = letsmesh.suggest_public_key_id()
 
     name: str = utils.generate_repeater_name(
+        region=node_information.region,
         city=node_information.city,
         landmark=node_information.landmark,
         node_type=node_information.node_type,
-        is_observer=node_information.is_observer,
         public_key_id=suggested_public_key_id,
     )
 

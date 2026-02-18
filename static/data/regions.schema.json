@@ -30,6 +30,12 @@
       "minLength": 0,
       "maxLength": 3
     },
+    "fiveCharCode": {
+      "id": "#/definitions/fiveCharCode",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 5
+    },
     "sevenCharCode": {
       "id": "#/definitions/sevenCharCode",
       "type": "string",
@@ -60,6 +66,9 @@
             "three": {
               "$ref": "#/definitions/threeCharCode"
             },
+            "five": {
+              "$ref": "#/definitions/fiveCharCode"
+            },
             "seven": {
               "$ref": "#/definitions/sevenCharCode"
             },
@@ -69,6 +78,7 @@
           },
           "required": [
             "three",
+            "five",
             "seven",
             "fourteen"
           ]

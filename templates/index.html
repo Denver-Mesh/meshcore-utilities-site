@@ -12,7 +12,7 @@
         Configure your Denver MeshCore repeater details
         <br>
         <small>
-            This tool follows Denver MeshCore Naming Convention v1.1.
+            This tool follows Denver MeshCore Naming Convention v2.0.
         </small>
     </p>
 
@@ -21,6 +21,20 @@
     </div>
 
     <form id="repeater-form" method="post" action="/api/generate_repeater_details" novalidate>
+        <div class="form-group">
+            <label for="region">Nearest Airport:</label>
+            <select id="region" name="region" required>
+                {% for region in regions %}
+                <option value="{{ region.code }}">{{ region.name }}</option>
+                {% endfor %}
+            </select>
+            <span class="help-text">
+                    Select the nearest airport to where this repeater will be located.
+                    <br/>
+                    Unsure which airport is closest? Check <a href="https://www.travelmath.com/nearest-airport/">here</a>.
+                </span>
+        </div>
+
         <div class="form-group">
             <label for="city">City:</label>
             <select id="city" name="city" required>
@@ -39,7 +53,7 @@
             <label for="landmark">Landmark: <span class="required">*</span></label>
             <input id="landmark" name="landmark" type="text" maxlength="7" placeholder="e.g., 'COLFAX'" required>
             <span class="help-text">
-                    Enter a recognizable landmark name abbreviation (max <span id="landmark-length">7</span> characters)
+                    Enter a recognizable landmark name abbreviation (max <span id="landmark-length">5</span> characters)
                     <br/>
                     <b>Need inspiration or clarification?</b> See <a
                     href="https://analyzer.letsmesh.net/nodes/repeaters">existing repeaters</a> for examples.
@@ -64,16 +78,6 @@
                     {% endfor %}
                 </ul>
             </details>
-        </div>
-
-        <div class="form-group checkbox-group">
-            <label for="is-observer">
-                <input id="is-observer" name="is-observer" type="checkbox">
-                <span>Is Observer</span>
-            </label>
-            <span class="help-text">
-                    Enable if this node will also operate as a <a href="https://analyzer.letsmesh.net/observer/onboard">LetsMesh observer</a>.
-                </span>
         </div>
 
         <button type="submit" id="submit-btn">Generate Configuration</button>
