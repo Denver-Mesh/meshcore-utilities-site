@@ -1506,8 +1506,8 @@
     {
       "name": "Loveland",
       "codes": {
-        "three": "",
-        "five": "LVLND",
+        "three": "LOV",
+        "five": "LOVE",
         "seven": "LOVELND",
         "fourteen": "LOVELAND"
       }
