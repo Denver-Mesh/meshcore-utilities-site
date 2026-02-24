@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
         function updateKeySteps() {
             const privateKeyValue = document.getElementById('private-key-input').value.trim();
             const keyCommand = privateKeyValue ? `set prv.key ${privateKeyValue}` : 'set prv.key YOUR_PRIVATE_KEY';
-            keyUpdateSteps.innerHTML = `<p><strong>To update your keys:</strong></p><ol><li>Connect your repeater to your computer via USB.</li><li>Open <a href="https://flasher.meshcore.co.uk/">the Web Flasher</a> and click "Console"</li><li>Run the following command: <pre><code>${keyCommand}</code></pre></li><li>Reboot your repeater to apply the change.</li></ol><p>This process will update your private key and (indirectly) your public key.</p>`;
+            keyUpdateSteps.innerHTML = `<p><strong>To update your keys:</strong></p><ol><li>Connect your repeater to your computer via USB.</li><li>Open <a href="https://flasher.meshcore.co.uk/" target="_blank">the Web Flasher</a> and click "Console"</li><li>Run the following command: <pre><code>${keyCommand}</code></pre></li><li>Reboot your repeater to apply the change.</li></ol><p>This process will update your private key and (indirectly) your public key.</p>`;
         }
         content.appendChild(keyUpdateSteps);
 
