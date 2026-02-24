@@ -198,7 +198,7 @@ button[type="submit"]:disabled {
     background-color: #8e44ad;
 }
 
-.key-explanation {
+.explanation-box {
     background-color: white;
     border-left: 4px solid #3498db;
     padding: 15px;
@@ -207,17 +207,21 @@ button[type="submit"]:disabled {
     font-size: 14px;
 }
 
-.key-explanation p {
+.explanation-box p {
     margin: 8px 0;
 }
 
-.key-explanation a {
+.explanation-box a {
     color: #3498db;
     text-decoration: none;
 }
 
-.key-explanation a:hover {
+.explanation-box a:hover {
     text-decoration: underline;
+}
+
+.explanation-box ol li {
+    margin-left: 1.5em;
 }
 
 .result-field {

@@ -111,8 +111,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Create explanation field for keys
         const explanationField = document.createElement('div');
-        explanationField.className = 'key-explanation';
-        explanationField.innerHTML = '<p>Optionally, paste your public and private key below to include it in your configuration file.</p></br><p><strong>NOTE:</strong> These values will remain local and will <strong>NOT</strong> be transmitted or stored.</p>';
+        explanationField.className = 'explanation-box';
+        explanationField.innerHTML = '<p>Paste your public and private key below to include it in your configuration file.</p><p><strong>NOTE:</strong> These values will remain local and will <strong>NOT</strong> be transmitted or stored.</p>';
         content.appendChild(explanationField);
 
 
@@ -123,6 +123,16 @@ document.addEventListener('DOMContentLoaded', function () {
         // Create private key input field
         const privateKeyField = createKeyInputField('Private Key:', 'private-key-input', 'Paste your private key here');
         content.appendChild(privateKeyField);
+
+        // Create key update steps
+        const keyUpdateSteps = document.createElement('div');
+        keyUpdateSteps.className = 'explanation-box';
+        function updateKeySteps() {
+            const privateKeyValue = document.getElementById('private-key-input').value.trim();
+            const keyCommand = privateKeyValue ? `set prv.key ${privateKeyValue}` : 'set prv.key YOUR_PRIVATE_KEY';
+            keyUpdateSteps.innerHTML = `<p><strong>To update your keys:</strong></p><ol><li>Connect your repeater to your computer via USB.</li><li>Open <a href="https://flasher.meshcore.co.uk/">the Web Flasher</a> and click "Console"</li><li>Run the following command: <pre><code>${keyCommand}</code></pre></li><li>Reboot your repeater to apply the change.</li></ol><p>This process will update your private key and (indirectly) your public key.</p>`;
+        }
+        content.appendChild(keyUpdateSteps);
 
         // Create actions section
         const actions = document.createElement('div');
@@ -146,6 +156,10 @@ document.addEventListener('DOMContentLoaded', function () {
         resultDiv.appendChild(content);
         resultDiv.style.display = 'block';
         resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+        // Trigger private key steps update
+        updateKeySteps();
+        document.getElementById('private-key-input').addEventListener('input', updateKeySteps);
     }
 
     function createResultField(labelText, value, id) {
