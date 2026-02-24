@@ -4,7 +4,7 @@ from typing import Optional
 from flask import Flask, render_template, request
 from pydantic import BaseModel, model_validator, Field, field_validator
 
-import letsmesh
+import keys
 import utils
 from utils import NodeType
 
@@ -63,12 +63,12 @@ class NodeInformation(BaseModel):
 @app.route('/')
 def index():
     node_types = [
-        {'code': NodeType.REPEATER_CORE.value, 'human_readable': NodeType.REPEATER_CORE.value,
-         'description': 'A repeater that serves as a critical backbone for the mesh network. Should be permanently installed in a fixed, high-elevation location. Typically solar-powered.'},
-        {'code': NodeType.REPEATER_DISTRIBUTOR.value, 'human_readable': NodeType.REPEATER_DISTRIBUTOR.value,
-         'description': 'A repeater that serves as a bridge between core repeaters and edge repeaters. Should be placed in a fixed, elevated suburban location. Typically solar-powered.'},
         {'code': NodeType.REPEATER_EDGE.value, 'human_readable': NodeType.REPEATER_EDGE.value,
          'description': 'A repeater that connects a neighborhood or building to distributor or core repeaters. Should be installed on residential rooftops or near windows. Can be solar-powered or plugged in, depending on location and power availability.'},
+        {'code': NodeType.REPEATER_DISTRIBUTOR.value, 'human_readable': NodeType.REPEATER_DISTRIBUTOR.value,
+         'description': 'A repeater that serves as a bridge between core repeaters and edge repeaters. Should be placed in a fixed, elevated suburban location. Typically solar-powered.'},
+        {'code': NodeType.REPEATER_CORE.value, 'human_readable': NodeType.REPEATER_CORE.value,
+         'description': 'A repeater that serves as a critical backbone for the mesh network. Should be permanently installed in a fixed, high-elevation location. Typically solar-powered. Please coordinate with community members before installing a core repeater.'},
         {'code': NodeType.REPEATER_MOBILE.value, 'human_readable': NodeType.REPEATER_MOBILE.value,
          'description': 'A repeater that is temporarily installed and can be moved to different locations as needed, or is installed in a vehicle.'},
         {'code': NodeType.ROOM_SERVER_STANDARD.value, 'human_readable': NodeType.ROOM_SERVER_STANDARD.value,
@@ -95,7 +95,7 @@ def generate_repeater_details():
     data = request.get_json()
     node_information: NodeInformation = NodeInformation(**data)
 
-    suggested_public_key_id: str = letsmesh.suggest_public_key_id()
+    suggested_public_key_id: str = keys.suggest_public_key_id()
 
     name: str = utils.generate_repeater_name(
         region=node_information.region,
@@ -128,8 +128,8 @@ def validate_public_key():
     public_key_id: str = utils.public_key_to_public_key_id(public_key=public_key)
 
     valid = (
-            len(letsmesh.get_conflicting_nodes(public_key_id=public_key_id)) <= 0 and
-            not letsmesh.is_reserved_public_key_id(public_key_id=public_key_id)
+            len(keys.get_conflicting_nodes(public_key_id=public_key_id)) <= 0 and
+            not keys.is_reserved_public_key_id(public_key_id=public_key_id)
     )
 
     return {
@@ -143,7 +143,7 @@ def suggest_public_key_id():
     Suggest a public key ID that does not conflict with any existing nodes in the Denver region.
     :return: A JSON object containing a suggested public key ID
     """
-    suggested_public_key_id: str = letsmesh.suggest_public_key_id()
+    suggested_public_key_id: str = keys.suggest_public_key_id()
     return {
         "public_key_id": suggested_public_key_id,
     }

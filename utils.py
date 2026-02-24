@@ -57,12 +57,16 @@ def public_key_to_public_key_id(public_key: str) -> str:
 def is_reserved_public_key_id(public_key_id: str) -> bool:
     """
     Check if a public key ID is reserved.
-    :param public_key_id: The public key ID to check.
+    :param public_key_id: The public key ID to check (2 or 4 hex characters).
     :type public_key_id: str
     :return: True if the public key ID is reserved, False otherwise.
     :rtype: bool
     """
-    if public_key_id[:2] in ["00", "ff"]:
+    if public_key_id[:2].upper() in ["00", "FF"]:  # Reserved by LetsMesh/MeshMapper
+        return True
+
+    # ref: ottawamesh.ca/deployment/repeaters-intercity/
+    if public_key_id[:1].upper() in ['A']:  # A-block reserved by DenverMesh for future use
         return True
 
     return False
