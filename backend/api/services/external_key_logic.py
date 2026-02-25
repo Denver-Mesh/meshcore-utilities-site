@@ -1,119 +1,15 @@
-import enum
-from abc import abstractmethod, ABC
-from typing import Optional
+import time
+from urllib.parse import quote
 
 import objectrest
-from pydantic import BaseModel
 
-from backend.utils import is_reserved_public_key_id
+from backend.api.models.letsmesh_node import LetsMeshNode
+from backend.api.models.node import Node
+from backend.api.services.name_generator import is_reserved_public_key_id
 
-MESHMAPPER_REPEATERS_URL = "https://den.meshmapper.net/api.php?request=repeaters"  # Just repeaters/room servers in Denver
+DENVER_REPEATERS_DATA = "https://raw.githubusercontent.com/Denver-Mesh/docs/refs/heads/master/MeshCore/nodes/repeaters.json"
+# DENVER_COMPANIONS_DATA = "https://raw.githubusercontent.com/Denver-Mesh/docs/refs/heads/master/MeshCore/nodes/companions.json"
 LETSMESH_NODES_URL = "https://api.letsmesh.net/api/nodes?region=DEN"  # All devices in Denver
-
-
-class BaseNode(BaseModel, ABC):
-    pass
-
-    @abstractmethod
-    def public_key_id(self) -> str:
-        """
-        Return the first byte (2-character hex string) of the public key, which is used as an identifier for the node.
-        :return: The first byte of the public key as a hex string.
-        :rtype: str
-        """
-        raise NotImplementedError("Subclasses must implement the public_key_id property")
-
-
-class NodeType(enum.Enum):
-    COMPANION = 1
-    REPEATER = 2
-    ROOM_SERVER = 3
-
-    @classmethod
-    def from_letsmesh_role(cls, role: int) -> 'NodeType':
-        if role == 1:
-            return cls.COMPANION
-        elif role == 2:
-            return cls.REPEATER
-        elif role == 3:
-            return cls.ROOM_SERVER
-        else:
-            raise ValueError(f"Unknown device role: {role}")
-
-
-class Node(BaseNode):
-    """
-    Internal representation of a node, which can be either a LetsMeshNode or a MeshMapperRepeater.
-    Used for processing and comparing nodes from both sources.
-    """
-    public_key: str
-    name: str
-    latitude: Optional[float] = None
-    longitude: Optional[float] = None
-    node_type: NodeType
-    is_observer: bool = False
-
-    @property
-    def public_key_id(self) -> str:
-        """
-        Return the first two bytes (4-character hex string) of the public key, which is used as an identifier for the node.
-        Always returns the public key ID in uppercase to ensure consistency when comparing with other nodes.
-        :return: The first two bytes of the public key as a hex string, in uppercase.
-        :rtype: str
-        """
-        return self.public_key_id_4_char
-
-    @property
-    def public_key_id_4_char(self) -> str:
-        """
-        Return the first two bytes (4-character hex string) of the public key, which is used as an identifier for the node.
-        Always returns the public key ID in uppercase to ensure consistency when comparing with other nodes.
-        :return: The first two bytes of the public key as a hex string, in uppercase.
-        :rtype: str
-        """
-        return self.public_key[:4].upper()
-
-    @property
-    def public_key_id_2_char(self) -> str:
-        """
-        Return the first byte (2-character hex string) of the public key, which is used as an identifier for the node.
-        Always returns the public key ID in uppercase to ensure consistency when comparing with other nodes.
-        :return: The first byte of the public key as a hex string, in uppercase.
-        :rtype: str
-        """
-        return self.public_key[:2].upper()
-
-
-class MeshMapperRepeater(BaseModel):
-    id: str
-    hex_id: str
-    name: str
-    lat: float
-    lon: float
-    last_heard: int
-    created_at: str
-    enabled: int
-    power: str
-    iata: str
-    can_reach: str | None
-    notes: str | None
-    locked: int
-
-
-class LetsMeshNodeLocation(BaseModel):
-    latitude: float
-    longitude: float
-
-
-class LetsMeshNode(BaseModel):
-    public_key: str
-    name: str
-    device_role: int
-    regions: list[str]
-    first_seen: str
-    last_seen: str
-    is_mqtt_connected: bool
-    location: Optional[LetsMeshNodeLocation] = None
 
 
 def _compare_public_key_ids(id_1: str, id_2: str) -> bool:
@@ -143,6 +39,23 @@ def _id_exists_in_list(id_: str, ids_to_track: list[str]) -> bool:
     return any(_compare_public_key_ids(id_1=id_, id_2=existing_id) for existing_id in ids_to_track)
 
 
+def _build_contact_url(name: str, public_key: str) -> str:
+    encoded_name = quote(name)
+    return f"meshcore://contact/add?name={encoded_name}&public_key={public_key.upper()}&type=2"
+
+
+def _iso8601_to_unix_timestamp(iso_str: str) -> int:
+    if not iso_str:
+        return 0
+
+    try:
+        # e.g. 2026-02-18T01:19:00.379Z
+        dt = time.strptime(iso_str, "%Y-%m-%dT%H:%M:%S.%fZ")
+        return int(time.mktime(dt))
+    except Exception as e:
+        return 0
+
+
 def get_denver_nodes() -> list[Node]:
     """
     Get all nodes in the Denver region from the LetsMesh API (repeaters, room servers, and companions)
@@ -167,8 +80,11 @@ def get_denver_nodes() -> list[Node]:
             name=node.name,
             latitude=node.location.latitude if node.location else None,
             longitude=node.location.longitude if node.location else None,
-            node_type=NodeType.from_letsmesh_role(node.device_role),
-            is_observer=not node.is_mqtt_connected
+            node_type=node.device_role.to_node_type,
+            is_observer=not node.is_mqtt_connected,
+            contact=_build_contact_url(name=node.name, public_key=node.public_key),
+            created_at=_iso8601_to_unix_timestamp(node.first_seen),
+            last_heard=_iso8601_to_unix_timestamp(node.last_seen),
         )
         for node in letsmesh_nodes
     ]
@@ -176,24 +92,14 @@ def get_denver_nodes() -> list[Node]:
 
 def get_denver_repeaters() -> list[Node]:
     """
-    Get all repeaters/room servers in the Denver region from the MeshMapper API.
+    Get all repeaters/room servers in the Denver region from the MeshMapper snapshot.
     :return: A list of Node objects representing all repeaters/room servers in the Denver region.
     :rtype: list[Node]
     """
-    meshmapper_repeaters: list[MeshMapperRepeater] = objectrest.get_object(url=MESHMAPPER_REPEATERS_URL,  # type: ignore
-                                                                           model=MeshMapperRepeater,
-                                                                           extract_list=True)
-    return [
-        Node(
-            public_key=repeater.hex_id,
-            name=repeater.name,
-            latitude=repeater.lat,
-            longitude=repeater.lon,
-            node_type=NodeType.REPEATER,
-            is_observer=False  # Unknown
-        )
-        for repeater in meshmapper_repeaters
-    ]
+    nodes: list[Node] = objectrest.get_object(url=DENVER_REPEATERS_DATA,  # type: ignore
+                                              model=Node,
+                                              extract_list=True)
+    return nodes
 
 
 def get_conflicting_repeaters(public_key_id: str) -> list[Node]:

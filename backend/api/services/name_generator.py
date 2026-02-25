@@ -1,46 +1,10 @@
-import enum
 from typing import Optional
+
+from backend.api.models.node_information import UserNodeType
 
 # 3-5-5-2-4 or 3-11-2-4
 NAMING_SCHEMA = "{region}-{city}-{landmark}-{type}-{pub_key_id}"  # Ex. DEN-DENVR-CHESSMN-RC-XXXX for a core repeater near Chessman Park in Denver, Colorado
 NAMING_SCHEMA_ALT = "{region}-{landmark}-{type}-{pub_key_id}"  # Ex. COS-PIKESPEAK-RC-XXXX for a core repeater on Pikes Peak, which is not within a city
-
-
-class NodeType(enum.Enum):
-    REPEATER_CORE = "Repeater - Core"
-    REPEATER_DISTRIBUTOR = "Repeater - Distributor"
-    REPEATER_EDGE = "Repeater - Edge"
-    REPEATER_MOBILE = "Repeater - Mobile"
-    ROOM_SERVER_STANDARD = "Room Server - Standard"
-    ROOM_SERVER_MOBILE = "Room Server - Mobile"
-    ROOM_SERVER_REPEAT_ENABLED = "Room Server - Repeat Enabled"
-    COMPANION = "Companion"  # Should not be allowed for name generation, but included for completeness
-
-    @classmethod
-    def to_acronym(cls, node_type: 'NodeType') -> str:
-        """
-        Convert a NodeType to its corresponding acronym.
-        :param node_type: The NodeType to convert.
-        :type node_type: NodeType
-        :return: The corresponding acronym (the first letter of the type).
-        :rtype: str
-        """
-        if node_type == cls.REPEATER_CORE:
-            return "RC"
-        elif node_type == cls.REPEATER_DISTRIBUTOR:
-            return "RD"
-        elif node_type == cls.REPEATER_EDGE:
-            return "RE"
-        elif node_type == cls.REPEATER_MOBILE:
-            return "RM"
-        elif node_type == cls.ROOM_SERVER_STANDARD:
-            return "TS"
-        elif node_type == cls.ROOM_SERVER_REPEAT_ENABLED:
-            return "TR"
-        elif node_type == cls.ROOM_SERVER_MOBILE:
-            return "TM"
-        else:
-            raise ValueError(f"Unknown node type: {node_type}")
 
 
 def public_key_to_public_key_id(public_key: str) -> str:
@@ -65,7 +29,7 @@ def is_reserved_public_key_id(public_key_id: str) -> bool:
     if public_key_id[:2].upper() in ["00", "FF"]:  # Reserved by LetsMesh/MeshMapper
         return True
 
-    # ref: ottawamesh.ca/deployment/repeaters-intercity/
+    # ref: https://ottawamesh.ca/deployment/repeaters-intercity/
     if public_key_id[:1].upper() in ['A']:  # A-block reserved by DenverMesh for future use
         return True
 
@@ -75,7 +39,7 @@ def is_reserved_public_key_id(public_key_id: str) -> bool:
 def generate_repeater_name(region: str,
                            city: Optional[str],
                            landmark: str,
-                           node_type: NodeType,
+                           node_type: UserNodeType,
                            public_key_id: str) -> str:
     """
     Generate a repeater name based on the provided details.
@@ -86,7 +50,7 @@ def generate_repeater_name(region: str,
     :param landmark: The landmark code (up to 5 characters if city is provided, up to 11 characters if city is not provided)
     :type landmark: str
     :param node_type: The type of node.
-    :type node_type: NodeType
+    :type node_type: UserNodeType
     :param public_key_id: The public key ID (the first byte of the public key as a hex string).
     :type public_key_id: str
     :return: A generated repeater name based on the provided details.
@@ -94,15 +58,15 @@ def generate_repeater_name(region: str,
     """
     # Ex. DEN-DENVR-CHESSMN-RC-XXXX for a core repeater near Chessman Park in Denver, Colorado
     # Ex. COS-PIKESPEAK-RC-XXXX for a core repeater on Pikes Peak, which is not within a city
-    if node_type == NodeType.COMPANION:
+    if node_type == UserNodeType.COMPANION:
         raise ValueError("Cannot generate names for companion nodes")
 
-    suffix = NodeType.to_acronym(node_type=node_type)
+    suffix = UserNodeType.to_acronym(node_type=node_type)
 
     if not city:
         return NAMING_SCHEMA_ALT.format(
             region=region.upper(),
-            landmark=landmark, # Not automatically uppercased
+            landmark=landmark,  # Not automatically uppercased
             type=suffix.upper(),
             pub_key_id=public_key_id.upper()
         )
@@ -110,7 +74,7 @@ def generate_repeater_name(region: str,
         return NAMING_SCHEMA.format(
             region=region.upper(),
             city=city.upper(),
-            landmark=landmark, # Not automatically uppercased
+            landmark=landmark,  # Not automatically uppercased
             type=suffix.upper(),
             pub_key_id=public_key_id.upper()
         )

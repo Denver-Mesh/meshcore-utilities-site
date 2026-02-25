@@ -1,8 +1,44 @@
+import enum
 from typing import Optional
 
 from pydantic import BaseModel, model_validator, Field, field_validator
 
-from backend.utils import NodeType
+
+class UserNodeType(enum.Enum):
+    REPEATER_CORE = "Repeater - Core"
+    REPEATER_DISTRIBUTOR = "Repeater - Distributor"
+    REPEATER_EDGE = "Repeater - Edge"
+    REPEATER_MOBILE = "Repeater - Mobile"
+    ROOM_SERVER_STANDARD = "Room Server - Standard"
+    ROOM_SERVER_MOBILE = "Room Server - Mobile"
+    ROOM_SERVER_REPEAT_ENABLED = "Room Server - Repeat Enabled"
+    COMPANION = "Companion"  # Should not be allowed for name generation, but included for completeness
+
+    @classmethod
+    def to_acronym(cls, node_type: 'UserNodeType') -> str:
+        """
+        Convert a UserNodeType to its corresponding acronym.
+        :param node_type: The UserNodeType to convert.
+        :type node_type: UserNodeType
+        :return: The corresponding acronym (the first letter of the type).
+        :rtype: str
+        """
+        if node_type == cls.REPEATER_CORE:
+            return "RC"
+        elif node_type == cls.REPEATER_DISTRIBUTOR:
+            return "RD"
+        elif node_type == cls.REPEATER_EDGE:
+            return "RE"
+        elif node_type == cls.REPEATER_MOBILE:
+            return "RM"
+        elif node_type == cls.ROOM_SERVER_STANDARD:
+            return "TS"
+        elif node_type == cls.ROOM_SERVER_REPEAT_ENABLED:
+            return "TR"
+        elif node_type == cls.ROOM_SERVER_MOBILE:
+            return "TM"
+        else:
+            raise ValueError(f"Unknown node type: {node_type}")
 
 
 class NodeInformation(BaseModel):
@@ -10,7 +46,7 @@ class NodeInformation(BaseModel):
     city: Optional[str] = Field(alias="city",
                                 default=None)  # <=5-char city code, optional since some locations may not be within a city
     landmark: str = Field(alias="landmark", default=None)  # <=5-char landmark code
-    node_type: NodeType = Field(alias="node-type")
+    node_type: UserNodeType = Field(alias="node-type")
 
     @classmethod
     @field_validator('is_observer', mode='before')
