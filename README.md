@@ -1,4 +1,4 @@
-# Denver Mesh Utilities
+# Denver MeshCore Utilities
 
 A web application for generating MeshCore repeater configurations.
 
