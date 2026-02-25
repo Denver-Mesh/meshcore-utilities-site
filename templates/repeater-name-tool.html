@@ -3,7 +3,7 @@
 <head>
     <title>MeshCore Utilities</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="{{ url_for('static', filename='js/name_tool.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/repeater_name_tool.js') }}"></script>
 </head>
 <body>
 <div class="container">
@@ -20,7 +20,7 @@
         <strong>⚠️ Please fill out all required fields before submitting.</strong>
     </div>
 
-    <form id="repeater-form" method="post" action="/name_tool/submit" novalidate>
+    <form id="repeater-form" method="post" action="/repeater_name_tool/submit" novalidate>
         <div class="form-group">
             <label for="region">Nearest Airport:</label>
             <select id="region" name="region" required>

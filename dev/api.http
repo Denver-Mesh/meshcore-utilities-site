@@ -20,7 +20,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:50000/name_tool/submit
+POST http://localhost:50000/repeater_name_tool/submit
 Content-Type: application/json
 
 {

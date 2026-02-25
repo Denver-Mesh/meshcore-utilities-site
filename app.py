@@ -2,12 +2,14 @@ import json
 
 from flask import Flask, render_template
 
-from backend.api.routes.name_tool.index import name_tool
+from backend.api.routes.repeater_name_tool.index import repeater_name_tool
+from backend.api.routes.companion_name_tool.index import companion_name_tool
 from backend.api.services.repeater_contacts import prepare_repeater_contacts
 from backend.constants import FLASK_HOST, FLASK_PORT, FLASK_GET
 
 app = Flask(__name__)
-app.register_blueprint(name_tool)
+app.register_blueprint(repeater_name_tool)
+app.register_blueprint(companion_name_tool)
 
 
 # Landing page
