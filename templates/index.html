@@ -3,87 +3,15 @@
 <head>
     <title>DenverMesh Utilities</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </head>
 <body>
 <div class="container">
-    <h1>MeshCore Repeater Configuration Generator</h1>
-    <p class="subtitle">
-        Configure your Denver MeshCore repeater details
-        <br>
-        <small>
-            This tool follows <a href="https://github.com/Denver-Mesh/docs/blob/master/MeshCore/standards/naming/v2.1.md">Denver MeshCore Naming Convention v2.1</a>.
-        </small>
-    </p>
-
-    <div id="validation-error" class="validation-message" style="display: none;">
-        <strong>⚠ Please fill out all required fields before submitting.</strong>
+    <h1>DenverMesh Utilities</h1>
+    <p class="subtitle">Select a tool to get started:</p>
+    <div class="tool-list">
+        <a href="/name_tool" class="tool-link">MeshCore Repeater Configuration Generator</a>
+        <!-- Future tools can be added here -->
     </div>
-
-    <form id="repeater-form" method="post" action="/api/generate_repeater_details" novalidate>
-        <div class="form-group">
-            <label for="region">Nearest Airport:</label>
-            <select id="region" name="region" required>
-                {% for region in regions %}
-                <option value="{{ region.code }}">{{ region.name }}</option>
-                {% endfor %}
-            </select>
-            <span class="help-text">
-                    Select the nearest airport to where this repeater will be located.
-                    <br/>
-                    Unsure which airport is closest? Check <a href="https://www.travelmath.com/nearest-airport/">here</a>.
-                </span>
-        </div>
-
-        <div class="form-group">
-            <label for="city">City:</label>
-            <select id="city" name="city" required>
-                {% for city in cities %}
-                <option value="{{ city.code }}">{{ city.name }}</option>
-                {% endfor %}
-            </select>
-            <span class="help-text">
-                    Select the city where this repeater will be located.
-                    <br/>
-                    If the landmark is <b>well-known or spans multiple cities</b>, you can skip this field.
-                </span>
-        </div>
-
-        <div class="form-group">
-            <label for="landmark">Landmark: <span class="required">*</span></label>
-            <input id="landmark" name="landmark" type="text" maxlength="7" placeholder="e.g., 'COLFAX'" required>
-            <span class="help-text">
-                    Enter a recognizable landmark name abbreviation (max <span id="landmark-length">5</span> characters)
-                    <br/>
-                    <b>Need inspiration or clarification?</b> See <a
-                    href="https://analyzer.letsmesh.net/nodes/repeaters">existing repeaters</a> for examples.
-                </span>
-        </div>
-
-        <div class="form-group">
-            <label for="node-type">Node Type: <span class="required">*</span></label>
-            <select id="node-type" name="node-type" required>
-                {% for node_type in node_types %}
-                <option value="{{ node_type.code }}">{{ node_type.human_readable }}</option>
-                {% endfor %}
-            </select>
-            <span class="help-text">
-                    Choose the role type for this node.
-                </span>
-            <details>
-                <summary>What do these options mean?</summary>
-                <ul>
-                    {% for node_type in node_types %}
-                    <li><b>{{ node_type.human_readable }}</b>: {{ node_type.description }}</li>
-                    {% endfor %}
-                </ul>
-            </details>
-        </div>
-
-        <button type="submit" id="submit-btn">Generate Configuration</button>
-    </form>
-
-    <div id="result"></div>
 </div>
 </body>
 </html>

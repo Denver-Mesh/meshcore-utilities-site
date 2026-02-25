@@ -5,7 +5,7 @@ from typing import Optional
 import objectrest
 from pydantic import BaseModel
 
-from utils import is_reserved_public_key_id
+from backend.utils import is_reserved_public_key_id
 
 MESHMAPPER_REPEATERS_URL = "https://den.meshmapper.net/api.php?request=repeaters"  # Just repeaters/room servers in Denver
 LETSMESH_NODES_URL = "https://api.letsmesh.net/api/nodes?region=DEN"  # All devices in Denver
@@ -25,18 +25,18 @@ class BaseNode(BaseModel, ABC):
 
 
 class NodeType(enum.Enum):
-    REPEATER = 1
-    ROOM_SERVER = 2
-    COMPANION = 3
+    COMPANION = 1
+    REPEATER = 2
+    ROOM_SERVER = 3
 
     @classmethod
     def from_letsmesh_role(cls, role: int) -> 'NodeType':
         if role == 1:
-            return cls.REPEATER
-        elif role == 2:
-            return cls.ROOM_SERVER
-        elif role == 3:
             return cls.COMPANION
+        elif role == 2:
+            return cls.REPEATER
+        elif role == 3:
+            return cls.ROOM_SERVER
         else:
             raise ValueError(f"Unknown device role: {role}")
 

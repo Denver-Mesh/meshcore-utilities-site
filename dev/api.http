@@ -20,7 +20,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:50000/api/generate_repeater_details
+POST http://localhost:50000/name_tool/submit
 Content-Type: application/json
 
 {
