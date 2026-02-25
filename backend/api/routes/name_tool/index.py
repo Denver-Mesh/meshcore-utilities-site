@@ -11,6 +11,7 @@ from backend.api.services.external_key_logic import suggest_public_key_id
 from backend.api.services.name_generator import generate_repeater_name
 from backend.constants import (
     FLASK_GET,
+    FLASK_POST
 )
 
 name_tool = Blueprint("name_tool", __name__, url_prefix="/name_tool")
@@ -63,7 +64,7 @@ def index():
 
 
 # API endpoints
-@name_tool.route('/submit', methods=['POST'])
+@name_tool.route('/submit', methods=[FLASK_POST])
 def generate_repeater_details():
     """
     Generate repeater name and public key ID recommendation given the details.

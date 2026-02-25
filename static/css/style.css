@@ -24,22 +24,25 @@ body {
 h1 {
     color: #2c3e50;
     margin-bottom: 8px;
-    font-size: 28px;
+    font-size: 32px;
+    font-weight: 700;
 }
 
 .subtitle {
-    color: #7f8c8d;
+    color: #666;
     margin-bottom: 30px;
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .validation-message {
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    color: #721c24;
+    background-color: #fef3cd;
+    border: 1px solid #ffeaa7;
+    color: #856404;
     padding: 12px 15px;
-    border-radius: 4px;
+    border-radius: 6px;
     margin-bottom: 20px;
+    font-weight: 500;
 }
 
 .required {
@@ -62,11 +65,12 @@ label {
 input[type="text"],
 select {
     width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
     font-size: 14px;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.2s;
+    background-color: #fafafa;
 }
 
 input[type="text"]:focus,
@@ -111,45 +115,103 @@ select.invalid:focus {
 .help-text {
     display: block;
     font-size: 13px;
-    color: #7f8c8d;
-    margin-top: 6px;
+    color: #666;
+    margin-top: 8px;
     font-style: italic;
+}
+
+.help-text a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.help-text a:hover {
+    text-decoration: underline;
+}
+
+details {
+    margin-top: 12px;
+    padding: 12px;
+    background-color: #f5f7fa;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+details summary {
+    font-weight: 600;
+    color: #2c3e50;
+    user-select: none;
+}
+
+details ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+details li {
+    margin-bottom: 8px;
+}
+
+button {
+    width: 100%;
+    padding: 16px 24px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+    transform: translateY(0px);
 }
 
 button[type="submit"] {
     width: 100%;
     background-color: #3498db;
     color: white;
-    padding: 12px 24px;
+    padding: 14px 24px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.1s;
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s;
     margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
 button[type="submit"]:hover {
-    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
 button[type="submit"]:active {
-    transform: translateY(1px);
+    transform: translateY(0px);
 }
 
 button[type="submit"]:disabled {
     background-color: #bdc3c7;
     cursor: not-allowed;
     opacity: 0.6;
+    box-shadow: none;
 }
 
 #result {
     margin-top: 30px;
-    border-radius: 6px;
+    border-radius: 8px;
     display: none;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 #result.success {
@@ -181,6 +243,34 @@ button[type="submit"]:disabled {
     padding: 20px;
 }
 
+.tool-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.tool-link {
+    display: block;
+    padding: 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #f0f2f5 100%);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.tool-link:hover {
+    background: #764ba2;
+    color: white;
+    border-color: #667eea;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+    transform: translateY(-3px);
+}
+
 .generate-keys-btn {
     display: inline-block;
     margin: 15px 0 20px 0;
@@ -202,9 +292,10 @@ button[type="submit"]:disabled {
     background-color: white;
     border-left: 4px solid #3498db;
     padding: 15px;
-    border-radius: 4px;
+    border-radius: 6px;
     margin: 20px 0;
     font-size: 14px;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
 }
 
 .explanation-box p {
@@ -212,8 +303,9 @@ button[type="submit"]:disabled {
 }
 
 .explanation-box a {
-    color: #3498db;
+    color: #667eea;
     text-decoration: none;
+    font-weight: 500;
 }
 
 .explanation-box a:hover {
@@ -280,6 +372,7 @@ button[type="submit"]:disabled {
 }
 
 .copy-btn {
+    width: auto !important;  /* Override the width: 100% from button */
     background-color: #3498db;
     color: white;
     border: none;
@@ -303,7 +396,7 @@ button[type="submit"]:disabled {
 .result-actions {
     margin-top: 25px;
     padding-top: 20px;
-    border-top: 1px solid #ddd;
+    border-top: 2px solid #e0e0e0;
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
@@ -313,11 +406,11 @@ button[type="submit"]:disabled {
 .generate-keys-btn {
     display: inline-block;
     padding: 12px 24px;
-    border-radius: 4px;
+    border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
     font-size: 15px;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
     border: none;
     cursor: pointer;
 }
@@ -325,8 +418,21 @@ button[type="submit"]:disabled {
 .download-btn {
     background-color: #16a34a;
     color: white;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
 }
 
 .download-btn:hover {
-    background-color: #15803d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(22, 163, 74, 0.4);
+}
+
+.generate-keys-btn {
+    background: #9b59b6;
+    color: white;
+    box-shadow: 0 4px 12px rgba(155, 89, 182, 0.3);
+}
+
+.generate-keys-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(155, 89, 182, 0.4);
 }

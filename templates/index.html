@@ -6,11 +6,47 @@
 </head>
 <body>
 <div class="container">
-    <h1>DenverMesh Utilities</h1>
-    <p class="subtitle">Select a tool to get started:</p>
+    <h1>🔧 DenverMesh Utilities</h1>
+
     <div class="tool-list">
-        <a href="/name_tool" class="tool-link">MeshCore Repeater Configuration Generator</a>
-        <!-- Future tools can be added here -->
+        <a href="/name_tool" class="tool-link">
+            <div style="font-size: 18px; margin-bottom: 8px;">⚙️ Repeater Configuration Generator</div>
+            <div style="font-size: 13px; opacity: 0.8;">Generate a name for your MeshCore repeater based on standards</div>
+        </a>
+        <div style="margin-top: 30px;">
+            <h2 style="font-size: 18px; margin-bottom: 15px; color: #2c3e50;">Shortcuts</h2>
+            <button class="quickstart-button" id="downloadRepeaterContacts">📥 Download Repeater Contacts</button>
+        </div>
+
+        <script>
+            document.getElementById('downloadRepeaterContacts').addEventListener('click', function () {
+                fetch('./repeater_contacts')
+                    .then(response => response.json())
+                    .then(data => {
+                        // Convert JSON to string
+                        const jsonString = JSON.stringify(data, null, 2);
+
+                        // Create a blob with the JSON data
+                        const blob = new Blob([jsonString], {type: 'application/json'});
+
+                        // Create a temporary download link
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = 'denver_repeaters.json';
+
+                        // Trigger download
+                        document.body.appendChild(a);
+                        a.click();
+
+                        // Cleanup
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+
+        </script>
     </div>
 </div>
 </body>

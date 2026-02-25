@@ -1,16 +1,29 @@
+import json
+
 from flask import Flask, render_template
 
 from backend.api.routes.name_tool.index import name_tool
-from backend.constants import FLASK_HOST, FLASK_PORT
+from backend.api.services.repeater_contacts import prepare_repeater_contacts
+from backend.constants import FLASK_HOST, FLASK_PORT, FLASK_GET
 
 app = Flask(__name__)
 app.register_blueprint(name_tool)
 
 
 # Landing page
-@app.route('/', methods=['GET'])
+@app.route('/', methods=[FLASK_GET])
 def index():
     return render_template('index.html')
+
+
+@app.route('/repeater_contacts', methods=[FLASK_GET])
+def get_repeater_contacts():
+    """
+    Send a JSON file with all contacts for repeaters in the Denver area
+    return: A JSON object with a list of contacts for repeaters in the Denver area
+    """
+    data = prepare_repeater_contacts()
+    return json.dumps(data)
 
 
 if __name__ == '__main__':
