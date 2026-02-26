@@ -9,6 +9,10 @@ function _buildInfoCard(repeater) {
             <h2 class="hex-info-title">${repeater.name}</h2>
             <div class="hex-info-grid">
                 <div class="hex-info-item">
+                    <span class="hex-info-label">🔑 Public Key</span>
+                    <span class="hex-info-value">${repeater.public_key}</span>
+                </div>
+                <div class="hex-info-item">
                     <span class="hex-info-label">📍 Location</span>
                     <span class="hex-info-value">${repeater.location}</span>
                 </div>
@@ -174,10 +178,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const searchableFields = [
             info.name,
             info.location,
-            info.antenna,
-            info.state,
-            info.height_metre,
-            info.power_watt
+            info.status,
+            info.status_value,
+            info.public_key
         ];
 
         return searchableFields.some(field => {

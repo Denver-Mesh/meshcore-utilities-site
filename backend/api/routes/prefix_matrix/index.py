@@ -58,7 +58,7 @@ def _build_matrix_entry(cell_id: str, repeaters: list[Node]) -> dict:
         info_json = _build_info_json(repeaters)
         on_click_action = f'showDuplicateInfo("{cell_id}", {info_json})'
 
-    if not any(repeater.status == NodeStatus.ACTIVE for repeater in repeaters):
+    if not any(repeater.status in [NodeStatus.ACTIVE, NodeStatus.NEW] for repeater in repeaters):
         css_class += " hex-inactive"
 
     return {
