@@ -1,3 +1,4 @@
+from backend.api.models.node import Node
 from backend.api.services.external_key_logic import get_denver_repeaters
 
 
@@ -5,7 +6,7 @@ def prepare_repeater_contacts() -> dict:
     """
     Prepare a JSON object containing contacts for repeaters in the Denver area.
     """
-    repeaters = get_denver_repeaters()
+    repeaters: list[Node] = get_denver_repeaters()
     contacts = []
     for repeater in repeaters:
         contacts.append({

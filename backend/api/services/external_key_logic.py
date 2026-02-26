@@ -1,4 +1,3 @@
-import time
 from urllib.parse import quote
 
 import objectrest
@@ -6,6 +5,7 @@ import objectrest
 from backend.api.models.letsmesh_node import LetsMeshNode
 from backend.api.models.node import Node
 from backend.api.services.name_generator import is_reserved_public_key_id
+from backend.modules import utils
 
 DENVER_REPEATERS_DATA = "https://raw.githubusercontent.com/Denver-Mesh/docs/refs/heads/master/MeshCore/nodes/repeaters.json"
 # DENVER_COMPANIONS_DATA = "https://raw.githubusercontent.com/Denver-Mesh/docs/refs/heads/master/MeshCore/nodes/companions.json"
@@ -44,18 +44,6 @@ def _build_contact_url(name: str, public_key: str) -> str:
     return f"meshcore://contact/add?name={encoded_name}&public_key={public_key.upper()}&type=2"
 
 
-def _iso8601_to_unix_timestamp(iso_str: str) -> int:
-    if not iso_str:
-        return 0
-
-    try:
-        # e.g. 2026-02-18T01:19:00.379Z
-        dt = time.strptime(iso_str, "%Y-%m-%dT%H:%M:%S.%fZ")
-        return int(time.mktime(dt))
-    except Exception as e:
-        return 0
-
-
 def get_denver_nodes() -> list[Node]:
     """
     Get all nodes in the Denver region from the LetsMesh API (repeaters, room servers, and companions)
@@ -83,8 +71,8 @@ def get_denver_nodes() -> list[Node]:
             node_type=node.device_role.to_node_type,
             is_observer=not node.is_mqtt_connected,
             contact=_build_contact_url(name=node.name, public_key=node.public_key),
-            created_at=_iso8601_to_unix_timestamp(node.first_seen),
-            last_heard=_iso8601_to_unix_timestamp(node.last_seen),
+            created_at=utils.iso8601_to_unix_timestamp(node.first_seen),
+            last_heard=utils.iso8601_to_unix_timestamp(node.last_seen),
         )
         for node in letsmesh_nodes
     ]
@@ -108,7 +96,7 @@ def get_conflicting_repeaters(public_key_id: str) -> list[Node]:
     :return: A list of Node objects representing all repeaters/room servers that conflict with the provided public key ID.
     :rtype: list[Node]
     """
-    repeaters = get_denver_repeaters()
+    repeaters: list[Node] = get_denver_repeaters()
     return [repeater for repeater in repeaters if
             _compare_public_key_ids(id_1=repeater.public_key_id, id_2=public_key_id)]
 

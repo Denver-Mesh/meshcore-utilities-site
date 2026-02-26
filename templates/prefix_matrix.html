@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MeshCore Utilities</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/prefix_matrix.css') }}">
+    <script src="{{ url_for('static', filename='js/prefix_matrix.js') }}"></script>
+</head>
+<body>
+<div class="container">
+    <div class="hex-matrix-stack">
+        <h1>📑 Denver MeshCore Prefixes</h1>
+        <div class="hex-grid-container">
+            <div class="hex-table-wrapper">
+                <div class="hex-search-container">
+                    <div class="hex-search-wrapper">
+                        <label for="hex-search"></label>
+                        <input type="text" id="hex-search" class="hex-search-input"
+                               placeholder="🔍 Search repeaters by name, location, antenna...">
+                        <button id="hex-search-clear" class="hex-search-clear" style="display:  none;">✕</button>
+                    </div>
+                    <div id="hex-search-results" class="hex-search-results">
+                    </div>
+                </div>
+                <table id="repeater-hex-grid" class="hex-table">
+                    <tbody>
+                    <tr>
+                        <th></th>
+                        {% for hex_char in hex_chars %}
+                        <th>{{ hex_char }}</th>
+                        {% endfor %}
+                    </tr>
+                    {% for row_hex_char in hex_chars %}
+                    <tr>
+                        <th>{{ row_hex_char }}</th>
+                        {% set data = matrix_data[row_hex_char] %}
+                        {% set cells = data['cells'] %}
+                        {% for col_hex_char in hex_chars %}
+                        {% set cell = cells[col_hex_char] %}
+                        <td class="{{ cell.css_class }}" onclick="{{ cell.onclick_js_action }}">
+                            <span class="hex-clickable">{{ cell.id }}</span>
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="hex-modal" class="hex-modal hex-modal-card">
+            <div id="hex-modal-body"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

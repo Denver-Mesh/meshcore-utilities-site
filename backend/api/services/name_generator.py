@@ -35,14 +35,24 @@ def is_reserved_public_key_id(public_key_id: str) -> bool:
     :return: True if the public key ID is reserved, False otherwise.
     :rtype: bool
     """
-    if public_key_id[:2].upper() in ["00", "FF"]:  # Reserved by LetsMesh/MeshMapper
-        return True
+    return public_key_id[:2].upper() in reserved_public_key_ids()
 
-    # ref: https://ottawamesh.ca/deployment/repeaters-intercity/
-    if public_key_id[:1].upper() in ['A']:  # A-block reserved by DenverMesh for future use
-        return True
 
-    return False
+def reserved_public_key_ids() -> list[str]:
+    """
+    Get a list of all reserved public key IDs.
+    :return: A list of all reserved public key IDs (2-character hex strings).
+    :rtype: list[str]
+    """
+    reserved_ids = []
+
+    # Add 00 and FF (reserved by LetsMesh/MeshMapper)
+    reserved_ids.extend(["00", "FF"])
+
+    # Add A-block (reserved by DenverMesh for future use), ref: https://ottawamesh.ca/deployment/repeaters-intercity/
+    reserved_ids.extend([f"A{i:01X}" for i in range(16)])
+
+    return reserved_ids
 
 
 def generate_repeater_name(region: str,
