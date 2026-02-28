@@ -70,15 +70,15 @@
 
 /* Cell type styles with ID selector */
 #repeater-hex-grid td.hex-free {
-    background-color: #2d5016 !important;
-    color: #a8d68c !important;
+    background-color: #0f3d1f !important;
+    color: #22c55e !important;
     cursor: pointer;
     padding: 0 !important;
 }
 
 #repeater-hex-grid td.hex-used {
-    background-color: #5c1a1a !important;
-    color: #ff9999 !important;
+    background-color: #5a4a24 !important;
+    color: #b8860b !important;
     cursor: pointer;
 }
 
@@ -95,8 +95,8 @@
 }
 
 #repeater-hex-grid td.hex-duplicate {
-    background-color: #1a3a5c !important;
-    color: #99ccff !important;
+    background-color: #5c1a1a !important;
+    color: #ef4444 !important;
     cursor: pointer;
 }
 
@@ -116,13 +116,13 @@
 #repeater-hex-grid td.hex-highlighted {
     opacity: 1;
     filter: none;
-    box-shadow: 0 0 12px rgba(168, 214, 140, 0.6);
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.6);
     animation: pulse 1.5s ease-in-out infinite;
 }
 
 @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 12px rgba(168, 214, 140, 0.6); }
-    50%     { box-shadow: 0 0 20px rgba(168, 214, 140, 0.9); }
+    0%, 100% { box-shadow: 0 0 12px rgba(34, 197, 94, 0.6); }
+    50%     { box-shadow: 0 0 20px rgba(34, 197, 94, 0.9); }
 }
 
 /* Style clickable spans - all use flex to prevent reflow on hover */
@@ -240,15 +240,15 @@
 }
 
 .hex-used-badge {
-    background: linear-gradient(135deg, #7a2a2a, #5c1a1a);
-    color: #ff9999;
-    border: 2px solid #ff9999;
+    background: linear-gradient(135deg, #7a5a34, #5a4a24);
+    color: #b8860b;
+    border: 2px solid #b8860b;
 }
 
 .hex-duplicate-badge {
-    background: linear-gradient(135deg, #2a4a7a, #1a3a5c);
-    color: #99ccff;
-    border: 2px solid #99ccff;
+    background: linear-gradient(135deg, #7a2a2a, #5c1a1a);
+    color: #ef4444;
+    border: 2px solid #ef4444;
 }
 
 .hex-reserved-badge {
@@ -264,9 +264,9 @@
 }
 
 .hex-free-badge {
-    background: linear-gradient(135deg, #3d6026, #2d5016);
-    color: #a8d68c;
-    border: 2px solid #a8d68c;
+    background: linear-gradient(135deg, #1a5a2f, #0f3d1f);
+    color: #22c55e;
+    border: 2px solid #22c55e;
 }
 
 .hex-state-badge {
@@ -299,7 +299,7 @@ h2.hex-info-title {
     background: rgba(255, 255, 255, 0.05);
     padding: 10px 12px;
     border-radius: 6px;
-    border-left: 3px solid #5c1a1a;
+    border-left: 3px solid #b8860b;
 }
 
 .hex-info-label {
@@ -323,21 +323,21 @@ h2.hex-info-title {
 .hex-contact-btn {
     display: inline-block;
     padding: 10px 24px;
-    background: linear-gradient(135deg, #2d5016, #3d6026);
-    color: #a8d68c !important;
+    background: linear-gradient(135deg, #0f3d1f, #1a5a2f);
+    color: #22c55e !important;
     text-decoration: none !important;
     border-radius: 6px;
     font-weight: 600;
     font-size: 14px;
     transition: all 0.3s ease;
-    border: 2px solid #a8d68c;
+    border: 2px solid #22c55e;
     cursor: pointer;
 }
 
 .hex-contact-btn:hover {
-    background: linear-gradient(135deg, #3d6026, #4d7036);
+    background: linear-gradient(135deg, #1a5a2f, #247c3f);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(168, 214, 140, 0.3);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
 }
 
 .hex-contact-btn:disabled {
@@ -349,27 +349,27 @@ h2.hex-info-title {
 .hex-contact-btn-small {
     display: inline-block;
     padding: 5px 10px;
-    background: #2d5016;
-    color: #a8d68c !important;
+    background: #0f3d1f;
+    color: #22c55e !important;
     text-decoration: none !important;
     border-radius: 4px;
     font-size: 11px;
     margin-top: 6px;
 }
 
-.hex-contact-btn-small:hover { background: #3d6026; }
+.hex-contact-btn-small:hover { background: #1a5a2f; }
 
 .hex-no-contact { color: #888; font-style: italic; font-size: 13px; }
 .hex-no-contact-small { color: #666; font-size: 11px; font-style: italic; }
 
 /* Duplicate warning / entries */
 .hex-duplicate-warning {
-    background: rgba(255, 204, 153, 0.1);
-    border-left: 4px solid #ffcc99;
+    background: rgba(239, 68, 68, 0.1);
+    border-left: 4px solid #ef4444;
     padding: 10px;
     margin: 12px 0;
     border-radius: 4px;
-    color: #ffcc99;
+    color: #ef4444;
     font-size: 13px;
 }
 
@@ -385,16 +385,16 @@ h2.hex-info-title {
     background: rgba(255, 255, 255, 0.03);
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid rgba(153, 204, 255, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
 /* Misc small parts */
 .hex-entry-number {
     font-size: 11px;
-    color: #99ccff;
+    color: #ef4444;
     font-weight: 600;
     padding: 3px 8px;
-    background: rgba(153, 204, 255, 0.1);
+    background: rgba(239, 68, 68, 0.1);
     border-radius: 4px;
 }
 
@@ -415,7 +415,7 @@ h2.hex-info-title {
     background: rgba(255, 255, 255, 0.05);
     padding: 8px;
     border-radius: 4px;
-    border-left: 3px solid #2d5016;
+    border-left: 3px solid #22c55e;
 }
 
 .hex-key-header {
@@ -457,10 +457,10 @@ h2.hex-info-title {
     text-align: center;
     padding: 8px;
     margin-bottom: 12px;
-    background: rgba(45, 80, 22, 0.2);
+    background: rgba(34, 197, 94, 0.1);
     border-radius: 4px;
     font-size: 11px;
-    color: #a8d68c;
+    color: #22c55e;
     font-family: 'Courier New', monospace;
 }
 
@@ -477,17 +477,17 @@ h2.hex-info-title {
     color: #888;
     font-style: italic;
 }
-.hex-keygen-credit a { color: #a8d68c; text-decoration: none; }
+.hex-keygen-credit a { color: #22c55e; text-decoration: none; }
 .hex-keygen-credit a:hover { color: #fff; text-decoration: underline; }
 
 #keygen-progress {
-    color: #a8d68c;
+    color: #22c55e;
     text-align: center;
     font-family: 'Courier New', monospace;
     font-size: 11px;
     margin: 0;
     padding: 6px;
-    background: rgba(45, 80, 22, 0.2);
+    background: rgba(34, 197, 94, 0.1);
     border-radius: 4px;
 }
 
@@ -506,9 +506,9 @@ h2.hex-info-title {
     align-items: center;
     justify-content: center;
     padding: 10px 14px;
-    background: linear-gradient(135deg, #2d5016, #3d6026);
-    color: #a8d68c;
-    border: 2px solid #a8d68c;
+    background: linear-gradient(135deg, #0f3d1f, #1a5a2f);
+    color: #22c55e;
+    border: 2px solid #22c55e;
     border-radius: 6px;
     font-size: 14px;
     cursor: pointer;
@@ -516,9 +516,9 @@ h2.hex-info-title {
     height: auto;
 }
 .hex-download-btn:hover {
-    background: linear-gradient(135deg, #3d6026, #4d7036);
+    background: linear-gradient(135deg, #1a5a2f, #247c3f);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(168, 214, 140, 0.3);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
 }
 
 /* Key preview and toggles */
@@ -541,14 +541,14 @@ h2.hex-info-title {
     margin-top: 6px;
     padding: 4px 8px;
     background: rgba(255, 255, 255, 0.05);
-    color: #a8d68c;
-    border: 1px solid rgba(168, 214, 140, 0.3);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
     border-radius: 3px;
     cursor: pointer;
     font-size: 10px;
     transition: all 0.2s ease;
 }
-.key-toggle-btn:hover { background: rgba(255, 255, 255, 0.1); border-color: #a8d68c; }
+.key-toggle-btn:hover { background: rgba(255, 255, 255, 0.1); border-color: #22c55e; }
 
 /* Side-by-side layout for height and power */
 .hex-info-row { display: flex; gap: 10px; }
@@ -618,10 +618,10 @@ h2.hex-info-title {
     text-align: center;
     padding: 6px 10px;
     font-size: 11px;
-    color: #a8d68c;
+    color: #22c55e;
     font-family: 'Courier New', monospace;
     min-height: 20px;
-    background: rgba(45, 80, 22, 0.15);
+    background: rgba(34, 197, 94, 0.1);
     background-clip: padding-box;
     border-left: none !important;
     border-right: none !important;
@@ -634,12 +634,12 @@ h2.hex-info-title {
 }
 
 .md-typeset #repeater-hex-grid td.hex-free {
-    background-color: #2d5016 !important;
-    color: #a8d68c !important;
+    background-color: #0f3d1f !important;
+    color: #22c55e !important;
 }
 .md-typeset #repeater-hex-grid td.hex-used {
-    background-color: #5c1a1a !important;
-    color: #ff9999 !important;
+    background-color: #5a4a24 !important;
+    color: #b8860b !important;
 }
 .md-typeset #repeater-hex-grid td.hex-reserved {
     background-color: #3a3a3a !important;
@@ -650,8 +650,8 @@ h2.hex-info-title {
     color: #aaa !important;
 }
 .md-typeset #repeater-hex-grid td.hex-duplicate {
-    background-color: #1a3a5c !important;
-    color: #99ccff !important;
+    background-color: #5c1a1a !important;
+    color: #ef4444 !important;
 }
 
 /* Responsive adjustments */
