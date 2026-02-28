@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!validateForm()) {
             validationError.style.display = 'block';
             // Scroll to error message
-            validationError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            validationError.scrollIntoView({behavior: 'smooth', block: 'nearest'});
             return;
         }
 
@@ -127,11 +127,26 @@ document.addEventListener('DOMContentLoaded', function () {
         // Create key update steps
         const keyUpdateSteps = document.createElement('div');
         keyUpdateSteps.className = 'explanation-box';
+
         function updateKeySteps() {
             const privateKeyValue = document.getElementById('private-key-input').value.trim();
             const keyCommand = privateKeyValue ? `set prv.key ${privateKeyValue}` : 'set prv.key YOUR_PRIVATE_KEY';
-            keyUpdateSteps.innerHTML = `<p><strong>To update your keys:</strong></p><ol><li>Connect your repeater to your computer via USB.</li><li>Open <a href="https://flasher.meshcore.co.uk/" target="_blank">the Web Flasher</a> and click "Console"</li><li>Run the following command: <pre><code>${keyCommand}</code></pre></li><li>Reboot your repeater to apply the change.</li></ol><p>This process will update your private key and (indirectly) your public key.</p>`;
+            keyUpdateSteps.innerHTML = `<p>
+<strong>To update your keys:</strong>
+</p>
+<ol>
+<li>Connect your repeater to your computer via USB.</li>
+<li>Open <a href="https://flasher.meshcore.co.uk/" target="_blank">the Web Flasher</a> and click "Console"</li>
+<li>Run the following command: <pre><code>${keyCommand}</code></pre></li>
+<li>Reboot your repeater to apply the change.</li>
+</ol>
+<p>This process will update your private key and (indirectly) your public key.</p>
+<br/>
+<p>
+<strong>Alternatively</strong>, use the <a href="https://github.com/Denver-Mesh/meshcore_repeater_configurator">DenverMesh MeshCore repeater configuration tool</a> (via Docker) to apply the configuration file to your repeater.
+</p>`;
         }
+
         content.appendChild(keyUpdateSteps);
 
         // Create actions section
@@ -155,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
         resultDiv.appendChild(header);
         resultDiv.appendChild(content);
         resultDiv.style.display = 'block';
-        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        resultDiv.scrollIntoView({behavior: 'smooth', block: 'nearest'});
 
         // Trigger private key steps update
         updateKeySteps();
@@ -230,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function () {
         resultDiv.appendChild(header);
         resultDiv.appendChild(content);
         resultDiv.style.display = 'block';
-        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        resultDiv.scrollIntoView({behavior: 'smooth', block: 'nearest'});
     }
 
     function copyToClipboard(elementId) {
@@ -252,16 +267,14 @@ document.addEventListener('DOMContentLoaded', function () {
         // Create a copy of import_json to avoid modifying the original
         const jsonData = JSON.parse(JSON.stringify(importJson));
 
-        // Add keys if provided
-        if (publicKey.trim()) {
-            jsonData.public_key = publicKey.trim();
-        }
+        // Add private key if provided
         if (privateKey.trim()) {
-            jsonData.private_key = privateKey.trim();
+            // Must match the format expected by the repeater configuration
+            jsonData['prv.key'] = privateKey.trim();
         }
 
         const jsonString = JSON.stringify(jsonData, null, 2);
-        const blob = new Blob([jsonString], { type: 'application/json' });
+        const blob = new Blob([jsonString], {type: 'application/json'});
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
@@ -279,7 +292,7 @@ document.addEventListener('DOMContentLoaded', function () {
     updateLandmarkBasedOnCity();
 
     // Update maxlength when city changes
-    citySelect.addEventListener('change', function() {
+    citySelect.addEventListener('change', function () {
         updateLandmarkBasedOnCity();
         validateForm(); // Re-validate after city change
     });

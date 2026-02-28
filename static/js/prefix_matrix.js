@@ -28,6 +28,31 @@ function _buildInfoCard(repeater) {
     `
 }
 
+function _buildAvailableCard(hexId) {
+    return `
+        <div class="hex-info-card">
+            <div class="hex-info-header">
+                <span class="hex-id-badge hex-free-badge">${hexId}</span>
+                <span class="hex-state-badge hex-state-available">Available</span>
+            </div>
+            <h2 class="hex-info-title">This ID is available!</h2>
+            <p class="hex-info-description">No repeater is currently using this ID. You can assign it to a new repeater.</p>
+            <div class="hex-info-contact">
+                <a href="/repeater_name_tool?id=${hexId}" class="hex-contact-btn">Add New Repeater</a>
+            </div>
+        </div>
+    `
+}
+
+function showAvailableInfo(hexId) {
+    const modal = document.getElementById('hex-modal');
+    const modalBody = document.getElementById('hex-modal-body');
+
+    modalBody.innerHTML = _buildAvailableCard(hexId);
+    modal.style.display = 'block';
+    modal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
 function showRepeaterInfo(hexId, repeater) {
     const modal = document.getElementById('hex-modal');
     const modalBody = document.getElementById('hex-modal-body');

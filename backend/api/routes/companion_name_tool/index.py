@@ -1,21 +1,23 @@
 import json
 
+from denvermesh.emojis import EmojiTools
+from denvermesh.meshcore.models.general import CompanionType
 from flask import (
     Blueprint,
     render_template,
     request,
 )
 
-from backend.api.models.node_information import UserCompanionInformation, UserCompanionType
+from backend.api.models.user_node_information import UserCompanionInformation
 from backend.api.services.external_key_logic import suggest_public_key_id
-from backend.api.services.name_generator import generate_companion_name
 from backend.constants import (
     FLASK_GET,
     FLASK_POST
 )
-from backend.modules.emojis import EmojiTools
 
 companion_name_tool = Blueprint("companion_name_tool", __name__, url_prefix="/companion_name_tool")
+
+# TODO: Recommended companion settings in base library
 
 # Load recommended settings from static/data/recommended_settings.json file
 with open('static/data/recommended_settings.json', 'r') as f:
@@ -28,21 +30,21 @@ emoji_tools = EmojiTools()
 @companion_name_tool.route("/", methods=[FLASK_GET])
 def index():
     role_types = [
-        {'code': UserCompanionType.PRIMARY.value, "human_readable": UserCompanionType.PRIMARY.value,
+        {'code': CompanionType.PRIMARY.value, "human_readable": CompanionType.PRIMARY.value,
          "description": "The primary companion device, the default method to contact a user."},
-        {'code': UserCompanionType.SECONDARY.value, "human_readable": UserCompanionType.SECONDARY.value,
+        {'code': CompanionType.SECONDARY.value, "human_readable": CompanionType.SECONDARY.value,
          "description": "A secondary companion device, less critical than the primary device but still used regularly"},
-        {'code': UserCompanionType.TERTIARY.value, "human_readable": UserCompanionType.TERTIARY.value,
+        {'code': CompanionType.TERTIARY.value, "human_readable": CompanionType.TERTIARY.value,
          "description": "A tertiary companion device, used occasionally or for a specific purpose."},
-        {'code': UserCompanionType.BACKUP.value, "human_readable": UserCompanionType.BACKUP.value,
+        {'code': CompanionType.BACKUP.value, "human_readable": CompanionType.BACKUP.value,
          "description": "A backup companion device, not regularly used. Serves as a fallback option if other devices are unavailable or not working."},
-        {'code': UserCompanionType.EMERGENCY.value, "human_readable": UserCompanionType.EMERGENCY.value,
+        {'code': CompanionType.EMERGENCY.value, "human_readable": CompanionType.EMERGENCY.value,
          "description": "An emergency companion device, reserved for critical situations. May have special configurations or settings to ensure it remains operational when other devices may not be."},
-        {'code': UserCompanionType.MOBILE.value, "human_readable": UserCompanionType.MOBILE.value,
+        {'code': CompanionType.MOBILE.value, "human_readable": CompanionType.MOBILE.value,
          "description": "A mobile companion device, designed to be portable and used on the go, such as hiking."},
-        {'code': UserCompanionType.VEHICLE.value, "human_readable": UserCompanionType.VEHICLE.value,
+        {'code': CompanionType.VEHICLE.value, "human_readable": CompanionType.VEHICLE.value,
          "description": "A vehicle companion device, intended for use in a car or other vehicle. May have features or configurations optimized for mobile use."},
-        {'code': UserCompanionType.HOME.value, "human_readable": UserCompanionType.HOME.value,
+        {'code': CompanionType.HOME.value, "human_readable": CompanionType.HOME.value,
          "description": "A home companion device, intended for use in a household or non-mobile setting. May have features or configurations optimized for home use."},
     ]
     return render_template('companion-name-tool.html',
@@ -65,12 +67,8 @@ def generate_companion_details():
 
     suggested_public_key_id: str = suggest_public_key_id()
 
-    name: str = generate_companion_name(
-        emoji=node_information.emoji,
-        handle=node_information.handle,
-        public_key_id=suggested_public_key_id,
-        role_type=node_information.role_type,
-        role_counter=node_information.role_counter
+    name: str = node_information.generate_name(
+        public_key_id=suggested_public_key_id
     )
 
     import_json: dict = recommended_settings

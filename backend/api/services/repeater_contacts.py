@@ -1,4 +1,4 @@
-from backend.api.models.node import Node
+from denvermesh.meshcore.models.general import Node
 from backend.api.services.external_key_logic import get_denver_repeaters
 
 
