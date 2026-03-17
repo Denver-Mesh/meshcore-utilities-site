@@ -2,39 +2,46 @@ from typing import Optional, Any
 
 from coloradomesh.emojis import EmojiTools
 from coloradomesh.meshcore.models.general import RepeaterType, CompanionType
+from denvermesh.colorado import Municipalities, UnincorporatedAreas
 from pydantic import BaseModel, model_validator, Field, field_validator, ValidationInfo
 
 
 class UserRepeaterInformation(BaseModel):
-    region: Optional[str] = Field(alias="region")  # Required regional code
+    mountain: str = Field(alias="mountain",
+                          default=None)  # <=5-char mountain code, optional since users may be using city+landmark combo instead
     city: Optional[str] = Field(alias="city",
-                                default=None)  # <=5-char city code, optional since some locations may not be within a city
-    landmark: str = Field(alias="landmark", default=None)  # <=5-char landmark code
+                                default=None)  # <=5-char city code, optional since users may be using mountain instead
+    landmark: str = Field(alias="landmark",
+                          default=None)  # <=5-char landmark code, optional since users may be using mountain instead
     node_type: RepeaterType = Field(alias="node-type")
     public_key_id: Optional[str] = Field(alias="public-key-id")  # Pre-filled public key ID suggestion from GUI
 
     @model_validator(mode="after")
     def validate_model(self):
-        # Need either <=5 city and <=5 landmark, or a <=11 landmark
-        if self.city:
-            if len(self.city) > 5:
+        # If city or landmark provided, need both, both <=5 chars
+        if any([self.city, self.landmark]):
+            if not all([self.city, self.landmark]):
+                raise ValueError("Both city and landmark must be provided if one of them is provided")
+            if len(self.city) > 5:  # This is restricted to a dropdown on the UI, so this shouldn't happen
                 raise ValueError("City code must be up to 5 characters long")
             if len(self.landmark) > 5:
                 raise ValueError("Landmark code must be up to 5 characters long")
-        elif len(self.landmark) > 11:
-            raise ValueError("Landmark code must be up to 11 characters long if city code is not provided")
+        # If mountain provided, need <=7 chars
+        elif self.mountain:
+            if len(self.mountain) > 7:  # This is restricted to a dropdown on the UI, so this shouldn't happen
+                raise ValueError("Mountain code must be up to 7 characters long")
 
         return self
 
-    def generate_name(self, public_key_id: str) -> str:
+    def generate_name(self, region_code: str, public_key_id: str) -> str:
         from coloradomesh.meshcore.models.general import RepeaterName
 
         return RepeaterName(
             **dict(
                 repeater_type=self.node_type,
-                region=self.region,
+                region=region_code,
                 city=self.city,
-                landmark=self.landmark,
+                landmark=self.landmark if self.city else self.mountain,  # Mountain will be the "landmark" if not using city
                 public_key_id=public_key_id
             )
         ).formatted

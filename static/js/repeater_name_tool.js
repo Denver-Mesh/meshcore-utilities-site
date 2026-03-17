@@ -2,28 +2,66 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById("repeater-form");
     const submitBtn = document.getElementById("submit-btn");
     const validationError = document.getElementById("validation-error");
-    const landmarkInput = document.getElementById('landmark');
+    const citySelect = document.getElementById('city-select');
+    const landmarkEntry = document.getElementById('landmark-entry');
+    const mountainSelect = document.getElementById('mountain-select');
     const nodeTypeSelect = document.getElementById('node-type');
     const resultDiv = document.getElementById('result');
 
+    // Location strategy elements
+    const locationStrategyRadios = document.querySelectorAll('input[name="location_strategy"]');
+    const locationCityStrategy = document.getElementById('location-city-strategy');
+    const locationCityStrategyLandmark = document.getElementById('location-city-strategy-landmark');
+    const locationMountainStrategy = document.getElementById('location-mountain-strategy');
+
+    // Handle location strategy changes
+    locationStrategyRadios.forEach(radio => {
+        radio.addEventListener('change', function () {
+            locationCityStrategy.style.display = 'none';
+            locationCityStrategyLandmark.style.display = 'none';
+            citySelect.value = '';
+            landmarkEntry.value = '';
+            locationMountainStrategy.style.display = 'none';
+            mountainSelect.value = '';
+
+            if (this.value === 'city') {
+                locationCityStrategy.style.display = 'block';
+                locationCityStrategyLandmark.style.display = 'block';
+            } else if (this.value === 'mountain') {
+                locationMountainStrategy.style.display = 'block';
+            }
+
+            validateForm();
+        });
+    });
+
     // Validate form on input changes
     function validateForm() {
-        const isLandmarkValid = landmarkInput.value.trim() !== '';
+        // Either need mountain or city+landmark filled out
+        const cityProvided = citySelect.value.trim() !== '';
+        const landmarkProvided = landmarkEntry.value.trim() !== '';
+        const mountainProvided = mountainSelect.value.trim() !== '';
+        const isLocationValid = (mountainProvided) || (cityProvided && landmarkProvided);
+
         const isNodeTypeValid = nodeTypeSelect.value !== '';
 
         // Update visual feedback
-        landmarkInput.classList.toggle('invalid', !isLandmarkValid);
+        citySelect.classList.toggle('invalid', !isLocationValid && !cityProvided);
+        landmarkEntry.classList.toggle('invalid', !isLocationValid && !landmarkProvided);
+        mountainSelect.classList.toggle('invalid', !isLocationValid && !mountainProvided);
         nodeTypeSelect.classList.toggle('invalid', !isNodeTypeValid);
 
         // Enable/disable submit button
-        const isFormValid = isLandmarkValid && isNodeTypeValid;
+        const isFormValid = isLocationValid && isNodeTypeValid;
         submitBtn.disabled = !isFormValid;
 
         return isFormValid;
     }
 
     // Add event listeners for real-time validation
-    landmarkInput.addEventListener('input', validateForm);
+    citySelect.addEventListener('change', validateForm);
+    landmarkEntry.addEventListener('input', validateForm);
+    mountainSelect.addEventListener('change', validateForm);
     nodeTypeSelect.addEventListener('change', validateForm);
 
     // Initial validation check
@@ -283,32 +321,5 @@ document.addEventListener('DOMContentLoaded', function () {
         link.click();
         document.body.removeChild(link);
         URL.revokeObjectURL(url);
-    }
-
-    // Handle dynamic maxlength for landmark input based on city selection
-    const citySelect = document.getElementById('city');
-
-    // Set initial landmark details based on the default city selection
-    updateLandmarkBasedOnCity();
-
-    // Update maxlength when city changes
-    citySelect.addEventListener('change', function () {
-        updateLandmarkBasedOnCity();
-        validateForm(); // Re-validate after city change
-    });
-
-    function updateLandmarkBasedOnCity() {
-        const selectedCity = citySelect.value;
-        const landmarkLengthSpan = document.getElementById('landmark-length');
-        // Clear landmark input if city changes
-        landmarkInput.value = '';
-        // Change maxlength and update the display based on the selected city
-        if (selectedCity === '') {
-            landmarkInput.maxLength = 11;
-            landmarkLengthSpan.textContent = '5';
-        } else {
-            landmarkInput.maxLength = 5;
-            landmarkLengthSpan.textContent = '5';
-        }
     }
 });

@@ -1,3 +1,6 @@
+from typing import Optional
+
+from colorado import Mountains
 from coloradomesh.colorado import Airports, Municipalities, UnincorporatedAreas
 from coloradomesh.meshcore.models.general import RepeaterType, RepeaterSettings, RepeaterRegionSettings
 from flask import (
@@ -15,22 +18,39 @@ from backend.constants import (
 
 repeater_name_tool = Blueprint("repeater_name_tool", __name__, url_prefix="/repeater_name_tool")
 
-# Sort airport options alphabetically by name
-airport_codes = []
-for airport in sorted([airport for airport in Airports], key=lambda x: x.name):
-    airport_codes.append({"name": airport.name, "code": airport.iata_code})
-
 # Cache all region codes
 region_codes = sorted([airport.iata_code.lower() for airport in Airports])
 
-# Sort location options alphabetically by name, with blank option at the top
-location_five_char_limit = [
-    {"name": "---", "code": ""}
+# Cache all city options alphabetically by name, with blank option at the top
+city_five_char_limit = [
+    {"name": "---", "code": "", "region": ""}
 ]
 # We'll call them "cities" in the UI for simplicity, but they can be municipalities or unincorporated areas
-locations = [municipality for municipality in Municipalities] + [area for area in UnincorporatedAreas]
-for location in sorted(locations, key=lambda x: x.name):
-    location_five_char_limit.append({"name": location.name, "code": location.abbreviations.five_letter})
+cities = [municipality for municipality in Municipalities] + [area for area in UnincorporatedAreas]
+for city in sorted(cities, key=lambda x: x.name):
+    city_five_char_limit.append({
+        "name": city.name,
+        "code": city.abbreviations.five_letter,
+        "region": city.nearest_airport.iata_code
+    })
+city_abbreviation_region_code_map = {
+    city.abbreviations.five_letter: city.nearest_airport.iata_code for city in cities
+}
+
+# Cache all mountain options alphabetically by name, with blank option at the top
+mountain_seven_char_limit = [
+    {"name": "---", "code": "", "region": ""}
+]
+mountains = Mountains
+for mountain in sorted(mountains, key=lambda x: x.name):
+    mountain_seven_char_limit.append({
+        "name": mountain.name,
+        "code": mountain.abbreviations.seven_letter,
+        "region": mountain.nearest_airport.iata_code
+    })
+mountain_abbreviation_region_code_map = {
+    mountain.abbreviations.seven_letter: mountain.nearest_airport.iata_code for mountain in mountains
+}
 
 
 @repeater_name_tool.route("/", methods=[FLASK_GET])
@@ -38,11 +58,8 @@ def index():
     # Check if an "id" query parameter is provided
     params = request.args
     prefill_id = params.get("id", "")
-    if prefill_id and (len(prefill_id) not in [2, 4] or not all(c in "0123456789ABCDEFabcdef" for c in prefill_id)):
-        return "Invalid prefill ID. Must be a 2 or 4 character hexadecimal string.", 400
-
-    if len(prefill_id) == 2:
-        prefill_id = f"{prefill_id}00"  # Pad to 4 characters for consistency with MeshCore's current 2-char public key ID implementation
+    if prefill_id and (not len(prefill_id) == 4 or not all(c in "0123456789ABCDEFabcdef" for c in prefill_id)):
+        return "Invalid prefill ID. Must be a 4 character hexadecimal string.", 400
 
     node_types = [
         {'code': RepeaterType.REPEATER_EDGE.value, 'human_readable': RepeaterType.REPEATER_EDGE.value,
@@ -64,11 +81,19 @@ def index():
          'description': 'A room server with repeater capabilities enabled. NOTE: While room servers can have repeater capabilities enabled, it is not officially recommended.'},
     ]
     return render_template('repeater-name-tool.html',
-                           regions=airport_codes,
-                           cities=location_five_char_limit,
+                           cities=city_five_char_limit,
+                           mountains=mountain_seven_char_limit,
                            node_types=node_types,
                            prefill_id=prefill_id)
 
+
+def _get_region(node_information: UserRepeaterInformation) -> Optional[str]:
+    if node_information.city:
+        return city_abbreviation_region_code_map.get(node_information.city, None)
+    elif node_information.mountain:
+        return mountain_abbreviation_region_code_map.get(node_information.mountain, None)
+
+    return None
 
 # API endpoints
 @repeater_name_tool.route('/submit', methods=[FLASK_POST])
@@ -80,16 +105,21 @@ def generate_repeater_details():
     data = request.get_json()
     node_information: UserRepeaterInformation = UserRepeaterInformation(**data)
 
+    region = _get_region(node_information=node_information)
+    if not region:
+        return "Could not determine proper region from provided details", 400
+
     suggested_public_key_id: str = (node_information.public_key_id or suggest_public_key_id()).upper()
 
     name: str = node_information.generate_name(
+        region_code=region,
         public_key_id=suggested_public_key_id
     )
 
     recommended_settings: RepeaterSettings = node_information.node_type.recommended_settings
     recommended_settings.regions = RepeaterRegionSettings(
         all=region_codes,
-        home=node_information.region.lower()  # User input will be one of the airport IATA codes
+        home=region.lower()  # User input will be one of the airport IATA codes
     )
     recommended_settings.name = name
     recommended_settings.owner_info = None  # TODO: Collect this?

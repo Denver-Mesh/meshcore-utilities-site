@@ -437,14 +437,14 @@ button[type="submit"]:disabled {
     box-shadow: 0 6px 16px rgba(155, 89, 182, 0.4);
 }
 
-.strategy-options {
+.form-options {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     margin-top: 1rem;
 }
 
-.strategy-option-block {
+.form-option-block {
     padding: 1rem;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
@@ -452,45 +452,45 @@ button[type="submit"]:disabled {
     transition: all 0.2s ease;
 }
 
-.strategy-option-block:hover {
+.form-option-block:hover {
     border-color: #667eea;
     background-color: #f5f7ff;
 }
 
-.strategy-option {
+.form-option {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     margin-bottom: 0.5rem;
 }
 
-.strategy-option input[type="radio"] {
+.form-option input[type="radio"] {
     cursor: pointer;
     width: 18px;
     height: 18px;
     flex-shrink: 0;
 }
 
-.strategy-option label {
+.form-option label {
     cursor: pointer;
     font-weight: 500;
     margin: 0;
 }
 
-.strategy-input {
+.form-option-input {
     margin-top: 1rem;
     padding-top: 1rem;
     border-top: 1px solid #e0e0e0;
 }
 
-.strategy-input label {
+.form-option-input label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
 
-.strategy-input select,
-.strategy-input input[type="number"] {
+.form-option-input select,
+.form-option-input input[type="number"] {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #ccc;
@@ -499,30 +499,30 @@ button[type="submit"]:disabled {
     margin-bottom: 0.75rem;
 }
 
-.strategy-input select:focus,
-.strategy-input input[type="number"]:focus {
+.form-option-input select:focus,
+.form-option-input input[type="number"]:focus {
     outline: none;
     border-color: #667eea;
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-.strategy-input details {
+.form-option-input details {
     margin-top: 0.75rem;
 }
 
-.strategy-input summary {
+.form-option-input summary {
     cursor: pointer;
     color: #667eea;
     font-weight: 500;
     user-select: none;
 }
 
-.strategy-input ul {
+.form-option-input ul {
     margin-top: 0.75rem;
     padding-left: 1.5rem;
 }
 
-.strategy-input li {
+.form-option-input li {
     margin-bottom: 0.5rem;
     line-height: 1.5;
 }

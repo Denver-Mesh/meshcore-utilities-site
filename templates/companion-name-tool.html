@@ -43,9 +43,9 @@
             <label>Identification Strategy: <span class="required">*</span></label>
             <span class="help-text">Choose how to identify this specific companion</span>
 
-            <div class="strategy-options">
-                <div class="strategy-option-block">
-                    <div class="strategy-option">
+            <div class="form-options">
+                <div class="form-option-block">
+                    <div class="form-option">
                         <input type="radio" id="strategy-publickey" name="suffix_strategy" value="publickey" required>
                         <label for="strategy-publickey">By Public Key (Default)</label>
                     </div>
@@ -54,8 +54,8 @@
                     </span>
                 </div>
 
-                <div class="strategy-option-block">
-                    <div class="strategy-option">
+                <div class="form-option-block">
+                    <div class="form-option">
                         <input type="radio" id="strategy-role" name="suffix_strategy" value="role" required>
                         <label for="strategy-role">Assign Specific Role</label>
                     </div>
@@ -63,7 +63,7 @@
                         Assign a specific role to this companion. Do not reuse the same role for multiple companions.
                     </span>
 
-                    <div id="suffix-strategy" class="strategy-input" style="display: none;">
+                    <div id="suffix-strategy" class="form-option-input" style="display: none;">
                         <label for="role-type-select">Select Companion Role: </label>
                         <select id="role-type-select" name="role-type">
                             {% for role_type in role_types %}
@@ -84,8 +84,8 @@
                     </div>
                 </div>
 
-                <div class="strategy-option-block">
-                    <div class="strategy-option">
+                <div class="form-option-block">
+                    <div class="form-option">
                         <input type="radio" id="strategy-number" name="suffix_strategy" value="number" required>
                         <label for="strategy-number">Assign Specific Number (1-99)</label>
                     </div>
@@ -93,7 +93,7 @@
                         Number your companions 1 to 99. This could be in order of importance, in order of creation, etc.
                     </span>
 
-                    <div id="number-input" class="strategy-input" style="display: none;">
+                    <div id="number-input" class="form-option-input" style="display: none;">
                         <label for="suffix-number">Enter Number: </label>
                         <input type="number" id="suffix-number" name="suffix-number" min="1" max="99" placeholder="e.g., 1">
                     </div>

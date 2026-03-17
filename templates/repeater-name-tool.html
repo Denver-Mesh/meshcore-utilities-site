@@ -24,43 +24,67 @@
 
     <form id="repeater-form" method="post" action="/repeater_name_tool/submit" novalidate>
         <div class="form-group">
-            <label for="region">Nearest Airport:</label>
-            <select id="region" name="region" required>
-                {% for region in regions %}
-                <option value="{{ region.code }}">{{ region.name }}</option>
-                {% endfor %}
-            </select>
-            <span class="help-text">
-                    Select the nearest airport to where this repeater will be located.
-                    <br/>
-                    Unsure which airport is closest? Check <a
-                    href="https://www.travelmath.com/nearest-airport/">here</a>.
-                </span>
-        </div>
+            <label>Location Type:<span class="required">*</span></label>
+            <span class="help-text">Choose which type of location this node will be associated with.</span>
 
-        <div class="form-group">
-            <label for="city">City:</label>
-            <select id="city" name="city" required>
-                {% for city in cities %}
-                <option value="{{ city.code }}">{{ city.name }}</option>
-                {% endfor %}
-            </select>
-            <span class="help-text">
-                    Select the city where this repeater will be located.
-                    <br/>
-                    If the landmark is <b>well-known or spans multiple cities</b>, you can skip this field.
-                </span>
-        </div>
+            <div class="form-options">
+                <div class="form-option-block">
+                    <div class="form-option">
+                        <input type="radio" id="location-option-city" name="location_strategy" value="city" required>
+                        <label for="location-option-city">Nearest City + Landmark</label>
+                    </div>
+                    <span class="help-text">
+                        Use the nearest city and landmark as the location identifier. This is the most common method for repeaters.
+                    </span>
 
-        <div class="form-group">
-            <label for="landmark">Landmark: <span class="required">*</span></label>
-            <input id="landmark" name="landmark" type="text" maxlength="7" placeholder="e.g., 'COLFAX'" required>
-            <span class="help-text">
-                    Enter a recognizable landmark name abbreviation (max <span id="landmark-length">5</span> characters)
-                    <br/>
-                    <b>Need inspiration or clarification?</b> See <a
-                    href="https://analyzer.letsmesh.net/nodes/repeaters">existing repeaters</a> for examples.
-                </span>
+                    <div id="location-city-strategy" class="form-option-input" style="display: none;">
+                        <label for="city-select">Select Nearest City: <span class="required">*</span></label>
+                        <select id="city-select" name="city">
+                            {% for city in cities %}
+                            <option value="{{ city.code }}">{{ city.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <span class="help-text">
+                            Choose the nearest city to this repeater.
+                        </span>
+                    </div>
+
+                    <div id="location-city-strategy-landmark" class="form-option-input" style="display: none;">
+                        <label for="landmark-entry">Landmark: <span class="required">*</span></label>
+                        <input id="landmark-entry" name="landmark" type="text" maxlength="7" placeholder="e.g., 'COLFAX'"
+                               required>
+                        <span class="help-text">
+                            Enter a recognizable landmark name abbreviation (max <span id="landmark-length">5</span> characters)
+                            <br/>
+                            <b>Need inspiration or clarification?</b> See <a
+                                href="https://analyzer.letsmesh.net/nodes/repeaters">existing repeaters</a> for examples.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-option-block">
+                    <div class="form-option">
+                        <input type="radio" id="location-option-mountain" name="location_strategy" value="mountain"
+                               required>
+                        <label for="location-option-mountain">Nearest Mountain</label>
+                    </div>
+                    <span class="help-text">
+                        Use the nearest mountain as the location identifier.
+                    </span>
+
+                    <div id="location-mountain-strategy" class="form-option-input" style="display: none;">
+                        <label for="mountain-select">Select Nearest Mountain: <span class="required">*</span></label>
+                        <select id="mountain-select" name="mountain">
+                            {% for mountain in mountains %}
+                            <option value="{{ mountain.code }}">{{ mountain.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <span class="help-text">
+                        Choose the nearest mountain to this repeater.
+                    </span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="form-group">
