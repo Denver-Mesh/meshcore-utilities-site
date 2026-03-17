@@ -1,9 +1,22 @@
-/* Hex grid CSS - cleaned and consolidated
-   - Removed duplicate/conflicting rules
-   - Border moved to .hex-table-wrapper (so it matches only the table+search)
-   - .hex-grid-container is the full-width responsive container (no border)
-   - .hex-search-container is responsive (no fixed px width)
-*/
+* {
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
 /* OUTER RESPONSIVE CONTAINER (no border) */
 .hex-grid-container {
@@ -98,6 +111,23 @@
     background-color: #5c1a1a !important;
     color: #ef4444 !important;
     cursor: pointer;
+}
+
+/* Reserved + in-use should be visually black */
+#repeater-hex-grid td.hex-reserved-in-use,
+#subgrid-hex-grid td.hex-reserved-in-use {
+    background-color: #000 !important;
+    color: #f5f5f5 !important;
+    cursor: pointer;
+}
+
+/* Dim reserved + in-use when inactive (primary + secondary) */
+#repeater-hex-grid td.hex-reserved-in-use.hex-inactive,
+#subgrid-hex-grid td.hex-reserved-in-use.hex-inactive {
+    background-color: #161616 !important;
+    color: #cfcfcf !important;
+    opacity: 0.55 !important;
+    filter: grayscale(35%) !important;
 }
 
 /* Inactive state - dimmed color for repeaters not heard in 7+ days */
@@ -652,6 +682,167 @@ h2.hex-info-title {
 .md-typeset #repeater-hex-grid td.hex-duplicate {
     background-color: #5c1a1a !important;
     color: #ef4444 !important;
+}
+
+/* ── Sub-grid modal ─────────────────────────────────────────────────────────── */
+.hex-subgrid-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.hex-subgrid-modal-content {
+    background: var(--card-bg, #1e1e2e);
+    border: 1px solid var(--border-color, #444);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    max-width: 95vw;
+    max-height: 90vh;
+    overflow: auto;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+.hex-subgrid-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    gap: 1rem;
+}
+
+.hex-subgrid-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-primary, #cdd6f4);
+}
+
+.hex-subgrid-close {
+    background: none;
+    border: none;
+    color: var(--text-primary, #cdd6f4);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+}
+
+.hex-subgrid-close:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.hex-subgrid-table-wrapper {
+    overflow: auto;
+}
+
+/* Slightly smaller font for the sub-table to keep it compact */
+.hex-table-sub {
+    font-size: 0.72rem;
+}
+
+.hex-table-sub td,
+.hex-table-sub th {
+    min-width: 2rem;
+    padding: 0.2rem 0.25rem;
+}
+
+/* Badge showing repeater count on primary grid cells */
+.hex-count {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border-radius: 999px;
+    font-size: 0.6rem;
+    padding: 0 0.3em;
+    margin-left: 0.2em;
+    vertical-align: middle;
+    line-height: 1.4;
+}
+
+/* Inline drill-down toolbar */
+.hex-grid-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 8px 10px;
+    background: #1a1a1a;
+    border-top: 1px solid #2a2a2a;
+    border-bottom: 1px solid #2a2a2a;
+    min-height: 42px; /* keeps toolbar from jumping */
+    box-sizing: border-box;
+}
+
+.hex-grid-title {
+    color: #bbb;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.hex-back-button {
+    padding: 6px 10px;
+    background: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #444;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    min-width: 72px; /* reserves consistent left-side space */
+}
+
+.hex-back-button.is-hidden {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Make secondary table look like primary table */
+#subgrid-hex-grid {
+    border-collapse: collapse;
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    width: fit-content;
+}
+#subgrid-hex-grid td,
+#subgrid-hex-grid th {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    text-align: center;
+    border: 1px solid #1a1a1a !important;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 0 !important;
+    box-sizing: border-box;
+    line-height: 40px;
+}
+#subgrid-hex-grid th {
+    background: #1a1a1a !important;
+    color: #999 !important;
+    font-weight: 600;
+}
+#subgrid-hex-grid td.hex-free { background-color: #0f3d1f !important; color: #22c55e !important; cursor: pointer; }
+#subgrid-hex-grid td.hex-used { background-color: #5a4a24 !important; color: #b8860b !important; cursor: pointer; }
+#subgrid-hex-grid td.hex-reserved { background-color: #3a3a3a !important; color: #888 !important; cursor: pointer; }
+#subgrid-hex-grid td.hex-duplicate { background-color: #5c1a1a !important; color: #ef4444 !important; cursor: pointer; }
+#subgrid-hex-grid td.hex-inactive { opacity: 0.5 !important; filter: grayscale(40%) !important; }
+
+/* Ensure reserved-in-use stays black on subgrid (not yellow) */
+#subgrid-hex-grid td.hex-reserved-in-use {
+    background-color: #000 !important;
+    color: #f5f5f5 !important;
+    cursor: pointer;
+}
+
+/* Less-black variant for inactive reserved-in-use on subgrid */
+#subgrid-hex-grid td.hex-reserved-in-use.hex-inactive {
+    background-color: #161616 !important;
+    color: #cfcfcf !important;
+    opacity: 1 !important;
+    filter: none !important;
 }
 
 /* Responsive adjustments */

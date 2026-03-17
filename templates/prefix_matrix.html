@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>MeshCore Utilities</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dark_mode.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/prefix_matrix.css') }}">
     <script src="{{ url_for('static', filename='js/prefix_matrix.js') }}"></script>
 </head>
@@ -16,11 +17,17 @@
                         <label for="hex-search"></label>
                         <input type="text" id="hex-search" class="hex-search-input"
                                placeholder="🔍 Search repeaters by name, location, antenna...">
-                        <button id="hex-search-clear" class="hex-search-clear" style="display:  none;">✕</button>
+                        <button id="hex-search-clear" class="hex-search-clear" style="display: none;">✕</button>
                     </div>
-                    <div id="hex-search-results" class="hex-search-results">
-                    </div>
+                    <div id="hex-search-results" class="hex-search-results"></div>
                 </div>
+
+                <div class="hex-grid-toolbar">
+                    <button id="hex-back-button" class="hex-back-button is-hidden" onclick="backToPrimaryGrid()">← Back</button>
+                    <span id="hex-grid-title" class="hex-grid-title">2-char prefix grid</span>
+                </div>
+
+                <!-- Primary 16x16 grid: first 2 chars of ID -->
                 <table id="repeater-hex-grid" class="hex-table">
                     <tbody>
                     <tr>
@@ -36,21 +43,39 @@
                         {% set cells = data['cells'] %}
                         {% for col_hex_char in hex_chars %}
                         {% set cell = cells[col_hex_char] %}
-                        <td class="{{ cell.css_class }}" onclick="{{ cell.onclick_js_action }}">
-                            <span class="hex-clickable">{{ cell.id }}</span>
+                        <td class="{{ cell.css_class }}" data-prefix="{{ cell.id }}" onclick="openSubGrid('{{ cell.id }}')">
+                            <span class="hex-clickable">
+                                {{ cell.id }}
+                                {% if cell.count > 0 %}
+                                <span class="hex-count">{{ cell.count }}</span>
+                                {% endif %}
+                            </span>
                         </td>
                         {% endfor %}
                     </tr>
                     {% endfor %}
                     </tbody>
                 </table>
+
+                <!-- Secondary 16x16 grid (rendered dynamically) -->
+                <table id="subgrid-hex-grid" class="hex-table" style="display:none;"></table>
             </div>
         </div>
 
+        <!-- Repeater info modal (existing in-page card area) -->
         <div id="hex-modal" class="hex-modal hex-modal-card">
             <div id="hex-modal-body"></div>
         </div>
     </div>
 </div>
+
+<!-- Embed all sub-matrix data as JSON for JS to consume -->
+<script id="matrix-data-json" type="application/json">
+{{ matrix_data | tojson }}
+</script>
+<script>
+    const HEX_CHARS = {{ hex_chars | tojson }};
+    const MATRIX_DATA = JSON.parse(document.getElementById('matrix-data-json').textContent);
+</script>
 </body>
 </html>

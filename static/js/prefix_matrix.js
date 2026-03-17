@@ -1,11 +1,16 @@
 // Modal functions for hex grid
 function _buildInfoCard(repeater) {
+    const reservedWarning = repeater.is_reserved_id
+        ? `<p class="hex-reserved-warning">⚠ Reserved ID in use</p>`
+        : '';
+
     return `
         <div class="hex-info-card">
             <div class="hex-info-header">
                 <span class="hex-id-badge hex-used-badge">${repeater.id}</span>
                 <span class="hex-state-badge hex-state-${repeater.status}">${repeater.status_value}</span>
             </div>
+            ${reservedWarning}
             <h2 class="hex-info-title">${repeater.name}</h2>
             <div class="hex-info-grid">
                 <div class="hex-info-item">
@@ -88,136 +93,208 @@ function showDuplicateInfo(hexId, repeaters) {
     modal.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+let currentPrefix = null;
+let activeSearchQuery = '';
+let searchInput = null;
+let searchClear = null;
+let searchResults = null;
+let primaryTable = null;
+let subgridTable = null;
+
+function _getCellSearchInfos(cell) {
+    return Array.isArray(cell.search_infos) ? cell.search_infos : [];
+}
+
+function _getCellSearchText(cell) {
+    return typeof cell.search_text === 'string' ? cell.search_text : '';
+}
+
+function _searchInInfo(info, query) {
+    const searchableFields = [
+        info.id,
+        info.name,
+        info.location,
+        info.status,
+        info.status_value,
+        info.public_key,
+        info.contact_url,
+        info.last_heard,
+    ];
+    return searchableFields.some(field => field !== undefined && field !== null && String(field).toLowerCase().includes(query));
+}
+
+function _normalizeQuery(query) {
+    return String(query || '').trim().toLowerCase();
+}
+
+function _setSearchClearVisible(isVisible) {
+    if (searchClear) searchClear.style.display = isVisible ? 'block' : 'none';
+}
+
+function _clearHighlights() {
+    if (primaryTable) {
+        primaryTable.querySelectorAll('td').forEach(cell => {
+            cell.classList.remove('hex-highlighted', 'hex-dimmed');
+        });
+    }
+
+    if (subgridTable) {
+        subgridTable.querySelectorAll('td').forEach(cell => {
+            cell.classList.remove('hex-highlighted', 'hex-dimmed');
+        });
+    }
+}
+
+function clearSearch() {
+    _clearHighlights();
+    if (searchResults) searchResults.textContent = '';
+}
+
+function _cellMatchesQuery(cell, normalizedQuery) {
+    const infos = _getCellSearchInfos(cell);
+    if (!infos.length) return false;
+    if (!_getCellSearchText(cell).includes(normalizedQuery)) return false;
+    return infos.some(info => _searchInInfo(info, normalizedQuery));
+}
+
+function _collectSearchMatches(normalizedQuery) {
+    const matchedPrefixes = new Set();
+    const matchedIds = new Set();
+    let matchCount = 0;
+    let totalSearchable = 0;
+
+    for (const r of HEX_CHARS) {
+        for (const c of HEX_CHARS) {
+            const prefix = `${r}${c}`;
+            const sub = MATRIX_DATA[r].cells[c].sub_matrix;
+
+            for (const r2 of HEX_CHARS) {
+                for (const c2 of HEX_CHARS) {
+                    const cell = sub[r2].cells[c2];
+                    const infos = _getCellSearchInfos(cell);
+                    if (!infos.length) continue;
+
+                    totalSearchable += infos.length;
+
+                    const matchingInfos = infos.filter(info => _searchInInfo(info, normalizedQuery));
+                    if (!matchingInfos.length) continue;
+
+                    matchedPrefixes.add(prefix);
+                    matchedIds.add(cell.id);
+                    matchCount += matchingInfos.length;
+                }
+            }
+        }
+    }
+
+    return { matchedPrefixes, matchedIds, matchCount, totalSearchable };
+}
+
+function _renderSubGrid(prefix2, normalizedQuery = '') {
+    const rowChar = prefix2[0];
+    const colChar = prefix2[1];
+    const subMatrix = MATRIX_DATA[rowChar].cells[colChar].sub_matrix;
+
+    let html = '<tbody><tr><th></th>';
+    for (const c of HEX_CHARS) html += `<th>${c}</th>`;
+    html += '</tr>';
+
+    for (const rowC of HEX_CHARS) {
+        html += `<tr><th>${rowC}</th>`;
+        const rowCells = subMatrix[rowC].cells;
+
+        for (const colC of HEX_CHARS) {
+            const cell = rowCells[colC];
+            const escaped = cell.onclick_js_action.replace(/"/g, '&quot;');
+            const searchClass = normalizedQuery
+                ? (_cellMatchesQuery(cell, normalizedQuery) ? ' hex-highlighted' : ' hex-dimmed')
+                : '';
+
+            html += `<td class="${cell.css_class}${searchClass}" data-id="${cell.id}" onclick="${escaped}"><span class="hex-clickable">${cell.id}</span></td>`;
+        }
+
+        html += '</tr>';
+    }
+
+    html += '</tbody>';
+    return html;
+}
+
+function performSearch(query) {
+    const normalizedQuery = _normalizeQuery(query);
+    activeSearchQuery = normalizedQuery;
+
+    if (!normalizedQuery) {
+        clearSearch();
+        return;
+    }
+
+    const { matchedPrefixes, matchCount, totalSearchable } = _collectSearchMatches(normalizedQuery);
+
+    _clearHighlights();
+
+    if (currentPrefix) {
+        subgridTable.innerHTML = _renderSubGrid(currentPrefix, normalizedQuery);
+    } else {
+        primaryTable.querySelectorAll('td[data-prefix]').forEach(cell => {
+            const isMatch = matchedPrefixes.has(cell.dataset.prefix);
+            cell.classList.toggle('hex-highlighted', isMatch);
+            cell.classList.toggle('hex-dimmed', !isMatch);
+        });
+    }
+
+    if (!searchResults) return;
+
+    if (matchCount > 0) {
+        searchResults.textContent = `Found ${matchCount} matching repeater${matchCount !== 1 ? 's' : ''} out of ${totalSearchable}`;
+        searchResults.style.color = '#a8d68c';
+    } else {
+        searchResults.textContent = `No matches found for "${normalizedQuery}"`;
+        searchResults.style.color = '#ff9999';
+    }
+}
+
+function openSubGrid(prefix2) {
+    currentPrefix = prefix2;
+
+    subgridTable.innerHTML = _renderSubGrid(prefix2, activeSearchQuery);
+    primaryTable.style.display = 'none';
+    subgridTable.style.display = 'table';
+    document.getElementById('hex-back-button').classList.remove('is-hidden');
+    document.getElementById('hex-grid-title').textContent = `4-char IDs in ${prefix2}__`;
+}
+
+function backToPrimaryGrid() {
+    currentPrefix = null;
+
+    primaryTable.style.display = 'table';
+    subgridTable.style.display = 'none';
+    document.getElementById('hex-back-button').classList.add('is-hidden');
+    document.getElementById('hex-grid-title').textContent = '2-char prefix grid';
+
+    _applySearchState();
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Search functionality
-    const searchInput = document.getElementById('hex-search');
-    const searchClear = document.getElementById('hex-search-clear');
-    const searchResults = document.getElementById('hex-search-results');
-    const hexTable = document.getElementById('repeater-hex-grid');
+    searchInput = document.getElementById('hex-search');
+    searchClear = document.getElementById('hex-search-clear');
+    searchResults = document.getElementById('hex-search-results');
+    primaryTable = document.getElementById('repeater-hex-grid');
+    subgridTable = document.getElementById('subgrid-hex-grid');
 
-    if (!searchInput || !hexTable) return;
-
-    // Store original repeater data in data attributes
-    const cells = hexTable.querySelectorAll('td[onclick]');
+    if (!searchInput || !searchClear || !searchResults || !primaryTable || !subgridTable) return;
 
     searchInput.addEventListener('input', function() {
-        const query = this.value.trim().toLowerCase();
-
-        // Show/hide clear button
-        if (query.length > 0) {
-            searchClear.style.display = 'block';
-        } else {
-            searchClear.style.display = 'none';
-            clearSearch();
-            return;
-        }
-
-        // Perform search
-        if (query.length >= 2) {
-            performSearch(query);
-        }
+        const query = _normalizeQuery(this.value);
+        _setSearchClearVisible(query.length > 0);
+        performSearch(query);
     });
 
     searchClear.addEventListener('click', function() {
         searchInput.value = '';
-        searchClear.style.display = 'none';
+        activeSearchQuery = '';
+        _setSearchClearVisible(false);
         clearSearch();
         searchInput.focus();
     });
-
-    function performSearch(query) {
-        let matchCount = 0;
-        let totalSearchable = 0;
-
-        cells.forEach(cell => {
-            const onclick = cell.getAttribute('onclick');
-
-            // Skip free cells
-            if (cell.classList.contains("hex-free")) {
-                cell.classList.add('hex-dimmed');
-                return;
-            }
-
-            // NOT: totalSearchable is the number of possible cells, not the number of repeaters (duplicates count as 1)
-
-            // Extract the info JSON from onclick
-            let matched = false;
-
-            // For single repeaters:  showRepeaterInfo or showBackboneInfo
-            if (onclick.includes('showRepeaterInfo') || onclick.includes('showBackboneInfo')) {
-                // Extract JSON between the quotes after the hex ID
-                const regex = /show(?:Repeater|Backbone)Info\("([^"]+)",\s*({[^}]+})\)/;
-                const match = onclick.match(regex);
-                if (match && match[2]) {
-                    const infoStr = match[2].replace(/&quot;/g, '"');
-                    try {
-                        const info = JSON.parse(infoStr);
-                        matched = searchInInfo(info, query);
-                    } catch (e) {
-                        console.error('Parse error for single:', e, infoStr);
-                    }
-                }
-
-                totalSearchable++;
-            }
-
-            // For duplicates: showDuplicateInfo
-            if (onclick.includes('showDuplicateInfo')) {
-                // Extract JSON array
-                const regex = /showDuplicateInfo\("([^"]+)",\s*(\[[^\]]+\])\)/;
-                const match = onclick.match(regex);
-                if (match && match[2]) {
-                    const infoStr = match[2].replace(/&quot;/g, '"');
-                    try {
-                        const infoArray = JSON.parse(infoStr);
-                        matched = infoArray.some(info => searchInInfo(info, query));
-                    } catch (e) {
-                        console.error('Parse error for duplicate:', e, infoStr);
-                    }
-                }
-
-                totalSearchable++;  // This counts as one searchable entry
-            }
-
-            if (matched) {
-                cell.classList.add('hex-highlighted');
-                cell.classList.remove('hex-dimmed');
-                matchCount++;
-            } else {
-                cell.classList.add('hex-dimmed');
-                cell.classList.remove('hex-highlighted');
-            }
-        });
-
-        // Update results
-        if (matchCount > 0) {
-            searchResults.textContent = `Found ${matchCount} matching repeater${matchCount !== 1 ? 's' :  ''} out of ${totalSearchable}`;
-            searchResults.style.color = '#a8d68c';
-        } else {
-            searchResults.textContent = `No matches found for "${query}"`;
-            searchResults.style.color = '#ff9999';
-        }
-    }
-
-    function searchInInfo(info, query) {
-        const searchableFields = [
-            info.name,
-            info.location,
-            info.status,
-            info.status_value,
-            info.public_key
-        ];
-
-        return searchableFields.some(field => {
-            if (field === undefined || field === null) return false;
-            return String(field).toLowerCase().includes(query);
-        });
-    }
-
-    function clearSearch() {
-        cells.forEach(cell => {
-            cell.classList.remove('hex-highlighted', 'hex-dimmed');
-        });
-        searchResults.textContent = '';
-    }
 });
