@@ -1,7 +1,7 @@
 from typing import Optional
 
 from coloradomesh.meshcore.models.general import Node, NodeType
-from backend.api.services.external_key_logic import get_colorado_nodes
+from coloradomesh.meshcore.services.nodes import get_colorado_nodes
 
 def _node_type_conversion(node: Node) -> Optional[int]:
     if node.node_type == NodeType.COMPANION:

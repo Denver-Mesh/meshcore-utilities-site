@@ -2,29 +2,32 @@
 <html lang="en">
 <head>
     <title>MeshCore Utilities</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/dark_mode.css') }}">
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </head>
-<body>
+<body class="{{ default_theme }}-theme">
 <div class="container">
     <h1>🔧 MeshCore Utilities</h1>
 
     <div class="tool-list">
         <a href="/repeater_name_tool" class="tool-link">
-            <div style="font-size: 18px; margin-bottom: 8px;">⚙️ Repeater Configuration Generator</div>
-            <div style="font-size: 13px; opacity: 0.8;">Generate a name for your MeshCore repeater based on standards</div>
+            <div class="tool-title">⚙️ Repeater Configuration Generator</div>
+            <div class="tool-subtitle">Generate a name for your MeshCore repeater based on standards</div>
         </a>
         <a href="/companion_name_tool" class="tool-link">
-            <div style="font-size: 18px; margin-bottom: 8px;">👥 Companion Configuration Generator</div>
-            <div style="font-size: 13px; opacity: 0.8;">Generate a name for your MeshCore companion device based on standards</div>
+            <div class="tool-title">👥 Companion Configuration Generator</div>
+            <div class="tool-subtitle">Generate a name for your MeshCore companion device based on standards</div>
         </a>
         <a href="/prefix_matrix" class="tool-link">
-            <div style="font-size: 18px; margin-bottom: 8px;">📑 Prefix Matrix</div>
-            <div style="font-size: 13px; opacity: 0.8;">See all Colorado MeshCore repeater prefixes in one place, with search functionality</div>
+            <div class="tool-title">📑 Prefix Matrix</div>
+            <div class="tool-subtitle">See all Colorado MeshCore repeater prefixes in one place, with search
+                functionality
+            </div>
         </a>
-        <div style="margin-top: 30px;">
-            <h2 style="font-size: 18px; margin-bottom: 15px; color: #2c3e50;">Shortcuts</h2>
+        <div class="shortcut-panel">
+            <h2 class="shortcut-title">Shortcuts</h2>
             <button class="quickstart-button" id="downloadContacts">📥 Download Contacts</button>
         </div>
 
@@ -57,6 +60,50 @@
             });
 
         </script>
+    </div>
+</div>
+
+<br/>
+
+<div class="container">
+    <h1>📊 ColoradoMesh Stats</h1>
+
+    <div class="stats-grid">
+        <div class="stats-widget" id="node-count-summary">
+            <h2>Network Summary</h2>
+
+            <div class="stat-item stat-item-primary">
+                <span class="stat-label">Node Count (Total)</span>
+                <span class="stat-value" id="nodeCount">{{ node_count }}</span>
+            </div>
+
+            <div class="stat-subgroup" aria-label="Node Count Sub-stats">
+                <div class="stat-item stat-item-sub">
+                    <span class="stat-label">↳ Repeaters</span>
+                    <span class="stat-value" id="repeaterCount">{{ repeater_count }}</span>
+                </div>
+                <div class="stat-item stat-item-sub">
+                    <span class="stat-label">↳ Companions</span>
+                    <span class="stat-value" id="companionCount">{{ companion_count }}</span>
+                </div>
+                <div class="stat-item stat-item-sub">
+                    <span class="stat-label">↳ Rooms</span>
+                    <span class="stat-value" id="roomCount">{{ room_count }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-widget" id="node-region-leaderboard">
+            <h2>Node Count By Region</h2>
+            <ol class="node-region-leaderboard-list">
+                {% for region in node_region_leaderboard %}
+                <li class="region-item">
+                    <span class="region-name">{{ region.name }}</span>
+                    <span class="region-count">{{ region.count }} nodes</span>
+                </li>
+                {% endfor %}
+            </ol>
+        </div>
     </div>
 </div>
 <footer class="github-footer">

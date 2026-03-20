@@ -9,7 +9,7 @@ from flask import (
     render_template,
 )
 
-from backend.api.services.external_key_logic import get_colorado_nodes
+from coloradomesh.meshcore.services.nodes import get_colorado_nodes
 from backend.constants import (
     FLASK_GET,
 )

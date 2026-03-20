@@ -1,5 +1,149 @@
+:root {
+    color-scheme: dark;
+}
+
+body {
+    background-color: #111 !important;
+    color: #e5e7eb !important;
+}
+
+.container {
+    background-color: #1a1a1a !important;
+    color: #e5e7eb !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45) !important;
+}
+
+h1, h2, h3, label, details summary {
+    color: #f3f4f6 !important;
+}
+
+.subtitle,
+.help-text,
+.required + .help-text {
+    color: #9ca3af !important;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+.key-input,
+.result-value code {
+    background-color: #222 !important;
+    color: #e5e7eb !important;
+    border-color: #3a3a3a !important;
+}
+
+details,
+.form-option-block,
+.result-content,
+.explanation-box {
+    background-color: #202020 !important;
+    border-color: #333 !important;
+    color: #d1d5db !important;
+}
+
+.tool-link {
+    background: linear-gradient(135deg, #232323 0%, #1c1c1c 100%) !important;
+    color: #e5e7eb !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+}
+
+.result-actions {
+    border-top-color: #333 !important;
+}
+
+.code-block pre {
+    background-color: #0f172a !important;
+    color: #e2e8f0 !important;
+    border: 1px solid #334155 !important;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    border-radius: 8px;
+    padding: 14px 16px !important;
+    font-family: 'Courier New', 'Monaco', monospace !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.code-block code {
+    cursor: pointer;
+    display: block;
+    color: #e2e8f0 !important;
+    font-family: 'Courier New', 'Monaco', monospace !important;
+    font-size: 13px !important;
+}
+
+.code-block:hover pre {
+    background-color: #1e293b !important;
+    border-color: #475569 !important;
+}
+
+.code-block code::before {
+    content: '';
+    display: block;
+    margin-bottom: 4px;
+}
+
+.shortcut-title {
+    color: #dbe7ff !important;
+}
+
+.stats-widget {
+    background: linear-gradient(145deg, #111827 0%, #0b1220 100%) !important;
+    border-color: #253047 !important;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45) !important;
+}
+
+.stats-widget h2 {
+    color: #e5edff !important;
+}
+
+.stat-item {
+    background: #172033 !important;
+    border-color: #2b3a59 !important;
+}
+
+.stat-label {
+    color: #aebddd !important;
+}
+
+.stat-value {
+    color: #e8efff !important;
+}
+
+.region-item {
+    border-bottom-color: #2a3550 !important;
+}
+
+.region-name {
+    color: #c9d8f5 !important;
+}
+
+.region-count {
+    color: #9fb4d8 !important;
+}
+
 .github-footer {
-    text-align:center;
+    color: #b9c9e9 !important;
+}
+
+.github-footer a {
+    color: #9fc3ff !important;
+}
+
+.tool-title {
+    color: #e5edff !important;
+}
+
+.tool-subtitle {
+    color: #b5c5e3 !important;
+}
+
+.github-footer {
+    text-align: center;
     margin: 18px 0 10px;
     opacity: 0.9;
     font-size: 13px;
