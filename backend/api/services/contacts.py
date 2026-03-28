@@ -1,18 +1,5 @@
-from typing import Optional
-
-from coloradomesh.meshcore.models.general import Node, NodeType
+from coloradomesh.meshcore.models.general import Node
 from coloradomesh.meshcore.services.nodes import get_colorado_nodes
-
-def _node_type_conversion(node: Node) -> Optional[int]:
-    if node.node_type == NodeType.COMPANION:
-        return 1
-    if node.node_type == NodeType.REPEATER:
-        return 2
-    elif node.node_type == NodeType.ROOM_SERVER:
-        return 3
-    else:
-        return None
-
 
 
 def prepare_contacts() -> dict:
@@ -22,12 +9,8 @@ def prepare_contacts() -> dict:
     nodes: list[Node] = get_colorado_nodes()
     contacts = []
     for node in nodes:
-        node_type: Optional[int] = _node_type_conversion(node)
-        if not node_type:
-            continue  # Skip if we can't determine the node type
-
         contacts.append({
-            "type": node_type,  # Rooms (3) will be mis-typed as repeaters (2) due to data integrity issue with source
+            "type": node.node_type.value,
             "name": node.name,
             "custom_name": None,
             "public_key": node.public_key,
