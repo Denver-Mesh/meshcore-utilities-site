@@ -1,27 +1,8 @@
 from coloradomesh.meshcore.models.general import Node, NodeType, Regions
 from coloradomesh.meshcore.services.nodes import get_colorado_nodes
 
-from geopy.distance import geodesic as GD
-
 def _filter_nodes_of_type(nodes: list[Node], node_type: NodeType) -> list[Node]:
     return [node for node in nodes if node.node_type == node_type]
-
-
-def _determine_region_for_node(node: Node) -> Regions:
-    # Until we collect actual region codes from the nodes, we have to guess based on its location
-    lat, long = node.latitude, node.longitude
-    shortest_distance = None
-    nearest_region = None
-
-    for region in Regions:
-        airport = region.value.airport
-        airport_location = (airport.latitude, airport.longitude)
-        distance = GD((lat, long), airport_location).km
-        if shortest_distance is None or distance < shortest_distance:
-            shortest_distance = distance
-            nearest_region = region
-
-    return nearest_region or list(Regions)[0]
 
 
 class NodeRegionMapEntry:
@@ -46,7 +27,7 @@ class StatsService:
         self._companions = _filter_nodes_of_type(self._nodes, NodeType.COMPANION)
 
         self._node_region_map = {
-            node.public_key: NodeRegionMapEntry(node, _determine_region_for_node(node))
+            node.public_key: NodeRegionMapEntry(node, node.estimated_region)
             for node in self._nodes
         }
 
@@ -69,5 +50,7 @@ class StatsService:
     def get_node_count_by_region(self) -> dict[str, int]:
         region_counts: dict[str, int] = {region.code.upper(): 0 for region in Regions}
         for entry in self._node_region_map.values():
+            if not entry.region:
+                continue
             region_counts[entry.region.code.upper()] += 1
         return region_counts
