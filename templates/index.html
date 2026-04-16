@@ -33,7 +33,7 @@
 
         <script>
             document.getElementById('downloadContacts').addEventListener('click', function () {
-                fetch('./contacts')
+                fetch('./contacts?type=all&status=active&order=recent')
                     .then(response => response.json())
                     .then(data => {
                         // Convert JSON to string

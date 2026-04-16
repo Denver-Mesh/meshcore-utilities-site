@@ -1,12 +1,16 @@
 import json
-from typing import Any
+from typing import Any, Optional
 
-from flask import Flask, render_template
+from flask import (
+    Flask,
+    render_template,
+    request
+)
 
 from backend.api.routes.companion_name_tool.index import companion_name_tool
 from backend.api.routes.prefix_matrix.index import prefix_matrix
 from backend.api.routes.repeater_name_tool.index import repeater_name_tool
-from backend.api.services.contacts import prepare_contacts
+from backend.api.services.contacts import prepare_contacts, ContactsOrder, ContactsType, ContactsStatus
 from backend.api.services.meshcore_stats import StatsService
 from backend.constants import FLASK_HOST, FLASK_PORT, FLASK_GET
 
@@ -48,10 +52,17 @@ def index():
 @app.route('/contacts', methods=[FLASK_GET])
 def get_contacts():
     """
-    Send a JSON file with all contacts in Colorado.
+    Send a JSON file with contacts in Colorado.
     return: A JSON object with a list of contacts in Colorado.
     """
-    data = prepare_contacts()
+    # Check if an "id" query parameter is provided
+    params = request.args
+    _limit: int = params.get('limit', 250)  # Default to 250 limit (can't hold infinite contacts in MeshCore app)
+    _order: Optional[ContactsOrder] = params.get("order", None)
+    _status: Optional[ContactsStatus] = params.get("status", None)
+    _type: Optional[ContactsType] = params.get("type", None)
+
+    data = prepare_contacts(count=_limit, order=_order, status=_status, _type=_type)
     return json.dumps(data)
 
 
