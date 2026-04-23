@@ -24,7 +24,7 @@
         <strong>⚠️ Please fill out all required fields before submitting.</strong>
     </div>
 
-    <form id="repeater-form" method="post" action="/repeater_name_tool/submit" novalidate>
+    <form id="repeater-form" method="post" action="{{ url_for('repeater_name_tool.generate_repeater_details') }}" novalidate>
         <div class="form-group">
             <label>Location Type:<span class="required">*</span></label>
             <span class="help-text">Choose which type of location this node will be associated with.</span>

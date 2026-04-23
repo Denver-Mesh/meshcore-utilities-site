@@ -22,7 +22,7 @@
         <strong>⚠️ Please fill out all required fields before submitting.</strong>
     </div>
 
-    <form id="companion-form" method="post" action="/companion_name_tool/submit" novalidate>
+    <form id="companion-form" method="post" action="{{ url_for('companion_name_tool.generate_companion_details') }}" novalidate>
         <div class="form-group">
             <label for="handle">Handle or Username: <span class="required">*</span></label>
             <input id="handle" name="handle" type="text" maxlength="10" placeholder="e.g., 'MESHMASTER'" required>

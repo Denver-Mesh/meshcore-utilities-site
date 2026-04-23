@@ -27,7 +27,7 @@ with open('static/data/recommended_settings.json', 'r') as f:
 emoji_tools = EmojiTools()
 
 
-@companion_name_tool.route("/", methods=[FLASK_GET])
+@companion_name_tool.route("/", methods=[FLASK_GET], strict_slashes=False)
 def index():
     role_types = [
         {'code': CompanionType.PRIMARY.value, "human_readable": CompanionType.PRIMARY.value,

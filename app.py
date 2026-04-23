@@ -1,4 +1,5 @@
 import json
+import os
 from typing import Any, Optional
 
 from flask import (
@@ -6,6 +7,7 @@ from flask import (
     render_template,
     request
 )
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 from backend.api.routes.companion_name_tool.index import companion_name_tool
 from backend.api.routes.prefix_matrix.index import prefix_matrix
@@ -15,6 +17,22 @@ from backend.api.services.meshcore_stats import StatsService
 from backend.constants import FLASK_HOST, FLASK_PORT, FLASK_GET
 
 app = Flask(__name__)
+
+# Trust reverse-proxy forwarded headers so redirects/url_for keep the public host/scheme/prefix.
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_port=1, x_prefix=1)
+
+application_root = os.getenv("APPLICATION_ROOT", "")
+if application_root:
+    app.config["APPLICATION_ROOT"] = application_root
+
+preferred_url_scheme = os.getenv("PREFERRED_URL_SCHEME", "")
+if preferred_url_scheme:
+    app.config["PREFERRED_URL_SCHEME"] = preferred_url_scheme
+
+server_name = os.getenv("SERVER_NAME", "")
+if server_name:
+    app.config["SERVER_NAME"] = server_name
+
 app.register_blueprint(repeater_name_tool)
 app.register_blueprint(companion_name_tool)
 app.register_blueprint(prefix_matrix)

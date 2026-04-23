@@ -173,7 +173,7 @@ def _build_matrix(nodes: list[Node]) -> dict:
     return matrix
 
 
-@prefix_matrix.route("/", methods=[FLASK_GET])
+@prefix_matrix.route("/", methods=[FLASK_GET], strict_slashes=False)
 def index():
     nodes: list[Node] = get_colorado_nodes()
     matrix_data = _build_matrix(nodes)

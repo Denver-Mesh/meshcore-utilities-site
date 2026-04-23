@@ -12,15 +12,15 @@
     <h1>🔧 MeshCore Utilities</h1>
 
     <div class="tool-list">
-        <a href="/repeater_name_tool" class="tool-link">
+        <a href="{{ url_for('repeater_name_tool.index') }}" class="tool-link">
             <div class="tool-title">⚙️ Repeater Configuration Generator</div>
             <div class="tool-subtitle">Generate a name for your MeshCore repeater based on standards</div>
         </a>
-        <a href="/companion_name_tool" class="tool-link">
+        <a href="{{ url_for('companion_name_tool.index') }}" class="tool-link">
             <div class="tool-title">👥 Companion Configuration Generator</div>
             <div class="tool-subtitle">Generate a name for your MeshCore companion device based on standards</div>
         </a>
-        <a href="/prefix_matrix" class="tool-link">
+        <a href="{{ url_for('prefix_matrix.index') }}" class="tool-link">
             <div class="tool-title">📑 Prefix Matrix</div>
             <div class="tool-subtitle">See all Colorado MeshCore repeater prefixes in one place, with search
                 functionality

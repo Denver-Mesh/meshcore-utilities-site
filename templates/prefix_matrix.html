@@ -79,6 +79,7 @@
 <script>
     const HEX_CHARS = {{ hex_chars | tojson }};
     const MATRIX_DATA = JSON.parse(document.getElementById('matrix-data-json').textContent);
+    const REPEATER_TOOL_URL = {{ url_for('repeater_name_tool.index') | tojson }};
 </script>
 </body>
 </html>

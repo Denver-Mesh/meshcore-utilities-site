@@ -53,7 +53,7 @@ mountain_abbreviation_region_code_map = {
 }
 
 
-@repeater_name_tool.route("/", methods=[FLASK_GET])
+@repeater_name_tool.route("/", methods=[FLASK_GET], strict_slashes=False)
 def index():
     # Check if an "id" query parameter is provided
     params = request.args

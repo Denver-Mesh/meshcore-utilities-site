@@ -34,6 +34,9 @@ function _buildInfoCard(node) {
 }
 
 function _buildAvailableCard(hexId) {
+    const repeaterUrl = new URL(REPEATER_TOOL_URL, window.location.origin);
+    repeaterUrl.searchParams.set('id', hexId);
+
     return `
         <div class="hex-info-card">
             <div class="hex-info-header">
@@ -43,7 +46,7 @@ function _buildAvailableCard(hexId) {
             <h2 class="hex-info-title">This ID is available!</h2>
             <p class="hex-info-description">No node is currently using this ID. You can assign it to a new repeater.</p>
             <div class="hex-info-contact">
-                <a href="/repeater_name_tool?id=${hexId}" class="hex-contact-btn">Add New Repeater</a>
+                <a href="${repeaterUrl.toString()}" class="hex-contact-btn">Add New Repeater</a>
             </div>
         </div>
     `
