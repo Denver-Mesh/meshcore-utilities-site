@@ -2,7 +2,7 @@
 
 A web application for generating MeshCore repeater configurations.
 
-Currently hosted at: https://meshcore.coloradomesh.org
+Currently hosted at: https://tools.meshcore.coloradomesh.org
 
 ## Running with Docker
 
