@@ -1,4 +1,4 @@
-# Colorado MeshCore Utilities
+# Colorado Mesh MeshCore Utilities
 
 A web application for generating MeshCore repeater configurations.
 
