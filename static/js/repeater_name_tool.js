@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     async function generateKeyPair(prefix) {
-        // Even though the ColoradoMesh Python library is capable of doing this,
+        // Even though the Colorado Mesh Python library is capable of doing this,
         // we do this client-side rather than server-side to ensure zero knowledge of user secrets
 
         if (typeof keyGenerator === 'undefined') {
