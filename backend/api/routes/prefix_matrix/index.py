@@ -41,6 +41,8 @@ def _build_node_info(node: Node) -> dict:
         "status_value": node.status.to_str().upper(),
         "location": f"{node.latitude}, {node.longitude}" if all(
             [node.latitude, node.longitude]) else "N/A",
+        "latitude": node.latitude,
+        "longitude": node.longitude,
         "last_heard": epoch_to_datetime(node.last_heard),
         "id": rid,
         "is_reserved_id": _is_reserved_id(rid),

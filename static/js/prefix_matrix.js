@@ -4,6 +4,10 @@ function _buildInfoCard(node) {
         ? `<p class="hex-reserved-warning">⚠ Reserved ID in use</p>`
         : '';
 
+    const locationDisplay = node.location !== "N/A"
+        ? `<a href="https://www.openstreetmap.org/#map=16/${node.latitude}/${node.longitude}" target="_blank" rel="noopener noreferrer">${node.location}</a>`
+        : node.location;
+
     return `
         <div class="hex-info-card">
             <div class="hex-info-header">
@@ -23,7 +27,7 @@ function _buildInfoCard(node) {
                 </div>
                 <div class="hex-info-item">
                     <span class="hex-info-label">📍 Location</span>
-                    <span class="hex-info-value">${node.location}</span>
+                    <span class="hex-info-value">${locationDisplay}</span>
                 </div>
                 <div class="hex-info-item">
                     <span class="hex-info-label">🕐 Last Heard</span>
