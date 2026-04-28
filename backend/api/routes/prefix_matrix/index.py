@@ -85,7 +85,9 @@ def _build_sub_cell(cell_id_4: str, nodes: list[Node]) -> dict:
         css_class = "hex-free"
         if is_reserved:
             css_class += " hex-reserved"
-        on_click = f'showAvailableInfo("{cell_id_4}")'
+            on_click = ""  # Reserved IDs should not show "available" message
+        else:
+            on_click = f'showAvailableInfo("{cell_id_4}")'
     elif len(nodes) == 1:
         css_class = "hex-used"
         info_json = _build_info_json(nodes)
