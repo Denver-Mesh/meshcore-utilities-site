@@ -30,40 +30,10 @@
             <div class="tool-title">🔌 Serial USB Command Console</div>
             <div class="tool-subtitle">Connect a USB serial device and run JSON-defined commands with one click</div>
         </a>
-        <div class="shortcut-panel">
-            <h2 class="shortcut-title">Shortcuts</h2>
-            <button class="quickstart-button" id="downloadContacts">📥 Download Contacts</button>
-        </div>
-
-        <script>
-            document.getElementById('downloadContacts').addEventListener('click', function () {
-                fetch('./contacts?type=all&status=active&order=recent')
-                    .then(response => response.json())
-                    .then(data => {
-                        // Convert JSON to string
-                        const jsonString = JSON.stringify(data, null, 2);
-
-                        // Create a blob with the JSON data
-                        const blob = new Blob([jsonString], {type: 'application/json'});
-
-                        // Create a temporary download link
-                        const url = URL.createObjectURL(blob);
-                        const a = document.createElement('a');
-                        a.href = url;
-                        a.download = 'colorado_meshcore_contacts.json';
-
-                        // Trigger download
-                        document.body.appendChild(a);
-                        a.click();
-
-                        // Cleanup
-                        document.body.removeChild(a);
-                        URL.revokeObjectURL(url);
-                    })
-                    .catch(error => console.error('Error:', error));
-            });
-
-        </script>
+        <a href="{{ url_for('contacts.index') }}" class="tool-link">
+            <div class="tool-title">📥 Contacts</div>
+            <div class="tool-subtitle">Download Colorado Mesh MeshCore contacts</div>
+        </a>
     </div>
 </div>
 

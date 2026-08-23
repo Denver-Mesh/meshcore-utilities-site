@@ -1,11 +1,9 @@
-import json
 import os
-from typing import Any, Optional
+from typing import Any
 
 from flask import (
     Flask,
-    render_template,
-    request
+    render_template
 )
 from werkzeug.middleware.proxy_fix import ProxyFix
 
@@ -13,7 +11,7 @@ from backend.api.routes.companion_name_tool.index import companion_name_tool
 from backend.api.routes.prefix_matrix.index import prefix_matrix
 from backend.api.routes.repeater_name_tool.index import repeater_name_tool
 from backend.api.routes.serial_usb_tool.index import serial_usb_tool
-from backend.api.services.contacts import prepare_contacts, ContactsOrder, ContactsType, ContactsStatus
+from backend.api.routes.contacts.index import contacts
 from backend.api.services.meshcore_stats import StatsService
 from backend.constants import FLASK_HOST, FLASK_PORT, FLASK_GET
 
@@ -38,6 +36,7 @@ app.register_blueprint(repeater_name_tool)
 app.register_blueprint(companion_name_tool)
 app.register_blueprint(prefix_matrix)
 app.register_blueprint(serial_usb_tool)
+app.register_blueprint(contacts)
 
 
 # Landing page
@@ -67,23 +66,6 @@ def index():
                            room_count=room_count,
                            node_region_leaderboard=node_region_leaderboard
                            )
-
-
-@app.route('/contacts', methods=[FLASK_GET])
-def get_contacts():
-    """
-    Send a JSON file with contacts in Colorado.
-    return: A JSON object with a list of contacts in Colorado.
-    """
-    # Check if an "id" query parameter is provided
-    params = request.args
-    _limit: int = params.get('limit', 250)  # Default to 250 limit (can't hold infinite contacts in MeshCore app)
-    _order: Optional[ContactsOrder] = params.get("order", None)
-    _status: Optional[ContactsStatus] = params.get("status", None)
-    _type: Optional[ContactsType] = params.get("type", None)
-
-    data = prepare_contacts(count=_limit, order=_order, status=_status, _type=_type)
-    return json.dumps(data)
 
 
 if __name__ == '__main__':

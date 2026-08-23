@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MeshCore Utilities</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+    <script src="{{ url_for('static', filename='js/contacts.js') }}"></script>
+</head>
+<body>
+<div class="container">
+    <h1>📥 Download Contacts</h1>
+    <p class="subtitle">
+        Get a set of Colorado Mesh MeshCore contacts
+    </p>
+
+    <form id="contacts-form" method="post" action="{{ url_for('contacts.download_contacts') }}" novalidate>
+        <div class="form-group">
+            <div class="form-options">
+                <div class="form-option-block">
+                    <div class="form-option">
+                        <label for="iata-select">Select Nearest Airport:</label>
+                        <select id="iata-select" name="region">
+                            {% for region in region_filter %}
+                            <option value="{{ region.code }}">{{ region.human_readable }}</option>
+                            {% endfor %}
+                        </select>
+                        <span class="help-text">
+                            Region is calculated based on node's advertised GPS location. This may differ from the IATA code included in its name.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-option-block">
+                    <div class="form-option">
+                        <label for="type-select">Select Node Type:</label>
+                        <select id="type-select" name="type">
+                            {% for type in type_filter %}
+                            <option value="{{ type.code }}">{{ type.human_readable }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-option-block">
+                    <div class="form-option">
+                        <label for="status-select">Select Node Status:</label>
+                        <select id="status-select" name="status">
+                            {% for status in status_filter %}
+                            <option value="{{ status.code }}">{{ status.human_readable }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-option-block">
+                    <div class="form-option">
+                        <label for="order-select">Select Node Order:</label>
+                        <select id="order-select" name="status">
+                            {% for order in order_filter %}
+                            <option value="{{ order.code }}">{{ order.human_readable }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <button type="submit" id="submit-btn">Download Contacts Pack</button>
+
+    </form>
+</div>
+
+<footer class="github-footer">
+    Built for Colorado Mesh • <a href="https://github.com/Colorado-Mesh" target="_blank" rel="noopener noreferrer">github.com/Colorado-Mesh</a>
+</footer>
+</body>
+</html>
+
+
+<script>
+    document.getElementById('downloadContacts').addEventListener('click', function () {
+        fetch('./contacts?type=all&status=active&order=recent')
+            .then(response => response.json())
+            .then(data => {
+                // Convert JSON to string
+                const jsonString = JSON.stringify(data, null, 2);
+
+                // Create a blob with the JSON data
+                const blob = new Blob([jsonString], {type: 'application/json'});
+
+                // Create a temporary download link
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'colorado_meshcore_contacts.json';
+
+                // Trigger download
+                document.body.appendChild(a);
+                a.click();
+
+                // Cleanup
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            })
+            .catch(error => console.error('Error:', error));
+    });
+
+</script>
